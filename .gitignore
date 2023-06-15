@@ -1,0 +1,120 @@
+.DS_Store
+IDEWorkspaceChecks.plist
+
+# Thumbnails
+._*
+
+### Swift ###
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## User settings
+xcuserdata/
+
+## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
+*.xcscmblueprint
+*.xccheckout
+
+## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+Build/
+.derivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+## Obj-C/Swift specific
+*.hmap
+
+## App packaging
+*.ipa
+*.dSYM.zip
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+Package.pins
+Package.resolved
+
+# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
+# hence it is not needed unless you have added a package configuration file to your project
+.swiftpm
+
+.build/
+
+# fastlane
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots/**/*.png
+**/fastlane/test_output
+**/fastlane/swiftlint_result.json
+**/__pycache__/*
+
+### Cache of SPM ###
+**/.sourcePackages
+
+### SwiftPackageManager ###
+xcuserdata
+
+
+## Gcc Patch
+/*.gcno
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+*.zip
+vendor/bundle
+.bundle
+fastlane/xcov_report
+
+## Tuist derived files ###
+graph.dot
+Derived/
+
+## Tuist managed dependencies ###
+Tuist/Dependencies
+GXS.xcodeproj
+GXS.xcworkspace
+
+## ixGuard
+ixguard.log
+mapping.yml
+protectionreport.html
+statistics.yml
+telemetry_dump.json
+
+## Snapshot
+__Snapshots__
+project.pbxproj
+
+## App Store Connect
+*.p8
+
+## Bersama
+.derivedData_bersama
+
+## Misc
+dSYMs/
+*.log
+Carthage
+.deriverdData_measurement
+
+report.xml
