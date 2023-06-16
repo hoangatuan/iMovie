@@ -13,6 +13,8 @@
 		A6F079BF2A3B725100B37F13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F079BE2A3B725100B37F13 /* Preview Assets.xcassets */; };
 		A6F079C72A3B727D00B37F13 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = A6F079C62A3B727D00B37F13 /* Factory */; };
 		A6F079CA2A3B72A700B37F13 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A6F079C92A3B72A700B37F13 /* ComposableArchitecture */; };
+		A6F079CF2A3B766D00B37F13 /* Network in Resources */ = {isa = PBXBuildFile; fileRef = A6F079CE2A3B766D00B37F13 /* Network */; };
+		A6F1D5182A3CC6E000E4F00C /* Logger in Resources */ = {isa = PBXBuildFile; fileRef = A6F1D5172A3CC6E000E4F00C /* Logger */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A6F079BA2A3B725100B37F13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6F079BC2A3B725100B37F13 /* iMovie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iMovie.entitlements; sourceTree = "<group>"; };
 		A6F079BE2A3B725100B37F13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A6F079CE2A3B766D00B37F13 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
+		A6F1D5172A3CC6E000E4F00C /* Logger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Logger; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,8 @@
 			isa = PBXGroup;
 			children = (
 				A6F079B52A3B724F00B37F13 /* iMovie */,
+				A6F079CD2A3B763B00B37F13 /* Core */,
+				A6F1D5152A3CBDFB00E4F00C /* Foundation */,
 				A6F079B42A3B724F00B37F13 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +77,22 @@
 				A6F079BE2A3B725100B37F13 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A6F079CD2A3B763B00B37F13 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A6F079CE2A3B766D00B37F13 /* Network */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A6F1D5152A3CBDFB00E4F00C /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				A6F1D5172A3CC6E000E4F00C /* Logger */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +161,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F079CF2A3B766D00B37F13 /* Network in Resources */,
 				A6F079BF2A3B725100B37F13 /* Preview Assets.xcassets in Resources */,
+				A6F1D5182A3CC6E000E4F00C /* Logger in Resources */,
 				A6F079BB2A3B725100B37F13 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,8 +313,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -299,10 +323,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hoangatuan.iMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -327,8 +353,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -337,10 +363,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hoangatuan.iMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
