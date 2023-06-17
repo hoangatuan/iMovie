@@ -17,6 +17,8 @@
 		A6F1D5182A3CC6E000E4F00C /* Logger in Resources */ = {isa = PBXBuildFile; fileRef = A6F1D5172A3CC6E000E4F00C /* Logger */; };
 		A6F1D51B2A3D564600E4F00C /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = A6F1D51A2A3D564600E4F00C /* Network */; };
 		A6F1D51D2A3D564800E4F00C /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = A6F1D51C2A3D564800E4F00C /* Logger */; };
+		A6F1D5202A3D5AC700E4F00C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D51F2A3D5AC700E4F00C /* DIContainer.swift */; };
+		A6F1D5232A3D5CE200E4F00C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5222A3D5CE200E4F00C /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A6F079BE2A3B725100B37F13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A6F079CE2A3B766D00B37F13 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
 		A6F1D5172A3CC6E000E4F00C /* Logger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Logger; sourceTree = "<group>"; };
+		A6F1D51F2A3D5AC700E4F00C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		A6F1D5222A3D5CE200E4F00C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +71,11 @@
 		A6F079B52A3B724F00B37F13 /* iMovie */ = {
 			isa = PBXGroup;
 			children = (
-				A6F079B62A3B724F00B37F13 /* iMovieApp.swift */,
-				A6F079B82A3B724F00B37F13 /* ContentView.swift */,
-				A6F079BA2A3B725100B37F13 /* Assets.xcassets */,
-				A6F079BC2A3B725100B37F13 /* iMovie.entitlements */,
+				A6F1D5212A3D5CA200E4F00C /* Application */,
+				A6F1D5242A3D5D0700E4F00C /* Domain */,
+				A6F1D5252A3D5D1000E4F00C /* Data */,
+				A6F1D5262A3D5D1500E4F00C /* Presentation */,
+				A6F1D5272A3D5D3600E4F00C /* Resources */,
 				A6F079BD2A3B725100B37F13 /* Preview Content */,
 			);
 			path = iMovie;
@@ -105,6 +110,47 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6F1D5212A3D5CA200E4F00C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A6F079B62A3B724F00B37F13 /* iMovieApp.swift */,
+				A6F1D51F2A3D5AC700E4F00C /* DIContainer.swift */,
+				A6F1D5222A3D5CE200E4F00C /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A6F1D5242A3D5D0700E4F00C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A6F1D5252A3D5D1000E4F00C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A6F1D5262A3D5D1500E4F00C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A6F079B82A3B724F00B37F13 /* ContentView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A6F1D5272A3D5D3600E4F00C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6F079BA2A3B725100B37F13 /* Assets.xcassets */,
+				A6F079BC2A3B725100B37F13 /* iMovie.entitlements */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +235,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F1D5232A3D5CE200E4F00C /* AppDelegate.swift in Sources */,
 				A6F079B92A3B724F00B37F13 /* ContentView.swift in Sources */,
+				A6F1D5202A3D5AC700E4F00C /* DIContainer.swift in Sources */,
 				A6F079B72A3B724F00B37F13 /* iMovieApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
