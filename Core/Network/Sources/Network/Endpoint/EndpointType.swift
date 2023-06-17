@@ -32,3 +32,29 @@ public protocol EndPointType {
 
     var bodyParameter: BodyParameter? { get }
 }
+
+public struct APIEndpoint: EndPointType {
+
+    public let baseURL: URL
+    public let path: String
+    public let httpMethod: HTTPMethod
+    public let urlQueries: [String : String]?
+    public let headers: [String : String]?
+    public let bodyParameter: BodyParameter?
+
+    public init(
+        baseURL: URL,
+        path: String,
+        httpMethod: HTTPMethod,
+        urlQueries: [String : String]? = nil,
+        headers: [String : String]? = nil,
+        bodyParameter: BodyParameter? = nil
+    ) {
+        self.baseURL = baseURL
+        self.path = path
+        self.httpMethod = httpMethod
+        self.urlQueries = urlQueries
+        self.headers = headers
+        self.bodyParameter = bodyParameter
+    }
+}

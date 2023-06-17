@@ -24,6 +24,18 @@ public struct Logger: ILogger {
     }
 }
 
+public struct NoLogger: ILogger {
+    private let logger: Logging.Logger
+
+    public init(label: String) {
+        self.logger = Logging.Logger(label: label)
+    }
+
+    public func log(level: LogLevel, message: @autoclosure () -> String) {
+        // Do nothing
+    }
+}
+
 public enum LogLevel {
     case trace
     case debug

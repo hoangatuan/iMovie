@@ -15,6 +15,8 @@
 		A6F079CA2A3B72A700B37F13 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A6F079C92A3B72A700B37F13 /* ComposableArchitecture */; };
 		A6F079CF2A3B766D00B37F13 /* Network in Resources */ = {isa = PBXBuildFile; fileRef = A6F079CE2A3B766D00B37F13 /* Network */; };
 		A6F1D5182A3CC6E000E4F00C /* Logger in Resources */ = {isa = PBXBuildFile; fileRef = A6F1D5172A3CC6E000E4F00C /* Logger */; };
+		A6F1D51B2A3D564600E4F00C /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = A6F1D51A2A3D564600E4F00C /* Network */; };
+		A6F1D51D2A3D564800E4F00C /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = A6F1D51C2A3D564800E4F00C /* Logger */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F1D51B2A3D564600E4F00C /* Network in Frameworks */,
 				A6F079CA2A3B72A700B37F13 /* ComposableArchitecture in Frameworks */,
+				A6F1D51D2A3D564800E4F00C /* Logger in Frameworks */,
 				A6F079C72A3B727D00B37F13 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +52,7 @@
 				A6F079CD2A3B763B00B37F13 /* Core */,
 				A6F1D5152A3CBDFB00E4F00C /* Foundation */,
 				A6F079B42A3B724F00B37F13 /* Products */,
+				A6F1D5192A3D564600E4F00C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +100,13 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		A6F1D5192A3D564600E4F00C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,6 +126,8 @@
 			packageProductDependencies = (
 				A6F079C62A3B727D00B37F13 /* Factory */,
 				A6F079C92A3B72A700B37F13 /* ComposableArchitecture */,
+				A6F1D51A2A3D564600E4F00C /* Network */,
+				A6F1D51C2A3D564800E4F00C /* Logger */,
 			);
 			productName = iMovie;
 			productReference = A6F079B32A3B724F00B37F13 /* iMovie.app */;
@@ -424,6 +438,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A6F079C82A3B72A700B37F13 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		A6F1D51A2A3D564600E4F00C /* Network */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Network;
+		};
+		A6F1D51C2A3D564800E4F00C /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Logger;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

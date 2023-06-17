@@ -8,13 +8,14 @@ import Logger
 public enum APIError: Error {
     case invalidEndpoint
     case badServerResponse
+    case networkError(error: Error)
     case parsing(error: Error)
 }
 
 public typealias APIResponse = (data: Data, statusCode: Int)
 
 public protocol IAPIClientService {
-    func request(_ endpoint: EndPointType) async throws -> APIResponse
+    func request(_ endpoint: EndPointType) async -> Result<APIResponse, APIError>
     func request<T: Decodable>(_ endpoint: EndPointType) async throws -> T
     func request<T, M: Mappable>(_ endpoint: EndPointType, mapper: M) async throws -> T where M.Output == T
 }
@@ -27,27 +28,53 @@ public final class APIClientService: IAPIClientService {
         self.logger = logger
     }
 
-    public func request(_ endpoint: EndPointType) async throws -> APIResponse {
+    private func request(_ endpoint: EndPointType, completion: @escaping (Result<APIResponse, APIError>) -> Void) {
         guard let request = buildURLRequest(from: endpoint) else {
-            throw APIError.invalidEndpoint
+            completion(.failure(.invalidEndpoint))
+            return
         }
 
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse,
-              (200..<400).contains(httpResponse.statusCode) else {
-            throw APIError.badServerResponse
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            self?.logger.log(request: request, data: data, response: response as? HTTPURLResponse, error: error)
+
+            if let error = error {
+                completion(.failure(.networkError(error: error)))
+                return
+            }
+
+            guard let data = data, let httpResponse = response as? HTTPURLResponse,
+                  (200..<400).contains(httpResponse.statusCode) else {
+                completion(.failure(.badServerResponse))
+                return
+            }
+
+            completion(.success((data, httpResponse.statusCode)))
         }
 
-        return (data: data, statusCode: httpResponse.statusCode)
+        task.resume()
+    }
+
+    public func request(_ endpoint: EndPointType) async -> Result<APIResponse, APIError> {
+        await withCheckedContinuation({ continuation in
+            request(endpoint, completion: { result in
+                continuation.resume(returning: result)
+            })
+        })
     }
 
     public func request<T>(_ endpoint: EndPointType) async throws -> T where T : Decodable {
-        let response = try await request(endpoint)
-        do {
-            let modelResponse = try JSONDecoder().decode(T.self, from: response.data)
-            return modelResponse
-        } catch let error {
-            throw APIError.parsing(error: error)
+        let response = await request(endpoint)
+        switch response {
+        case .success(let result):
+            do {
+                let modelResponse = try JSONDecoder().decode(T.self, from: result.data)
+                return modelResponse
+            } catch let error {
+                self.logger.log(level: .error, message: "❌ Decoding error: \(error.localizedDescription)")
+                throw APIError.parsing(error: error)
+            }
+        case .failure(let failure):
+            throw failure
         }
     }
 
@@ -57,8 +84,11 @@ public final class APIClientService: IAPIClientService {
     }
 
     private func buildURLRequest(from endpoint: EndPointType) -> URLRequest? {
+        guard let host = endpoint.baseURL.host else { return nil }
+
         var components = URLComponents()
-        components.host = endpoint.baseURL.absoluteString
+        components.scheme = "https"
+        components.host = host
         components.path = "/\(endpoint.path)"
 
         if let urlQueries = endpoint.urlQueries {
@@ -76,9 +106,7 @@ public final class APIClientService: IAPIClientService {
         request.httpMethod = endpoint.httpMethod.rawValue
 
         if let headers = endpoint.headers {
-            for header in headers {
-                request.addValue(header.key, forHTTPHeaderField: header.value)
-            }
+            request.allHTTPHeaderFields = headers
         }
 
         switch endpoint.bodyParameter {
