@@ -16,7 +16,7 @@ public typealias APIResponse = (data: Data, statusCode: Int)
 
 public protocol IAPIClientService {
     func request(_ endpoint: EndPointType) async -> Result<APIResponse, APIError>
-    func request<T: Decodable>(_ endpoint: EndPointType) async throws -> T
+    func request<T: Decodable>(_ endpoint: EndPointType, for type: T.Type) async throws -> T
     func request<T, M: Mappable>(_ endpoint: EndPointType, mapper: M) async throws -> T where M.Output == T
 }
 
@@ -62,7 +62,7 @@ public final class APIClientService: IAPIClientService {
         })
     }
 
-    public func request<T>(_ endpoint: EndPointType) async throws -> T where T : Decodable {
+    public func request<T>(_ endpoint: EndPointType, for type: T.Type) async throws -> T where T : Decodable {
         let response = await request(endpoint)
         switch response {
         case .success(let result):
@@ -70,7 +70,10 @@ public final class APIClientService: IAPIClientService {
                 let modelResponse = try JSONDecoder().decode(T.self, from: result.data)
                 return modelResponse
             } catch let error {
-                self.logger.log(level: .error, message: "❌ Decoding error: \(error.localizedDescription)")
+                if let decodingError = error as? DecodingError {
+                    self.logger.log(level: .error, message: "❌ Decoding error: \(decodingError.detailErrorDescription)")
+                }
+
                 throw APIError.parsing(error: error)
             }
         case .failure(let failure):
@@ -79,8 +82,8 @@ public final class APIClientService: IAPIClientService {
     }
 
     public func request<T, M: Mappable>(_ endpoint: EndPointType, mapper: M) async throws -> T where T == M.Output {
-        let responseModel: M.Input = try await request(endpoint)
-        return mapper.map(responseModel)
+        let responseModel: M.Input = try await request(endpoint, for: M.Input.self)
+        return try mapper.map(responseModel)
     }
 
     private func buildURLRequest(from endpoint: EndPointType) -> URLRequest? {

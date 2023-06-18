@@ -12,6 +12,12 @@ import Logger
 
 extension Container {
     var apiClientService: Factory<IAPIClientService> {
-        self { APIClientService(logger: Logger(label: "iMovie")) }
+        self { APIClientService(logger: self.logger()) }
+            .scope(.singleton)
+    }
+
+    var logger: Factory<ILogger> {
+        self { Logger(label: "iMovie") }
+            .scope(.singleton)
     }
 }

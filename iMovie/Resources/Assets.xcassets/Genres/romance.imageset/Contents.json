@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "romance.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

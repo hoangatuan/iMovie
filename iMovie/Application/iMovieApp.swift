@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Factory
 
 @main
 struct iMovieApp: App {
@@ -14,7 +15,7 @@ struct iMovieApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppTabView(container: Container.shared)
         }
     }
 }
