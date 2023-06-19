@@ -27,7 +27,7 @@ struct MovieResponse: Decodable {
     let originalTitle: String
     let overview: String
     let posterPath: String
-    let mediaType: String
+    let mediaType: String?
     let genreIds: [Int]
     let popularity: Double
     let releaseDate: String

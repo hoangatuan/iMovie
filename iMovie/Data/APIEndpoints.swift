@@ -25,6 +25,15 @@ enum APIEndpoints {
         )
     }
 
+    static func fetchDiscoveryMovies() -> APIEndpoint {
+        .init(
+            baseURL: AppEnvironment.baseURL,
+            path: "/3/discover/movie",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+
     static func fetchTrendingMovies() -> APIEndpoint {
         return .init(
             baseURL: AppEnvironment.baseURL,

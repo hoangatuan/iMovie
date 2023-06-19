@@ -16,7 +16,7 @@ struct Movie: Equatable {
     let originalTitle: String
     let overview: String
     let posterPath: URL?
-    let mediaType: String
+    let mediaType: String?
     let genreIds: [Int]
     let popularity: Double
     let releaseDate: String

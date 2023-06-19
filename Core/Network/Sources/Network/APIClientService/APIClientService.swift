@@ -92,7 +92,7 @@ public final class APIClientService: IAPIClientService {
         var components = URLComponents()
         components.scheme = "https"
         components.host = host
-        components.path = "/\(endpoint.path)"
+        components.path = endpoint.path
 
         if let urlQueries = endpoint.urlQueries {
             var queryItems: [URLQueryItem] = []

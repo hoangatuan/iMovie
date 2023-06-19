@@ -8,18 +8,25 @@
 import Foundation
 import ComposableArchitecture
 
+enum SectionType: Equatable, Identifiable {
+    case discoverMovies([Movie])
+    case genres([Genre])
+
+    var id: UUID {
+        return UUID()
+    }
+}
+
 struct MoviesReducer: ReducerProtocol {
 
     struct State: Equatable {
         fileprivate(set) var isLoading = false
-        fileprivate(set) var genres: [Genre] = []
-        fileprivate(set) var trendingMovies: [Movie] = []
+        fileprivate(set) var sections: [SectionType] = []
     }
 
     enum Action: Equatable {
         case onAppear
-        case errorOccur
-        case finishFetch(trendingMovies: [Movie], genres: [Genre])
+        case finishFetch(trendingMovies: [Movie]?, genres: [Genre]?)
     }
 
     private let movieRepository: IMovieRepository
@@ -33,22 +40,31 @@ struct MoviesReducer: ReducerProtocol {
             state.isLoading = true
             return .run(operation: { send in
                 async let genres = movieRepository.fetchListGenres()
-                async let trendingMovies = movieRepository.fetchTrendingMovies()
-                await send(.finishFetch(trendingMovies: try await trendingMovies, genres: try await genres))
-            }, catch: { error, send in
-                await send(.errorOccur)
+                async let discoveryMovies = movieRepository.fetchDiscoveryMovies()
+                await send(.finishFetch(trendingMovies: try? await discoveryMovies, genres: try? await genres))
             })
 
-        case let .finishFetch(trendingMovies, genres):
+        case let .finishFetch(discoverMovies, genres):
             state.isLoading = false
-            state.trendingMovies = trendingMovies
-            state.genres = genres
-            return .none
-
-        case .errorOccur:
-            state.isLoading = false
+            state.sections = prepareSections(discoverMovies: discoverMovies, genres: genres)
             return .none
         }
+    }
+
+    private func prepareSections(
+        discoverMovies: [Movie]?,
+        genres: [Genre]?
+    ) -> [SectionType] {
+        var sections: [SectionType] = []
+        if let discoverMovies = discoverMovies, !discoverMovies.isEmpty {
+            sections.append(.discoverMovies(discoverMovies))
+        }
+
+        if let genres = genres, !genres.isEmpty {
+            sections.append(.genres(genres))
+        }
+
+        return sections
     }
 
 }

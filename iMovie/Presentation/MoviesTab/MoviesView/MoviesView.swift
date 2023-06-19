@@ -13,18 +13,18 @@ struct MoviesView: View {
     
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            ZStack {
-                VStack {
-                    if let movie = viewStore.trendingMovies.first {
-                        TrendingMovieView(movie: movie)
+            VStack {
+                List {
+                    ForEach(viewStore.sections) { section in
+                        switch section {
+                        case let .discoverMovies(movies):
+                            DiscoveryMoviesSectionView(movies: movies)
+                        case let .genres(genres):
+                            GenresSectionView(genres: genres)
+                        }
                     }
-
-                    Text("Genre Movies")
                 }
-
-                if viewStore.isLoading {
-                    ProgressView()
-                }
+                .listStyle(PlainListStyle())
             }
             .onAppear {
                 viewStore.send(.onAppear)

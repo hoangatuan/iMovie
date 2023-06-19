@@ -9,5 +9,6 @@ import Foundation
 
 protocol IMovieRepository {
     func fetchListGenres() async throws -> [Genre]
+    func fetchDiscoveryMovies() async throws -> [Movie]
     func fetchTrendingMovies() async throws -> [Movie]
 }
