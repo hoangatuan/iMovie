@@ -34,6 +34,7 @@ struct MoviesHomeView: View {
                     .listStyle(PlainListStyle())
                 }
             }
+            .ignoresSafeArea()
             .onAppear {
                 viewStore.send(.onAppear)
             }

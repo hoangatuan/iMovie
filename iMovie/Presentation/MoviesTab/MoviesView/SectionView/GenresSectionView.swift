@@ -43,7 +43,7 @@ struct GenresSectionView: View {
             }
         }
         .listRowSeparator(.hidden)
-        .listRowInsets(.none)
+        .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))
         .listRowBackground(Color.clear)
     }
 
