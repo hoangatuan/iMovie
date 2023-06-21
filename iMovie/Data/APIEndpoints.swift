@@ -34,6 +34,15 @@ enum APIEndpoints {
         )
     }
 
+    static func fetchPopularMovies() -> APIEndpoint {
+        .init(
+            baseURL: AppEnvironment.baseURL,
+            path: "/3/movie/popular",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+
     static func fetchTrendingMovies() -> APIEndpoint {
         return .init(
             baseURL: AppEnvironment.baseURL,

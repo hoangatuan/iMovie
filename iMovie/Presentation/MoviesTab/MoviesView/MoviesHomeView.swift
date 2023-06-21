@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct MoviesHomeView: View {
-    let store: StoreOf<MoviesReducer>
+    let store: StoreOf<MoviesHomeReducer>
     
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
@@ -26,6 +26,8 @@ struct MoviesHomeView: View {
                                 DiscoveryMoviesSectionView(movies: movies)
                             case let .genres(genres):
                                 GenresSectionView(genres: genres)
+                            case let .popularMovies(movies):
+                                EmptyView()
                             }
                         }
                     }

@@ -1,5 +1,5 @@
 //
-//  MoviesReducer.swift
+//  MoviesHomeReducer.swift
 //  iMovie
 //
 //  Created by Tuan Hoang on 18/06/2023.
@@ -11,22 +11,23 @@ import ComposableArchitecture
 enum SectionType: Equatable, Identifiable {
     case discoverMovies([Movie])
     case genres([Genre])
+    case popularMovies([Movie])
 
     var id: UUID {
         return UUID()
     }
 }
 
-struct MoviesReducer: ReducerProtocol {
+struct MoviesHomeReducer: ReducerProtocol {
 
     struct State: Equatable {
-        fileprivate(set) var isLoading = false
-        fileprivate(set) var sections: [SectionType] = []
+        var isLoading = false
+        var sections: [SectionType] = []
     }
 
     enum Action: Equatable {
         case onAppear
-        case finishFetch(trendingMovies: [Movie]?, genres: [Genre]?)
+        case finishFetch(discoveryMovies: [Movie]?, genres: [Genre]?, popularMovies: [Movie]?)
     }
 
     private let movieRepository: IMovieRepository
@@ -41,19 +42,25 @@ struct MoviesReducer: ReducerProtocol {
             return .run(operation: { send in
                 async let genres = movieRepository.fetchListGenres()
                 async let discoveryMovies = movieRepository.fetchDiscoveryMovies()
-                await send(.finishFetch(trendingMovies: try? await discoveryMovies, genres: try? await genres))
+                async let popularMovies = movieRepository.fetchPopularMovies()
+                await send(.finishFetch(
+                    discoveryMovies: try? await discoveryMovies,
+                    genres: try? await genres,
+                    popularMovies: try? await popularMovies
+                ))
             })
 
-        case let .finishFetch(discoverMovies, genres):
+        case let .finishFetch(discoverMovies, genres, popularMovies):
             state.isLoading = false
-            state.sections = prepareSections(discoverMovies: discoverMovies, genres: genres)
+            state.sections = prepareSections(discoverMovies: discoverMovies, genres: genres, popularMovies: popularMovies)
             return .none
         }
     }
 
     private func prepareSections(
         discoverMovies: [Movie]?,
-        genres: [Genre]?
+        genres: [Genre]?,
+        popularMovies: [Movie]?
     ) -> [SectionType] {
         var sections: [SectionType] = []
         if let discoverMovies = discoverMovies, !discoverMovies.isEmpty {
@@ -62,6 +69,10 @@ struct MoviesReducer: ReducerProtocol {
 
         if let genres = genres, !genres.isEmpty {
             sections.append(.genres(genres))
+        }
+
+        if let popularMovies = popularMovies, !popularMovies.isEmpty {
+            sections.append(.popularMovies(popularMovies))
         }
 
         return sections

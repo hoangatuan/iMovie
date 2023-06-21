@@ -28,12 +28,25 @@
 		A6F1D5372A3EB8E500E4F00C /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5362A3EB8E500E4F00C /* APIEndpoints.swift */; };
 		A6F1D5392A3EBBDA00E4F00C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5382A3EBBDA00E4F00C /* Movie.swift */; };
 		A6F1D53C2A3EBC5300E4F00C /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D53B2A3EBC5300E4F00C /* MovieResponse.swift */; };
-		A6F1D5422A3EC55B00E4F00C /* MoviesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5412A3EC55B00E4F00C /* MoviesReducer.swift */; };
+		A6F1D5422A3EC55B00E4F00C /* MoviesHomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5412A3EC55B00E4F00C /* MoviesHomeReducer.swift */; };
 		A6F1D5442A3EEA6900E4F00C /* MoviesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5432A3EEA6900E4F00C /* MoviesHomeView.swift */; };
 		A6F1D5462A3EEB9800E4F00C /* DiscoveryMoviesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5452A3EEB9800E4F00C /* DiscoveryMoviesSectionView.swift */; };
 		A6F1D5492A3EF0D900E4F00C /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = A6F1D5482A3EF0D900E4F00C /* CommonUI */; };
 		A6F1D54D2A3EF3D600E4F00C /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D54C2A3EF3D600E4F00C /* AppTabView.swift */; };
+		A6F40B442A4355D500B95487 /* MoviesHomeReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F40B432A4355D500B95487 /* MoviesHomeReducerTests.swift */; };
+		A6F40B472A435D4500B95487 /* MovieRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F40B462A435D4500B95487 /* MovieRepositoryMock.swift */; };
+		A6F40B4A2A435E2900B95487 /* Movie+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F40B492A435E2900B95487 /* Movie+Extension.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A6F40B3C2A4353BB00B95487 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6F079AB2A3B724F00B37F13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6F079B22A3B724F00B37F13;
+			remoteInfo = iMovie;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A62335FA2A3EF9420003596F /* GenresResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresResponse.swift; sourceTree = "<group>"; };
@@ -54,12 +67,17 @@
 		A6F1D5362A3EB8E500E4F00C /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		A6F1D5382A3EBBDA00E4F00C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		A6F1D53B2A3EBC5300E4F00C /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
-		A6F1D5412A3EC55B00E4F00C /* MoviesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesReducer.swift; sourceTree = "<group>"; };
+		A6F1D5412A3EC55B00E4F00C /* MoviesHomeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesHomeReducer.swift; sourceTree = "<group>"; };
 		A6F1D5432A3EEA6900E4F00C /* MoviesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesHomeView.swift; sourceTree = "<group>"; };
 		A6F1D5452A3EEB9800E4F00C /* DiscoveryMoviesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMoviesSectionView.swift; sourceTree = "<group>"; };
 		A6F1D5472A3EEE4E00E4F00C /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
 		A6F1D54B2A3EF36F00E4F00C /* iMovie.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = iMovie.entitlements; sourceTree = "<group>"; };
 		A6F1D54C2A3EF3D600E4F00C /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		A6F40B332A43509E00B95487 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A6F40B382A4353BB00B95487 /* iMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6F40B432A4355D500B95487 /* MoviesHomeReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesHomeReducerTests.swift; sourceTree = "<group>"; };
+		A6F40B462A435D4500B95487 /* MovieRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryMock.swift; sourceTree = "<group>"; };
+		A6F40B492A435E2900B95487 /* Movie+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +90,13 @@
 				A6F079CA2A3B72A700B37F13 /* ComposableArchitecture in Frameworks */,
 				A6F1D51D2A3D564800E4F00C /* Logger in Frameworks */,
 				A6F079C72A3B727D00B37F13 /* Factory in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6F40B352A4353BB00B95487 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,9 +131,11 @@
 		A6F079AA2A3B724F00B37F13 = {
 			isa = PBXGroup;
 			children = (
+				A6F40B332A43509E00B95487 /* README.md */,
 				A6F079B52A3B724F00B37F13 /* iMovie */,
 				A6F079CD2A3B763B00B37F13 /* Core */,
 				A6F1D5152A3CBDFB00E4F00C /* Foundation */,
+				A6F40B392A4353BB00B95487 /* iMovieTests */,
 				A6F079B42A3B724F00B37F13 /* Products */,
 				A6F1D5192A3D564600E4F00C /* Frameworks */,
 			);
@@ -118,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				A6F079B32A3B724F00B37F13 /* iMovie.app */,
+				A6F40B382A4353BB00B95487 /* iMovieTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,11 +289,53 @@
 		A6F1D53E2A3EC4C400E4F00C /* MoviesView */ = {
 			isa = PBXGroup;
 			children = (
-				A6F1D5412A3EC55B00E4F00C /* MoviesReducer.swift */,
+				A6F1D5412A3EC55B00E4F00C /* MoviesHomeReducer.swift */,
 				A6F1D5432A3EEA6900E4F00C /* MoviesHomeView.swift */,
 				A6C3C7572A40B5D200E01DCF /* SectionView */,
 			);
 			path = MoviesView;
+			sourceTree = "<group>";
+		};
+		A6F40B392A4353BB00B95487 /* iMovieTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6F40B482A435E1F00B95487 /* Helper */,
+				A6F40B452A435D3900B95487 /* Mock */,
+				A6F40B412A4355B700B95487 /* Presentation */,
+			);
+			path = iMovieTests;
+			sourceTree = "<group>";
+		};
+		A6F40B412A4355B700B95487 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A6F40B422A4355BF00B95487 /* MoviesTab */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A6F40B422A4355BF00B95487 /* MoviesTab */ = {
+			isa = PBXGroup;
+			children = (
+				A6F40B432A4355D500B95487 /* MoviesHomeReducerTests.swift */,
+			);
+			path = MoviesTab;
+			sourceTree = "<group>";
+		};
+		A6F40B452A435D3900B95487 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				A6F40B462A435D4500B95487 /* MovieRepositoryMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		A6F40B482A435E1F00B95487 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A6F40B492A435E2900B95487 /* Movie+Extension.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +365,24 @@
 			productReference = A6F079B32A3B724F00B37F13 /* iMovie.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A6F40B372A4353BB00B95487 /* iMovieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6F40B3E2A4353BB00B95487 /* Build configuration list for PBXNativeTarget "iMovieTests" */;
+			buildPhases = (
+				A6F40B342A4353BB00B95487 /* Sources */,
+				A6F40B352A4353BB00B95487 /* Frameworks */,
+				A6F40B362A4353BB00B95487 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6F40B3D2A4353BB00B95487 /* PBXTargetDependency */,
+			);
+			name = iMovieTests;
+			productName = iMovieTests;
+			productReference = A6F40B382A4353BB00B95487 /* iMovieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,6 +395,10 @@
 				TargetAttributes = {
 					A6F079B22A3B724F00B37F13 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					A6F40B372A4353BB00B95487 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = A6F079B22A3B724F00B37F13;
 					};
 				};
 			};
@@ -328,6 +420,7 @@
 			projectRoot = "";
 			targets = (
 				A6F079B22A3B724F00B37F13 /* iMovie */,
+				A6F40B372A4353BB00B95487 /* iMovieTests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +434,13 @@
 				A6F079BF2A3B725100B37F13 /* Preview Assets.xcassets in Resources */,
 				A6F1D5182A3CC6E000E4F00C /* Logger in Resources */,
 				A6F079BB2A3B725100B37F13 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6F40B362A4353BB00B95487 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,11 +467,29 @@
 				A6F1D5292A3D614C00E4F00C /* AppEnvironment.swift in Sources */,
 				A62335FB2A3EF9420003596F /* GenresResponse.swift in Sources */,
 				A6F1D5442A3EEA6900E4F00C /* MoviesHomeView.swift in Sources */,
-				A6F1D5422A3EC55B00E4F00C /* MoviesReducer.swift in Sources */,
+				A6F1D5422A3EC55B00E4F00C /* MoviesHomeReducer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6F40B342A4353BB00B95487 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6F40B472A435D4500B95487 /* MovieRepositoryMock.swift in Sources */,
+				A6F40B442A4355D500B95487 /* MoviesHomeReducerTests.swift in Sources */,
+				A6F40B4A2A435E2900B95487 /* Movie+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6F40B3D2A4353BB00B95487 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6F079B22A3B724F00B37F13 /* iMovie */;
+			targetProxy = A6F40B3C2A4353BB00B95487 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A6F079C02A3B725100B37F13 /* Debug */ = {
@@ -563,6 +681,47 @@
 			};
 			name = Release;
 		};
+		A6F40B3F2A4353BB00B95487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3A59K77K4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoangatuan.iMovieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMovie.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iMovie";
+			};
+			name = Debug;
+		};
+		A6F40B402A4353BB00B95487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3A59K77K4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoangatuan.iMovieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMovie.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iMovie";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -580,6 +739,15 @@
 			buildConfigurations = (
 				A6F079C32A3B725100B37F13 /* Debug */,
 				A6F079C42A3B725100B37F13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6F40B3E2A4353BB00B95487 /* Build configuration list for PBXNativeTarget "iMovieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6F40B3F2A4353BB00B95487 /* Debug */,
+				A6F40B402A4353BB00B95487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
