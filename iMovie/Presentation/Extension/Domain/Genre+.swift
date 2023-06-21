@@ -9,6 +9,6 @@ import Foundation
 
 extension Genre {
     var iconName: String {
-        return String(reflecting: self)
+        return String(describing: self.name)
     }
 }

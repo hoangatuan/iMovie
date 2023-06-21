@@ -19,7 +19,7 @@ struct AppTabView: View {
 
     var body: some View {
         TabView(selection: $selection) {
-            MoviesView(
+            MoviesHomeView(
                 store: .init(
                     initialState: .init(),
                     reducer: MoviesReducer(movieRepository: MovieRepository(apiClientService: container.apiClientService()))
