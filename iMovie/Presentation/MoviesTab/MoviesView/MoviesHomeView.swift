@@ -27,7 +27,7 @@ struct MoviesHomeView: View {
                             case let .genres(genres):
                                 GenresSectionView(genres: genres)
                             case let .popularMovies(movies):
-                                EmptyView()
+                                PopularSectionView(movies: movies)
                             }
                         }
                     }

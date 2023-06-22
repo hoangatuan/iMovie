@@ -29,10 +29,6 @@ public struct RemoteImageView: View {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .font(.largeTitle)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(.pink, lineWidth: 2)
-                    )
             }
         }
     }

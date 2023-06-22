@@ -29,17 +29,8 @@ struct GenresSectionView: View {
             }
             .frame(height: 104)
         } header: {
-            HStack {
-                Text("Genres Movie")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .foregroundColor(.white)
-                Spacer()
-                Button(action: {
-                    // TODO: (Tuan) Need to implement
-                }, label: {
-                    Image("right_arrow")
-                })
+            SectionHeaderView(title: "Genres Movie") {
+                
             }
         }
         .listRowSeparator(.hidden)
