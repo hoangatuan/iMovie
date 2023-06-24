@@ -13,9 +13,12 @@ import ComposableArchitecture
 final class MoviesHomeReducerTests: XCTestCase {
 
     func testOnAppear() async {
-        let store = TestStore(initialState: MoviesHomeReducer.State()) {
-            MoviesHomeReducer(movieRepository: MovieRepositoryMock())
-        }
+
+        let store = TestStore(initialState: MoviesHomeReducer.State(), reducer: {
+            MoviesHomeReducer()
+        }, withDependencies: {
+            $0.movieRepository = MovieRepositoryMock()
+        })
 
         await store.send(.onAppear) {
             $0.isLoading = true

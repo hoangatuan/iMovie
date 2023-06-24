@@ -30,10 +30,7 @@ struct MoviesHomeReducer: ReducerProtocol {
         case finishFetch(discoveryMovies: [Movie]?, genres: [Genre]?, popularMovies: [Movie]?)
     }
 
-    private let movieRepository: IMovieRepository
-    init(movieRepository: IMovieRepository) {
-        self.movieRepository = movieRepository
-    }
+    @Dependency(\.movieRepository) var movieRepository
 
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {

@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import ComposableArchitecture
 @testable import iMovie
+
+extension MovieRepository: TestDependencyKey {
+    static var testValue: IMovieRepository {
+        MovieRepositoryMock()
+    }
+}
 
 final class MovieRepositoryMock: IMovieRepository {
     func fetchListGenres() async throws -> [Genre] {

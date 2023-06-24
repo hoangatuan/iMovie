@@ -17,10 +17,24 @@ struct MovieShortInfoView: View {
 
     var body: some View {
         VStack {
-            RemoteImageView(imageURL: movie.posterPath)
-                .frame(width: 122, height: 185)
-                .cornerRadius(4)
-                .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
+            ZStack {
+                RemoteImageView(imageURL: movie.posterPath)
+                    .cornerRadius(4)
+                    .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
+
+                Text("⭐️\(movie.voteAverage, specifier: "%.1f")")
+                    .font(
+                        Font.custom("Lato", size: 16)
+                            .weight(.bold)
+                    )
+                    .foregroundColor(.white)
+                    .padding(.init(top: 4, leading: 4, bottom: 4, trailing: 4))
+                    .background(.black)
+                    .cornerRadius(4)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                    .padding(.init(top: 0, leading: 0, bottom: 8, trailing: 8))
+            }
+            .frame(width: 122, height: 185)
             
             HStack {
                 Text(movie.originalTitle)
@@ -30,12 +44,6 @@ struct MovieShortInfoView: View {
                     )
                     .foregroundColor(.white)
                 Spacer()
-                Text("\(movie.voteAverage, specifier: "%.1f")")
-                    .font(
-                        Font.custom("Lato", size: 24)
-                            .weight(.bold)
-                    )
-                    .foregroundColor(Color(red: 0.9, green: 0.43, blue: 0.2))
             }
         }
         .frame(width: 122)

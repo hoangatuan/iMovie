@@ -36,19 +36,14 @@ struct DiscoveryMoviesSectionView: View {
                 .foregroundColor(.white)
 
             Spacer()
-            Button(action: {
-
+            
+            NavigationLink(destination: {
+                SearchView(store: .init(initialState: .init(), reducer: SearchReducer()))
             }, label: {
                 Image("search")
                     .frame(width: 24, height: 24)
             })
-
-            Button(action: {
-
-            }, label: {
-                Image("setting")
-                    .frame(width: 24, height: 24)
-            })
+            .frame(width: 24, height: 24)
         }
         .padding(.init(top: 56, leading: 16, bottom: 0, trailing: 16))
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

@@ -22,7 +22,7 @@ struct AppTabView: View {
             MoviesHomeView(
                 store: .init(
                     initialState: .init(),
-                    reducer: MoviesHomeReducer(movieRepository: MovieRepository(apiClientService: container.apiClientService()))
+                    reducer: MoviesHomeReducer()
                 )
             )
             .tabItem {
