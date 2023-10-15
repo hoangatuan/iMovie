@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
 import Factory
+import Movies
 
 struct AppTabView: View {
     private let container: Container
@@ -20,10 +20,7 @@ struct AppTabView: View {
     var body: some View {
         TabView(selection: $selection) {
             MoviesHomeView(
-                store: .init(
-                    initialState: .init(),
-                    reducer: MoviesHomeReducer()
-                )
+                viewModel: .init(movieRepository: MovieRepository(apiClientService: container.apiClientService()))
             )
             .tabItem {
                 Image("movies")

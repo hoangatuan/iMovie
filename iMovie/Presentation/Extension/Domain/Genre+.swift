@@ -5,10 +5,10 @@
 //  Created by Tuan Hoang on 19/06/2023.
 //
 
-import Foundation
-
-extension Genre {
-    var iconName: String {
-        return String(describing: self.name)
-    }
-}
+//import Foundation
+//
+//extension Genre {
+//    var iconName: String {
+//        return String(describing: self.name)
+//    }
+//}
