@@ -9,31 +9,31 @@ import Foundation
 import Network
 import Models
 
-public final class MovieRepository: IMovieRepository {
+final class MovieRepository: IMovieRepository {
     private let apiClientService: IAPIClientService
-    public init(apiClientService: IAPIClientService) {
+    init(apiClientService: IAPIClientService) {
         self.apiClientService = apiClientService
     }
 
-    public func fetchListGenres() async throws -> [Genre] {
+    func fetchListGenres() async throws -> [Genre] {
         try await apiClientService.request(APIEndpoints.fetchMovieListGenres(), for: GenresResponse.self).genres
     }
 
-    public func fetchDiscoveryMovies() async throws -> [Movie] {
+    func fetchDiscoveryMovies() async throws -> [Movie] {
         try await apiClientService.request(
             APIEndpoints.fetchDiscoveryMovies(),
             mapper: TrendingMovieResponseMapper()
         )
     }
 
-    public func fetchPopularMovies() async throws -> [Movie] {
+    func fetchPopularMovies() async throws -> [Movie] {
         try await apiClientService.request(
             APIEndpoints.fetchPopularMovies(),
             mapper: TrendingMovieResponseMapper()
         )
     }
 
-    public func fetchTrendingMovies() async throws -> [Movie] {
+    func fetchTrendingMovies() async throws -> [Movie] {
         try await apiClientService.request(
             APIEndpoints.fetchTrendingMovies(),
             mapper: TrendingMovieResponseMapper()

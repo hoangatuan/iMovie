@@ -12,7 +12,7 @@ public struct Genre: Decodable, Equatable {
     public enum GenreType: String, Decodable {
         case action = "Action"
         case adventure = "Adventure"
-        case aimation = "Animation"
+        case animation = "Animation"
         case comedy = "Comedy"
         case crime = "Crime"
         case documentary = "Documentary"

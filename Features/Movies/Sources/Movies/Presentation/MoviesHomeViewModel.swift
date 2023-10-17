@@ -9,11 +9,11 @@ import Foundation
 import Models
 
 @MainActor
-public final class MoviesHomeViewModel: ObservableObject {
+final class MoviesHomeViewModel: ObservableObject {
     
     private let movieRepository: IMovieRepository
     
-    public init(movieRepository: IMovieRepository) {
+    init(movieRepository: IMovieRepository) {
         self.movieRepository = movieRepository
     }
     

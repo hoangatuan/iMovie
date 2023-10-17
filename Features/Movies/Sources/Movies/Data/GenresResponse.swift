@@ -8,6 +8,6 @@
 import Foundation
 import Models
 
-public struct GenresResponse: Decodable {
+struct GenresResponse: Decodable {
     let genres: [Genre]
 }

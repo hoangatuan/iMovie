@@ -6,10 +6,9 @@ import PackageDescription
 let package = Package(
     name: "Movies",
     platforms: [
-        .iOS(.v15),
+        .iOS(.v16),
     ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Movies",
             targets: ["Movies"]
@@ -19,17 +18,17 @@ let package = Package(
         .package(path: "../Core/Network"),
         .package(path: "../Core/CommonUI"),
         
-        .package(path: "../Foundation/Models")
+        .package(path: "../Foundation/Models"),
+        .package(path: "../Foundation/Router"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "Movies",
             dependencies: [
-                "Models",
                 "Network",
-                "CommonUI"
+                "CommonUI",
+                "Models",
+                "Router",
             ]
         ),
         .testTarget(

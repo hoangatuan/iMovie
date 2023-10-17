@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import NukeUI
+import Shimmer
 
 public struct RemoteImageView: View {
     private let imageURL: URL?
@@ -19,16 +21,14 @@ public struct RemoteImageView: View {
     }
 
     public var body: some View {
-        AsyncImage(url: imageURL) { phase in
-            if let image = phase.image {
+        LazyImage(url: imageURL) { state in
+            if let image = state.image {
                 image
                     .resizable()
                     .aspectRatio(contentMode: contentMode)
                     .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             } else {
-                ProgressView()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .font(.largeTitle)
+                Color.gray.shimmering()
             }
         }
     }

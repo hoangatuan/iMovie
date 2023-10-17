@@ -31,7 +31,7 @@ struct SearchView: View {
 
                 switch viewModel.state {
                     case .emptyInput:
-                        EmptyView()
+                        Text("EmptyView")
                     case .loading:
                         EmptyView()
                     case .display(let movies):

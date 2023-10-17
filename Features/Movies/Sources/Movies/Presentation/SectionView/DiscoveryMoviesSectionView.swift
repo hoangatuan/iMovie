@@ -9,8 +9,11 @@ import SwiftUI
 import CommonUI
 import Factory
 import Models
+import Router
 
 struct DiscoveryMoviesSectionView: View {
+    @EnvironmentObject private var router: Router
+    
     private let movies: [Movie]
     init(movies: [Movie]) {
         self.movies = movies
@@ -39,14 +42,11 @@ struct DiscoveryMoviesSectionView: View {
 
             Spacer()
             
-            NavigationLink(destination: {
-                // TODO: Move navigation logic out of View
-//                SearchView(viewModel: .init(searchRepository: SearchRepository(apiClientService: Container.shared.apiClientService())))
-            }, label: {
-                Image("search")
-                    .frame(width: 24, height: 24)
-            })
-            .frame(width: 24, height: 24)
+            Image("search")
+                .frame(width: 24, height: 24)
+                .onTapGesture(perform: {
+                    router.navigate(to: PublicMoviesDestination.search)
+                })
         }
         .padding(.init(top: 56, leading: 16, bottom: 0, trailing: 16))
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
