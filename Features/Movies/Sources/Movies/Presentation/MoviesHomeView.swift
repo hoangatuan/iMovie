@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-public struct MoviesHomeView: View {
+struct MoviesHomeView: View {
     @StateObject private var viewModel: MoviesHomeViewModel
     
-    public init(viewModel: MoviesHomeViewModel) {
+    init(viewModel: MoviesHomeViewModel) {
         self._viewModel = .init(wrappedValue: viewModel)
     }
     
-    public var body: some View {
+    var body: some View {
         NavigationView {
             ZStack {
                 Color(red: 4/255, green: 15/255, blue: 35/255)
@@ -39,12 +39,14 @@ public struct MoviesHomeView: View {
                                 }
                             }
                             .listStyle(PlainListStyle())
+                            
+                            Spacer()
                         }
                     case let .error(error):
                         EmptyView()
                 }
             }
-            .ignoresSafeArea()
+            .ignoresSafeArea(edges: .top)
             .task {
                 await viewModel.fetch()
             }

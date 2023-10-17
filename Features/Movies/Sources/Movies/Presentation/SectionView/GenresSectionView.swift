@@ -8,8 +8,12 @@
 import SwiftUI
 import Models
 import CommonUI
+import Router
 
 struct GenresSectionView: View {
+    
+    @EnvironmentObject private var router: Router
+    
     private let genres: [Genre]
     init(genres: [Genre]) {
         self.genres = genres
@@ -26,6 +30,9 @@ struct GenresSectionView: View {
                 LazyHGrid(rows: rows) {
                     ForEach(genres, id: \.id) { genre in
                         buildGenreCell(genre)
+                            .onTapGesture {
+                                router.navigate(to: PrivateMoviesDestination.genreDetail)
+                            }
                     }
                 }
             }

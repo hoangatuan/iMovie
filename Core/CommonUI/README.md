@@ -1,3 +1,4 @@
 # CommonUI
 
-A description of this package.
+A package contains reusable UI components.
+

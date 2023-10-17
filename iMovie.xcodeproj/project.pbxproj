@@ -11,7 +11,8 @@
 		4CFB159C2ADBCD0F00A5CBB2 /* Movies in Resources */ = {isa = PBXBuildFile; fileRef = 4CFB159A2ADBCD0F00A5CBB2 /* Movies */; };
 		4CFB159F2ADBD31700A5CBB2 /* Movies in Frameworks */ = {isa = PBXBuildFile; productRef = 4CFB159E2ADBD31700A5CBB2 /* Movies */; };
 		4CFB15A12ADBD31A00A5CBB2 /* Search in Frameworks */ = {isa = PBXBuildFile; productRef = 4CFB15A02ADBD31A00A5CBB2 /* Search */; };
-		A6C3C75E2A40BDD200E01DCF /* Genre+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3C75D2A40BDD200E01DCF /* Genre+.swift */; };
+		4CFB15A32ADC238300A5CBB2 /* Router in Resources */ = {isa = PBXBuildFile; fileRef = 4CFB15A22ADC238300A5CBB2 /* Router */; };
+		4CFB15C12ADED84000A5CBB2 /* MovieTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB15C02ADED84000A5CBB2 /* MovieTabCoordinator.swift */; };
 		A6F079B72A3B724F00B37F13 /* iMovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F079B62A3B724F00B37F13 /* iMovieApp.swift */; };
 		A6F079BB2A3B725100B37F13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F079BA2A3B725100B37F13 /* Assets.xcassets */; };
 		A6F079BF2A3B725100B37F13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F079BE2A3B725100B37F13 /* Preview Assets.xcassets */; };
@@ -31,8 +32,9 @@
 		4CFB15992ADBCD0F00A5CBB2 /* Search */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Search; sourceTree = "<group>"; };
 		4CFB159A2ADBCD0F00A5CBB2 /* Movies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Movies; sourceTree = "<group>"; };
 		4CFB159D2ADBCDE200A5CBB2 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
+		4CFB15A22ADC238300A5CBB2 /* Router */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Router; sourceTree = "<group>"; };
+		4CFB15C02ADED84000A5CBB2 /* MovieTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTabCoordinator.swift; sourceTree = "<group>"; };
 		A6329ACC2A46A94F008A64C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		A6C3C75D2A40BDD200E01DCF /* Genre+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Genre+.swift"; sourceTree = "<group>"; };
 		A6F079B32A3B724F00B37F13 /* iMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F079B62A3B724F00B37F13 /* iMovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMovieApp.swift; sourceTree = "<group>"; };
 		A6F079BA2A3B725100B37F13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,22 +74,6 @@
 				4CFB15992ADBCD0F00A5CBB2 /* Search */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		A6C3C75B2A40BDC000E01DCF /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				A6C3C75C2A40BDCC00E01DCF /* Domain */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		A6C3C75C2A40BDCC00E01DCF /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				A6C3C75D2A40BDD200E01DCF /* Genre+.swift */,
-			);
-			path = Domain;
 			sourceTree = "<group>";
 		};
 		A6F079AA2A3B724F00B37F13 = {
@@ -146,6 +132,7 @@
 			children = (
 				4CFB159D2ADBCDE200A5CBB2 /* Models */,
 				A6F1D5172A3CC6E000E4F00C /* Logger */,
+				4CFB15A22ADC238300A5CBB2 /* Router */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -171,8 +158,8 @@
 		A6F1D5262A3D5D1500E4F00C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A6C3C75B2A40BDC000E01DCF /* Extension */,
 				A6F1D54C2A3EF3D600E4F00C /* AppTabView.swift */,
+				4CFB15C02ADED84000A5CBB2 /* MovieTabCoordinator.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -254,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFB15A32ADC238300A5CBB2 /* Router in Resources */,
 				4CFB159B2ADBCD0F00A5CBB2 /* Search in Resources */,
 				4CFB159C2ADBCD0F00A5CBB2 /* Movies in Resources */,
 				A6F079CF2A3B766D00B37F13 /* Network in Resources */,
@@ -271,9 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6F1D5232A3D5CE200E4F00C /* AppDelegate.swift in Sources */,
+				4CFB15C12ADED84000A5CBB2 /* MovieTabCoordinator.swift in Sources */,
 				A6F1D5202A3D5AC700E4F00C /* DIContainer.swift in Sources */,
 				A6F1D54D2A3EF3D600E4F00C /* AppTabView.swift in Sources */,
-				A6C3C75E2A40BDD200E01DCF /* Genre+.swift in Sources */,
 				A6F079B72A3B724F00B37F13 /* iMovieApp.swift in Sources */,
 				A6F1D5292A3D614C00E4F00C /* AppEnvironment.swift in Sources */,
 			);

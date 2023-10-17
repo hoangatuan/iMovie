@@ -7,10 +7,11 @@
 
 import SwiftUI
 import Factory
-import Movies
+import CommonUI
 
 struct AppTabView: View {
     private let container: Container
+    
     init(container: Container) {
         self.container = container
     }
@@ -19,15 +20,19 @@ struct AppTabView: View {
 
     var body: some View {
         TabView(selection: $selection) {
-            MoviesHomeView(
-                viewModel: .init(movieRepository: MovieRepository(apiClientService: container.apiClientService()))
-            )
-            .tabItem {
-                Image("movies")
-                Text("Movies")
-            }
-            .tag(0)
-
+            MovieTabCoordinator()
+                .tabItem {
+                    Image("movies")
+                    Text("Movies")
+                        .foregroundColor(Color(hex: "04EECD"))
+                }
+                .tag(0)
+                .toolbar(.visible, for: .tabBar)
+                .toolbarBackground(
+                    Color(hex: "4E89FF") ?? .secondary,
+                    for: .tabBar
+                )
+            
         }
         .onAppear() {
             UITabBar.appearance().barTintColor = .white
