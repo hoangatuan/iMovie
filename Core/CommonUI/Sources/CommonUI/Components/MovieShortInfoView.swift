@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Models
+import DesignSystem
 
 public struct MovieShortInfoView: View {
     private let movie: Movie
@@ -25,27 +26,18 @@ public struct MovieShortInfoView: View {
             HStack(spacing: 0) {
                 Text(movie.originalTitle)
                     .lineLimit(2)
-                    .font(
-                        Font.custom("Lato", size: 13)
-                            .weight(.medium)
-                    )
+                    .font(.semibold13)
                     .foregroundColor(.white)
                 Spacer().frame(width: 8)
                 
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
                     Text("\(movie.voteAverage.integerValue).")
-                        .font(
-                            Font.custom("Lato", size: 24)
-                                .weight(.semibold)
-                        )
+                        .font(.bold24)
                         
                     Text("\(movie.voteAverage.firstDecimalValue)")
-                        .font(
-                            Font.custom("Lato", size: 14)
-                                .weight(.semibold)
-                        )
+                        .font(.semibold14)
                 }
-                .foregroundColor(Color.init(hex: "E56E34"))
+                .foregroundColor(Color.colorE56E34)
             }
         }
         .frame(width: 128)

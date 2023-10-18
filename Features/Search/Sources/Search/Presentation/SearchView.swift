@@ -8,6 +8,7 @@
 import SwiftUI
 import Models
 import CommonUI
+import DesignSystem
 
 struct SearchView: View {
     
@@ -20,7 +21,7 @@ struct SearchView: View {
 
     var body: some View {
         ZStack {
-            Color(red: 4/255, green: 15/255, blue: 35/255)
+            Color.color040F23
                 .ignoresSafeArea()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 

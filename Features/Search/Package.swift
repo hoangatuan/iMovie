@@ -19,6 +19,7 @@ let package = Package(
         
         .package(path: "../Foundation/Models"),
         .package(path: "../Foundation/Router"),
+        .package(path: "../Foundation/DesignSystem"),
     ],
     targets: [
         .target(
@@ -28,6 +29,7 @@ let package = Package(
                 "CommonUI",
                 "Models",
                 "Router",
+                "DesignSystem"
             ]
         ),
         .testTarget(
