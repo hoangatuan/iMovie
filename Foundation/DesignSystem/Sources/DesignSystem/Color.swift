@@ -2,13 +2,22 @@
 //  File.swift
 //  
 //
-//  Created by Hoang Anh Tuan on 15/10/2023.
+//  Created by Hoang Anh Tuan on 18/10/2023.
 //
 
 import SwiftUI
 
+public extension Color {
+    static let color04EECD: Color = Color(hex: "04EECD")!
+    static let color4E89FF: Color = Color(hex: "4E89FF")!
+    static let color0E264B: Color = Color(hex: "0E264B")!
+    static let color295091: Color = Color(hex: "295091")!
+    static let color040F23: Color = Color(hex: "040F23")!
+    static let colorE56E34: Color = Color(hex: "E56E34")!
+}
+
 extension Color {
-    public init?(hex: String) {
+    init?(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
 

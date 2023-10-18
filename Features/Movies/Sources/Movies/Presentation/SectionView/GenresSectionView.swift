@@ -9,6 +9,7 @@ import SwiftUI
 import Models
 import CommonUI
 import Router
+import DesignSystem
 
 struct GenresSectionView: View {
     
@@ -31,7 +32,7 @@ struct GenresSectionView: View {
                     ForEach(genres, id: \.id) { genre in
                         buildGenreCell(genre)
                             .onTapGesture {
-                                router.navigate(to: PrivateMoviesDestination.genreDetail)
+                                router.navigate(to: Destination.genreDetail)
                             }
                     }
                 }
@@ -57,15 +58,15 @@ struct GenresSectionView: View {
             Spacer()
                 .frame(width: 2, height: 28)
                 .cornerRadius(4)
-                .background(Color(red: 4/255, green: 238/255, blue: 205/255))
+                .background(Color.color04EECD)
         }
         .frame(width: 128, height: 48)
         .padding(.horizontal)
         .background(
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 14/255, green: 38/255, blue: 75/255),
-                    Color(red: 41/255, green: 80/255, blue: 145/255)
+                    Color.color0E264B,
+                    Color.color295091
                 ]),
                 startPoint: .leading, endPoint: .trailing
             )

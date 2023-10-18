@@ -34,6 +34,7 @@
 		4CFB159D2ADBCDE200A5CBB2 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
 		4CFB15A22ADC238300A5CBB2 /* Router */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Router; sourceTree = "<group>"; };
 		4CFB15C02ADED84000A5CBB2 /* MovieTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTabCoordinator.swift; sourceTree = "<group>"; };
+		4CFB15C22AE022D800A5CBB2 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 		A6329ACC2A46A94F008A64C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A6F079B32A3B724F00B37F13 /* iMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F079B62A3B724F00B37F13 /* iMovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMovieApp.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		A6F1D5152A3CBDFB00E4F00C /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				4CFB15C22AE022D800A5CBB2 /* DesignSystem */,
 				4CFB159D2ADBCDE200A5CBB2 /* Models */,
 				A6F1D5172A3CC6E000E4F00C /* Logger */,
 				4CFB15A22ADC238300A5CBB2 /* Router */,

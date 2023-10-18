@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct MoviesHomeView: View {
     @StateObject private var viewModel: MoviesHomeViewModel
@@ -17,7 +18,7 @@ struct MoviesHomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 4/255, green: 15/255, blue: 35/255)
+                Color.color040F23
                     .ignoresSafeArea()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 

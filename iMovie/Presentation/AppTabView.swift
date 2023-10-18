@@ -8,6 +8,7 @@
 import SwiftUI
 import Factory
 import CommonUI
+import DesignSystem
 
 struct AppTabView: View {
     private let container: Container
@@ -24,12 +25,12 @@ struct AppTabView: View {
                 .tabItem {
                     Image("movies")
                     Text("Movies")
-                        .foregroundColor(Color(hex: "04EECD"))
+                        .foregroundColor(.color04EECD)
                 }
                 .tag(0)
                 .toolbar(.visible, for: .tabBar)
                 .toolbarBackground(
-                    Color(hex: "4E89FF") ?? .secondary,
+                    Color.color4E89FF,
                     for: .tabBar
                 )
             

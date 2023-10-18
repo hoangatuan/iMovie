@@ -24,5 +24,4 @@ To contribute, please create an issue to describe about what you gonna work on.
 
 ## Todo:
 
-- Support theme & design token
 - Support iOS 17: @Observation, @SwiftData
