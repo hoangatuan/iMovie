@@ -26,7 +26,7 @@ struct DiscoveryMoviesSectionView: View {
 
             buildHeaderView()
 
-            buildMovieShortInfoView()
+            movieShortInfoView
         }
         .listRowSeparator(.hidden)
         .listRowInsets(EdgeInsets())
@@ -36,8 +36,7 @@ struct DiscoveryMoviesSectionView: View {
     private func buildHeaderView() -> some View {
         HStack(spacing: 12) {
             Text("Discover")
-                .font(.title)
-                .fontWeight(.bold)
+                .font(.bold24)
                 .foregroundColor(.white)
 
             Spacer()
@@ -52,7 +51,7 @@ struct DiscoveryMoviesSectionView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 
-    private func buildMovieShortInfoView() -> some View {
+    private var movieShortInfoView: some View {
         HStack {
             Spacer().frame(width: 16)
             VStack(alignment: .leading) {
@@ -61,8 +60,7 @@ struct DiscoveryMoviesSectionView: View {
                     .frame(width: 86, height: 130)
 
                 Text(movies[0].title)
-                    .font(.title)
-                    .fontWeight(.bold)
+                    .font(.bold20)
                     .foregroundColor(.white)
             }
 

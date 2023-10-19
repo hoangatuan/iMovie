@@ -21,7 +21,7 @@ public struct MovieShortInfoView: View {
             RemoteImageView(imageURL: movie.posterPath)
                 .cornerRadius(4)
                 .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
-                .frame(width: 122, height: 185)
+                .frame(width: 128, height: 185)
             
             HStack(spacing: 0) {
                 Text(movie.originalTitle)
