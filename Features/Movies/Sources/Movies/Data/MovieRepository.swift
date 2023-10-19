@@ -16,26 +16,43 @@ final class MovieRepository: IMovieRepository {
     }
 
     func fetchListGenres() async throws -> [Genre] {
-        try await apiClientService.request(APIEndpoints.fetchMovieListGenres(), for: GenresResponse.self).genres
+        try await apiClientService.request(
+            APIEndpoints.fetchMovieListGenresEndpoint,
+            for: GenresResponse.self
+        ).genres
     }
 
     func fetchDiscoveryMovies() async throws -> [Movie] {
         try await apiClientService.request(
-            APIEndpoints.fetchDiscoveryMovies(),
+            APIEndpoints.fetchDiscoveryMoviesEndpoint,
             mapper: TrendingMovieResponseMapper()
         )
     }
 
     func fetchPopularMovies() async throws -> [Movie] {
         try await apiClientService.request(
-            APIEndpoints.fetchPopularMovies(),
+            APIEndpoints.fetchPopularMoviesEndpoint,
+            mapper: TrendingMovieResponseMapper()
+        )
+    }
+    
+    func fetchLatestMovies() async throws -> [Movie] {
+        try await apiClientService.request(
+            APIEndpoints.fetchLatestMoviesEndpoint,
+            mapper: TrendingMovieResponseMapper()
+        )
+    }
+    
+    func fetchTopRatedMovies() async throws -> [Movie] {
+        try await apiClientService.request(
+            APIEndpoints.fetchTopRatedMoviesEndpoint,
             mapper: TrendingMovieResponseMapper()
         )
     }
 
     func fetchTrendingMovies() async throws -> [Movie] {
         try await apiClientService.request(
-            APIEndpoints.fetchTrendingMovies(),
+            APIEndpoints.fetchTrendingMoviesEndpoint,
             mapper: TrendingMovieResponseMapper()
         )
     }

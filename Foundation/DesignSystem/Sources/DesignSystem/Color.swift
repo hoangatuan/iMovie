@@ -14,6 +14,7 @@ public extension Color {
     static let color295091: Color = Color(hex: "295091")!
     static let color040F23: Color = Color(hex: "040F23")!
     static let colorE56E34: Color = Color(hex: "E56E34")!
+    static let color104564: Color = Color(hex: "104564")!
 }
 
 extension Color {

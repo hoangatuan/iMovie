@@ -18,9 +18,12 @@ final class MoviesHomeViewModel: ObservableObject {
     }
     
     enum SectionType: Equatable, Identifiable {
-        case discoverMovies([Movie])
+        case discover([Movie])
         case genres([Genre])
-        case popularMovies([Movie])
+        case popular([Movie])
+        case latest([Movie])
+        case topRated([Movie])
+        case trending([Movie])
 
         var id: UUID {
             return UUID()
@@ -28,7 +31,7 @@ final class MoviesHomeViewModel: ObservableObject {
         
         var isEmpty: Bool {
             switch self {
-                case .discoverMovies(let array), .popularMovies(let array):
+                case .discover(let array), .popular(let array), .latest(let array), .topRated(let array), .trending(let array):
                     return array.isEmpty
                 case .genres(let array):
                     return array.isEmpty
@@ -48,11 +51,17 @@ final class MoviesHomeViewModel: ObservableObject {
         async let discoveryMovies = movieRepository.fetchDiscoveryMovies()
         async let genres = movieRepository.fetchListGenres()
         async let popularMovies = movieRepository.fetchPopularMovies()
+        async let latestMovies = movieRepository.fetchLatestMovies()
+        async let topRatingMovies = movieRepository.fetchTopRatedMovies()
+        async let trendingMovies = movieRepository.fetchTrendingMovies()
         
         var sections: [SectionType] = [
-            .discoverMovies((try? await discoveryMovies) ?? []),
+            .discover((try? await discoveryMovies) ?? []),
             .genres((try? await genres) ?? []),
-            .popularMovies((try? await popularMovies) ?? [])
+            .popular((try? await popularMovies) ?? []),
+            .latest((try? await latestMovies) ?? []),
+            .topRated((try? await topRatingMovies) ?? []),
+            .trending((try? await trendingMovies) ?? [])
         ]
         
         sections = sections.filter { !$0.isEmpty }

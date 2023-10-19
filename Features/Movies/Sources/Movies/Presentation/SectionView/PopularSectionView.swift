@@ -5,14 +5,17 @@
 //  Created by Tuan Hoang on 22/06/2023.
 //
 
-import SwiftUI
 import CommonUI
 import Models
+import SwiftUI
 
 struct PopularSectionView: View {
 
+    private let sectionTitle: String
     private let movies: [Movie]
-    init(movies: [Movie]) {
+    
+    init(sectionTitle: String, movies: [Movie]) {
+        self.sectionTitle = sectionTitle
         self.movies = movies
     }
 
@@ -23,14 +26,14 @@ struct PopularSectionView: View {
     var body: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHGrid(rows: rows, alignment: .top, spacing: 16) {
+                LazyHGrid(rows: rows, alignment: .top, spacing: 8) {
                     ForEach(movies, id: \.id) { movie in
                         MovieShortInfoView(movie: movie)
                     }
                 }
             }
         } header: {
-            SectionHeaderView(title: "Popular Movies") {
+            SectionHeaderView(title: sectionTitle) {
 
             }
         }

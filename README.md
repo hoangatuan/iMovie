@@ -3,7 +3,7 @@
 This is a SwiftUI project that apply Modular Architect & Clean Architect. For the presentation layer, I'm using MVVM.   
 Supports iOS 16+
 
-## Key Features 🔗
+## Key Features
 
 - Presentation layer: SwiftUI + MVVM-C + Modern concurrency
 - Clean architecture: Decoupled Presentation, Business Logic, and Data Access layers
@@ -23,5 +23,22 @@ Feel free to contribute for the project if you want. Here is the figma & api ref
 To contribute, please create an issue to describe about what you gonna work on.
 
 ## Todo:
+    
+### Code
 
+- Add tests
 - Support iOS 17: @Observation, @SwiftData
+- Build features
+
+### Refactor
+
+- Refactor dependency injection
+- Refactor enviroment value
+
+### CI/CD
+
+- Add github workflow:
+    + Buid, run test before merge
+    + Code coverage + create badge
+- swiftlint
+- swiftformat

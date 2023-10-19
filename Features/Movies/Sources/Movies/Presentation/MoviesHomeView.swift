@@ -30,12 +30,18 @@ struct MoviesHomeView: View {
                             List {
                                 ForEach(sections) { section in
                                     switch section {
-                                    case let .discoverMovies(movies):
-                                        DiscoveryMoviesSectionView(movies: movies)
-                                    case let .genres(genres):
-                                        GenresSectionView(genres: genres)
-                                    case let .popularMovies(movies):
-                                        PopularSectionView(movies: movies)
+                                        case let .discover(movies):
+                                            DiscoveryMoviesSectionView(movies: movies)
+                                        case let .genres(genres):
+                                            GenresSectionView(genres: genres)
+                                        case let .popular(movies):
+                                            PopularSectionView(sectionTitle: "Popular Movies", movies: movies)
+                                        case let .latest(movies):
+                                            NowPlayingSectionView(movies: movies)
+                                        case let .topRated(movies):
+                                            TopRatedMoviesSectionView(movies: movies)
+                                        case let .trending(movies):
+                                            PopularSectionView(sectionTitle: "Trending", movies: movies)
                                     }
                                 }
                             }

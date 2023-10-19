@@ -19,8 +19,8 @@ enum APIEndpoints {
         "Authorization": "Bearer \(accessToken)"
     ]
 
-    static func fetchMovieListGenres() -> APIEndpoint {
-        return .init(
+    static var fetchMovieListGenresEndpoint: APIEndpoint {
+        .init(
             baseURL: baseURL,
             path: "/3/genre/movie/list",
             httpMethod: .get,
@@ -28,7 +28,7 @@ enum APIEndpoints {
         )
     }
 
-    static func fetchDiscoveryMovies() -> APIEndpoint {
+    static var fetchDiscoveryMoviesEndpoint: APIEndpoint {
         .init(
             baseURL: baseURL,
             path: "/3/discover/movie",
@@ -37,7 +37,7 @@ enum APIEndpoints {
         )
     }
 
-    static func fetchPopularMovies() -> APIEndpoint {
+    static var fetchPopularMoviesEndpoint: APIEndpoint {
         .init(
             baseURL: baseURL,
             path: "/3/movie/popular",
@@ -46,8 +46,8 @@ enum APIEndpoints {
         )
     }
 
-    static func fetchTrendingMovies() -> APIEndpoint {
-        return .init(
+    static var fetchTrendingMoviesEndpoint: APIEndpoint {
+        .init(
             baseURL: baseURL,
             path: "/3/trending/movie/day",
             httpMethod: .get,
@@ -55,5 +55,21 @@ enum APIEndpoints {
         )
     }
 
+    static var fetchLatestMoviesEndpoint: APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/movie/now_playing",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
     
+    static var fetchTopRatedMoviesEndpoint: APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/movie/top_rated",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
 }
