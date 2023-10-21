@@ -10,31 +10,44 @@ import Models
 import DesignSystem
 
 public struct MovieShortInfoView: View {
-    private let movie: Movie
+    
+    private let posterPath: URL?
+    private let title: String
+    private let voteAvarage: Double
 
     public init(movie: Movie) {
-        self.movie = movie
+        self.posterPath = movie.posterPath
+        self.title = movie.originalTitle
+        self.voteAvarage = movie.voteAverage
+    }
+    
+    public init(tvSerires: TVSeries) {
+        self.posterPath = URL(string: tvSerires.posterPath ?? "")
+        self.title = tvSerires.originalName ?? ""
+        self.voteAvarage = tvSerires.voteAverage
     }
 
     public var body: some View {
         VStack {
-            RemoteImageView(imageURL: movie.posterPath)
+            RemoteImageView(imageURL: posterPath)
                 .cornerRadius(4)
                 .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
                 .frame(width: 128, height: 185)
             
             HStack(spacing: 0) {
-                Text(movie.originalTitle)
+                Text(title)
                     .lineLimit(2)
                     .font(.semibold13)
+                    .multilineTextAlignment(.leading)
                     .foregroundColor(.white)
+                
                 Spacer().frame(width: 8)
                 
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
-                    Text("\(movie.voteAverage.integerValue).")
+                    Text("\(voteAvarage.integerValue).")
                         .font(.bold24)
                         
-                    Text("\(movie.voteAverage.firstDecimalValue)")
+                    Text("\(voteAvarage.firstDecimalValue)")
                         .font(.semibold14)
                 }
                 .foregroundColor(Color.colorE56E34)

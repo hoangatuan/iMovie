@@ -19,41 +19,34 @@ enum APIEndpoints {
         "Authorization": "Bearer \(accessToken)"
     ]
 
-    static func fetchMovieListGenres() -> APIEndpoint {
+    static func searchMovies(query: String, page: Int = 1) -> APIEndpoint {
         return .init(
             baseURL: baseURL,
-            path: "/3/genre/movie/list",
+            path: "/3/search/movie",
             httpMethod: .get,
+            urlQueries: ["query": query, "page": String(page)],
             headers: baseHeaders
         )
     }
-
-    static func fetchDiscoveryMovies() -> APIEndpoint {
-        .init(
-            baseURL: baseURL,
-            path: "/3/discover/movie",
-            httpMethod: .get,
-            headers: baseHeaders
-        )
-    }
-
-    static func fetchPopularMovies() -> APIEndpoint {
-        .init(
-            baseURL: baseURL,
-            path: "/3/movie/popular",
-            httpMethod: .get,
-            headers: baseHeaders
-        )
-    }
-
-    static func fetchTrendingMovies() -> APIEndpoint {
+    
+    static func searchTVSeries(query: String, page: Int = 1) -> APIEndpoint {
         return .init(
             baseURL: baseURL,
-            path: "/3/trending/movie/day",
+            path: "/3/search/tv",
             httpMethod: .get,
+            urlQueries: ["query": query, "page": String(page)],
             headers: baseHeaders
         )
     }
-
+    
+    static func searchPersons(query: String, page: Int = 1) -> APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/search/person",
+            httpMethod: .get,
+            urlQueries: ["query": query, "page": String(page)],
+            headers: baseHeaders
+        )
+    }
     
 }

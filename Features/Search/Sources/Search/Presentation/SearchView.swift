@@ -17,7 +17,14 @@ struct SearchView: View {
         self._viewModel = .init(wrappedValue: viewModel)
     }
     
+    private let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     @State private var searchKeyword = ""
+    @State private var selectedSearchType: SearchType = .movie
 
     var body: some View {
         ZStack {
@@ -26,20 +33,24 @@ struct SearchView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             VStack {
-                TextField("", text: $searchKeyword, prompt: Text("Search for the movies").foregroundColor(.gray))
-                    .font(Font.custom("Lato", size: 16))
-                    .foregroundColor(.white)
+                searchBar
+                
+                if !searchKeyword.isEmpty {
+                    tabsView
+                }
 
                 switch viewModel.state {
                     case .emptyInput:
-                        Text("EmptyView")
+                        EmptyView()
+                        // TODO: After this project migrate to iOS 17+, use SwiftData to implement `Recent Search Keyword`. For now, can just use `UserDefault`
                     case .loading:
                         EmptyView()
-                    case .display(let movies):
-                        if movies.isEmpty {
-                            buildEmptyResultView()
+                        // TODO: Shimmer View
+                    case .display(let searchType, let datas):
+                        if datas.isEmpty {
+                            emptyResultView
                         } else {
-                            buildListMoviesView(with: movies)
+                            buildResultView(searchType: searchType, with: datas)
                         }
                     case .error:
                         EmptyView()
@@ -47,42 +58,132 @@ struct SearchView: View {
                 
                 Spacer()
             }
-            .padding(.init(top: 36, leading: 16, bottom: 16, trailing: 16))
         }
         .onSubmit(of: .text) {
             Task {
-                await viewModel.search(keyword: searchKeyword)
+                await viewModel.search(keyword: searchKeyword, for: selectedSearchType)
             }
         }
+        .onChange(of: selectedSearchType, perform: { value in
+            Task {
+                await viewModel.search(keyword: searchKeyword, for: value)
+            }
+        })
+    }
+    
+    private var searchBar: some View {
+        VStack {
+            HStack {
+                Image("search")
+                    .foregroundColor(Color.color4E89FF)
+                    .frame(width: 24, height: 24)
+                
+                TextField(
+                    "", text: $searchKeyword,
+                    prompt: Text("Search for the movies").foregroundColor(.gray)
+                )
+                .font(.regular16)
+                .foregroundColor(.white)
+                
+                if !searchKeyword.isEmpty {
+                    Button {
+                        searchKeyword = ""
+                    } label: {
+                        Image("clear")
+                    }
+                }
+            }
+            
+            HStack {
+                Spacer()
+                    .frame(width: 24, height: 24)
+                
+                Spacer()
+                    .frame(height: 1)
+                    .background(Color.color4E89FF)
+            }
+        }
+        .padding(.init(top: 36, leading: 16, bottom: 32, trailing: 16))
+    }
+    
+    private var tabsView: some View {
+        HStack {
+            ForEach(SearchType.allCases, id: \.rawValue) { type in
+                VStack {
+                    Text(type.rawValue)
+                        .font(selectedSearchType == type ? .semibold14 : .regular14)
+                        .foregroundColor(selectedSearchType == type ? .white : .gray)
+                        .onTapGesture {
+                            selectedSearchType = type
+                        }
+                        .padding()
+                    
+                    if selectedSearchType == type {
+                        Spacer()
+                            .frame(height: 1)
+                            .background(Color.color4E89FF)
+                    }
+                }
+                .frame(height: 36)
+                .border(.gray)
+            }
+        }
+        .frame(maxWidth: .infinity)
     }
 
-    private func buildEmptyResultView() -> some View {
+    private var emptyResultView: some View {
         VStack {
+            Spacer()
+                .frame(height: 124)
+            
             Image("search_movie")
             HStack {
                 Text("No search results found")
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
+                    .font(.regular16)
 
                 Text("\"\(searchKeyword)\"")
                     .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
+                    .foregroundColor(.color04EECD)
+                    .font(.semibold16)
             }
         }
     }
 
-    private let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-
-    private func buildListMoviesView(with movies: [Movie]) -> some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(movies, id: \.id) { movie in
-                    MovieShortInfoView(movie: movie)
-                }
+    private func buildResultView(searchType: SearchType, with datas: [Any]) -> some View {
+        VStack {
+            switch searchType {
+                case .movie:
+                    let movies = datas as! [Movie]
+                    ScrollView(.vertical, showsIndicators: false) {
+                        LazyVGrid(columns: columns, spacing: 8) {
+                            ForEach(movies, id: \.id) { movie in
+                                MovieShortInfoView(movie: movie)
+                            }
+                        }
+                    }
+                    .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
+                case .tvShows:
+                    let tvSeries = datas as! [TVSeries]
+                    ScrollView(.vertical, showsIndicators: false) {
+                        LazyVGrid(columns: columns, spacing: 8) {
+                            ForEach(tvSeries, id: \.id) { tvSerires in
+                                MovieShortInfoView(tvSerires: tvSerires)
+                            }
+                        }
+                    }
+                    .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
+                case .actor:
+                    let actors = datas as! [Actor]
+                    ScrollView(.vertical, showsIndicators: false) {
+                        LazyVGrid(columns: columns, spacing: 8) {
+                            ForEach(actors, id: \.id) { actor in
+                                ActorView(actor: actor)
+                            }
+                        }
+                    }
+                    .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
             }
         }
     }
