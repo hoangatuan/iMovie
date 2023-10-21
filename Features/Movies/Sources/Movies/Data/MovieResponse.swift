@@ -51,21 +51,18 @@ struct MovieResponse: Decodable {
 }
 
 struct MovieResponseMapper: Mappable {
-    static let imageBaseURL = URL(string: "https://image.tmdb.org/t/p/w500")!
+    let imageBaseURL = "https://image.tmdb.org/t/p/w500"
     
     func map(_ input: MovieResponse) throws -> Movie {
-        let backdropPath = input.backdropPath == nil ? nil : URL(string: MovieResponseMapper.imageBaseURL.absoluteString + input.backdropPath!)
-        let posterPath = input.posterPath == nil ? nil : URL(string: MovieResponseMapper.imageBaseURL.absoluteString + input.posterPath!)
-        
-        return .init(
+        .init(
             id: input.id,
             isAdult: input.adult,
-            backdropPath: backdropPath,
+            backdropPath: URL(string: imageBaseURL + (input.backdropPath ?? "")),
             title: input.title,
             originalLanguage: input.originalLanguage,
             originalTitle: input.originalTitle,
             overview: input.overview,
-            posterPath: posterPath,
+            posterPath: URL(string: imageBaseURL + (input.posterPath ?? "")),
             mediaType: input.mediaType,
             genreIds: input.genreIds,
             popularity: input.popularity,

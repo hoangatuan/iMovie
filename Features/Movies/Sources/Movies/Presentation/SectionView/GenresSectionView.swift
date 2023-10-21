@@ -32,7 +32,9 @@ struct GenresSectionView: View {
                     ForEach(genres, id: \.id) { genre in
                         buildGenreCell(genre)
                             .onTapGesture {
-                                router.navigate(to: Destination.genreDetail)
+                                /*
+                                router.presentSheet(destination: )
+                                 */
                             }
                     }
                 }

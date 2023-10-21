@@ -54,9 +54,6 @@ struct MoviesHomeView: View {
                 }
             }
             .ignoresSafeArea(edges: .top)
-            .task {
-                await viewModel.fetch()
-            }
         }
     }
 }

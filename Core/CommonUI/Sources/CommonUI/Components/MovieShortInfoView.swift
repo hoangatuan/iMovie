@@ -22,7 +22,7 @@ public struct MovieShortInfoView: View {
     }
     
     public init(tvSerires: TVSeries) {
-        self.posterPath = URL(string: tvSerires.posterPath ?? "")
+        self.posterPath = tvSerires.posterPath
         self.title = tvSerires.originalName ?? ""
         self.voteAvarage = tvSerires.voteAverage
     }
