@@ -18,10 +18,11 @@ public struct ActorView: View {
     
     public var body: some View {
         VStack {
-            RemoteImageView(imageURL: URL(string: actor.profilePath ?? ""))
-                .cornerRadius(8)
+            RemoteImageView(imageURL: actor.profilePath, contentMode: .fill)
                 .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
                 .frame(width: 106, height: 106)
+                .clipped()
+                .cornerRadius(8)
             
             Text(actor.originalName ?? "")
                 .font(.semibold14)

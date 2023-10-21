@@ -21,6 +21,7 @@ struct AppTabView: View {
 
     var body: some View {
         TabView(selection: $selection) {
+            /// We need to create `MovieTabCoordinator` here because if we use `NavigationStack` and `navigationDestination` with `tabItem`, the tab item will not be shown.
             MovieTabCoordinator()
                 .tabItem {
                     Image("movies")

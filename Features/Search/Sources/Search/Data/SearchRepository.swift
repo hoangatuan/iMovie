@@ -24,27 +24,17 @@ final class SearchRepository: ISearchRepository {
         )
     }
     
-    func searchPersons(keyword: String, page: Int) async throws -> [Models.Actor] {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
+    func searchPersons(keyword: String, page: Int) async throws -> [Actor] {
         return try await apiClientService.request(
             APIEndpoints.searchPersons(query: keyword, page: page),
-            for: SearchActorResponse.self,
-            decoder: decoder
+            mapper: SearchActorResponseMapper()
         )
-        .results
     }
     
     func searchTvSeries(keyword: String, page: Int) async throws -> [TVSeries] {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
         return try await apiClientService.request(
             APIEndpoints.searchTVSeries(query: keyword, page: page),
-            for: SearchTVSeriesResponse.self,
-            decoder: decoder
+            mapper: SearchTVSeriesResponseMapper()
         )
-        .results
     }
 }

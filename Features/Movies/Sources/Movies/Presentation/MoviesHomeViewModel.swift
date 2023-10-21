@@ -15,6 +15,10 @@ final class MoviesHomeViewModel: ObservableObject {
     
     init(movieRepository: IMovieRepository) {
         self.movieRepository = movieRepository
+        
+        Task {
+            await fetch()
+        }
     }
     
     enum SectionType: Equatable, Identifiable {

@@ -23,6 +23,9 @@ struct MovieTabCoordinator: View {
                             SearchCoordinator(dependencies: .init(apiClient: Container.shared.apiClientService()))
                     }
                 }
+                .sheet(item: $router.presentedSheet) { data in
+                    EmptyView()
+                }
         }
         .environmentObject(router)
     }
