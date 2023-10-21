@@ -10,5 +10,7 @@ import Network
 import Models
 
 protocol ISearchRepository {
-    func search(keyword: String) async throws -> [Movie]
+    func searchMovies(keyword: String, page: Int) async throws -> [Movie]
+    func searchTvSeries(keyword: String, page: Int) async throws -> [TVSeries]
+    func searchPersons(keyword: String, page: Int) async throws -> [Actor]
 }

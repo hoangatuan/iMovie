@@ -17,6 +17,7 @@ public struct SearchCoordinator: View {
     
     public var body: some View {
         SearchView(viewModel: .init(searchRepository: SearchRepository(apiClientService: dependencies.apiClient)))
+            .toolbar(.hidden, for: .tabBar)
     }
 }
 

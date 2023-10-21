@@ -24,5 +24,6 @@ struct MovieTabCoordinator: View {
                     }
                 }
         }
+        .environmentObject(router)
     }
 }

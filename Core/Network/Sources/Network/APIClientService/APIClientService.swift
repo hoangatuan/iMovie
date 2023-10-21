@@ -16,8 +16,14 @@ public typealias APIResponse = (data: Data, statusCode: Int)
 
 public protocol IAPIClientService {
     func request(_ endpoint: EndPointType) async -> Result<APIResponse, APIError>
-    func request<T: Decodable>(_ endpoint: EndPointType, for type: T.Type) async throws -> T
+    func request<T: Decodable>(_ endpoint: EndPointType, for type: T.Type, decoder: JSONDecoder) async throws -> T
     func request<T, M: Mappable>(_ endpoint: EndPointType, mapper: M) async throws -> T where M.Output == T
+}
+
+public extension IAPIClientService {
+    func request<T: Decodable>(_ endpoint: EndPointType, for type: T.Type) async throws -> T {
+        try await self.request(endpoint, for: type, decoder: JSONDecoder())
+    }
 }
 
 public final class APIClientService: IAPIClientService {
@@ -62,12 +68,12 @@ public final class APIClientService: IAPIClientService {
         })
     }
 
-    public func request<T>(_ endpoint: EndPointType, for type: T.Type) async throws -> T where T : Decodable {
+    public func request<T>(_ endpoint: EndPointType, for type: T.Type, decoder: JSONDecoder = JSONDecoder()) async throws -> T where T : Decodable {
         let response = await request(endpoint)
         switch response {
         case .success(let result):
             do {
-                let modelResponse = try JSONDecoder().decode(T.self, from: result.data)
+                let modelResponse = try decoder.decode(T.self, from: result.data)
                 return modelResponse
             } catch let error {
                 if let decodingError = error as? DecodingError {
