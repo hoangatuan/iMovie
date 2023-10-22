@@ -1,7 +1,13 @@
 # 🎬 iMovie
 
-This is a SwiftUI project that apply Modular Architect & Clean Architect. For the presentation layer, I'm using MVVM.   
+This is a SwiftUI project that apply Modular Architect & Clean Architect. For the presentation layer, I'm using MVVM-C.   
 Supports iOS 16+
+
+# Getting Started
+
+![Static Badge](https://img.shields.io/badge/status-active-brightgreen)
+![platform](https://img.shields.io/badge/platform-iOS16+-brightgreen)
+![Codecov](https://img.shields.io/codecov/c/github/hoangatuan/iMovie)
 
 ## Key Features
 

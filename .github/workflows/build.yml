@@ -5,7 +5,7 @@ run-name: ${{ github.actor }} running
 on: [pull_request]
 jobs:
   Explore-Github-Actions:
-    runs-on: macos-13
+    runs-on: macos-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -13,13 +13,13 @@ jobs:
       - name: Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: 14.3.1
+          xcode-version: latest-stable
 
       - name: Get all available simulators
         run: xcrun simctl list devices --json | jq -r '.devices[] | .[] | .name'
       
       - name: Run Unit tests
-        run: xcodebuild test -project iMovie.xcodeproj -scheme iMovie -destination 'platform=iOS Simulator,name=iPhone 14,OS=16' -enableCodeCoverage YES build test
+        run: xcodebuild test -project iMovie.xcodeproj -scheme iMovie -destination 'platform=iOS Simulator,name=iPhone 15 Pro' -enableCodeCoverage YES build test
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.2.1
