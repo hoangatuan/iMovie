@@ -29,11 +29,15 @@ let package = Package(
                 "CommonUI",
                 "Models",
                 "Router",
-                "DesignSystem"
+                "DesignSystem",
             ]
         ),
         .testTarget(
             name: "SearchTests",
-            dependencies: ["Search"]),
+            dependencies: [
+                "Search",
+                .product(name: "NetworkMock", package: "Network"),
+            ]
+        ),
     ]
 )
