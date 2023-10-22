@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "09C70502-5BEE-48AB-814D-27B44B0FB4D9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:iMovie.xcodeproj",
+      "identifier" : "A6F079B22A3B724F00B37F13",
+      "name" : "iMovie"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Features\/Search",
+        "identifier" : "SearchTests",
+        "name" : "SearchTests"
+      }
+    }
+  ],
+  "version" : 1
+}

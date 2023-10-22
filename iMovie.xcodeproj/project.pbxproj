@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C63CB112AE4E32B0018DB4F /* iMovie.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iMovie.xctestplan; sourceTree = "<group>"; };
 		4CFB15992ADBCD0F00A5CBB2 /* Search */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Search; sourceTree = "<group>"; };
 		4CFB159A2ADBCD0F00A5CBB2 /* Movies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Movies; sourceTree = "<group>"; };
 		4CFB159D2ADBCDE200A5CBB2 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		A6F079AA2A3B724F00B37F13 = {
 			isa = PBXGroup;
 			children = (
+				4C63CB112AE4E32B0018DB4F /* iMovie.xctestplan */,
 				A6F40B332A43509E00B95487 /* README.md */,
 				A6F079B52A3B724F00B37F13 /* iMovie */,
 				4CFB15952ADBCC1900A5CBB2 /* Features */,

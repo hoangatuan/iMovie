@@ -1,0 +1,25 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/mQZ0jXbTfY4RAfPPp3iuH6vtKcX.jpg",
+            "genre_ids": [
+                10770,
+                28,
+                53
+            ],
+            "id": 47369,
+            "original_language": "en",
+            "original_title": "Avenger",
+            "overview": "After his own daughter was killed in Panama in 1994",
+            "popularity": 3.284,
+            "poster_path": "/cEI5aazuAVJ3PcWeNM8gxYiNjmq.jpg",
+            "release_date": "2006-04-09",
+            "title": "Avenger",
+            "video": false,
+            "vote_average": 5.923,
+            "vote_count": 26
+        }
+    ]
+}
