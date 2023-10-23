@@ -9,21 +9,22 @@ import Foundation
 import Models
 import Network
 
-struct SearchActorResponse: Decodable {
-    let results: [ActorResponse]
+struct SearchPersonResponse: Decodable {
+    let results: [PersonResponse]
 }
 
-struct SearchActorResponseMapper: Mappable {
-    func map(_ input: SearchActorResponse) throws -> [Actor] {
-        try input.results.map { try ActorResponseMapper().map($0) }
+struct SearchPersonResponseMapper: Mappable {
+    func map(_ input: SearchPersonResponse) throws -> [Person] {
+        try input.results.map { try PersonResponseMapper().map($0) }
     }
 }
 
-struct ActorResponse: Decodable {
+struct PersonResponse: Decodable {
     
     let adult: Bool
     let gender: Gender
     let id: Int
+    let department: String
     let name: String?
     let popularity: Double?
     let originalName: String?
@@ -35,6 +36,7 @@ struct ActorResponse: Decodable {
         case originalName = "original_name"
         case profilePath = "profile_path"
         case knownFor = "known_for"
+        case department = "known_for_department"
     }
 }
 
@@ -61,15 +63,16 @@ struct KnownForResponse: Decodable {
     }
 }
 
-struct ActorResponseMapper: Mappable {
+struct PersonResponseMapper: Mappable {
     // TODO: Need refector to avoid duplication
     let imageBaseURL = "https://image.tmdb.org/t/p/w500"
     
-    func map(_ input: ActorResponse) throws -> Actor {
+    func map(_ input: PersonResponse) throws -> Person {
         .init(
             adult: input.adult,
             gender: input.gender,
             id: input.id,
+            department: input.department,
             name: input.name,
             originalName: input.originalName,
             popularity: input.popularity,

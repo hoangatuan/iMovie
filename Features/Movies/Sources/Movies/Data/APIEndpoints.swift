@@ -72,4 +72,59 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
+    
+    // Movie detail
+    static func fetchMovieDetail(for movieId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/movie/\(movieId)",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func fetchMovieImages(for movieId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/movie/\(movieId)/images",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func fetchCredits(for movieId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/movie/\(movieId)/credits",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func fetchRecommendationMovies(for movieId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/movie/\(movieId)/recommendations",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func fetchReviews(for movieId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/movie/\(movieId)/reviews",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func fetchVideos(for movieId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/movie/\(movieId)/videos",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
 }

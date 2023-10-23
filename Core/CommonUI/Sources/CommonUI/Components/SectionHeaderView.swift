@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 public struct SectionHeaderView: View {
     private let title: String
@@ -19,9 +20,8 @@ public struct SectionHeaderView: View {
     public var body: some View {
         HStack {
             Text(title)
-                .font(.title3)
-                .fontWeight(.medium)
-                .foregroundColor(.white)
+                .font(.semibold16)
+                .foregroundColor(.gray)
             Spacer()
             Button(action: {
                 onTap()

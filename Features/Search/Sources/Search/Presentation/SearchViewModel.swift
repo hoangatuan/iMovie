@@ -11,7 +11,7 @@ import Models
 enum SearchType: String, CaseIterable {
     case movie = "Movies"
     case tvShows = "TV Shows"
-    case actor = "Actor"
+    case person = "Person"
 }
 
 @MainActor
@@ -32,7 +32,7 @@ final class SearchViewModel: ObservableObject {
     
     private var movieCache: [String: [Movie]] = [:]
     private var tvSeriesCache: [String: [TVSeries]] = [:]
-    private var actorCache: [String: [Actor]] = [:]
+    private var personCache: [String: [Person]] = [:]
     
     func search(keyword: String, for type: SearchType) async {
         if keyword.isEmpty {
@@ -51,9 +51,9 @@ final class SearchViewModel: ObservableObject {
                     state = .display(type, tvShows)
                     return
                 }
-            case .actor:
-                if let actors = actorCache[keyword] {
-                    state = .display(type, actors)
+            case .person:
+                if let persons = personCache[keyword] {
+                    state = .display(type, persons)
                     return
                 }
         }
@@ -68,10 +68,10 @@ final class SearchViewModel: ObservableObject {
                 let tvSeries = (try? await searchRepository.searchTvSeries(keyword: keyword, page: 1)) ?? []
                 tvSeriesCache[keyword] = tvSeries
                 state = .display(type, tvSeries)
-            case .actor:
-                let actors = (try? await searchRepository.searchPersons(keyword: keyword, page: 1)) ?? []
-                actorCache[keyword] = actors
-                state = .display(type, actors)
+            case .person:
+                let persons = (try? await searchRepository.searchPersons(keyword: keyword, page: 1)) ?? []
+                personCache[keyword] = persons
+                state = .display(type, persons)
         }
     }
 }

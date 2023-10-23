@@ -174,12 +174,12 @@ struct SearchView: View {
                         }
                     }
                     .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
-                case .actor:
-                    let actors = datas as! [Actor]
+                case .person:
+                    let persons = datas as! [Person]
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: columns, spacing: 8) {
-                            ForEach(actors, id: \.id) { actor in
-                                ActorView(actor: actor)
+                            ForEach(persons, id: \.id) { person in
+                                PersonView(person: person)
                             }
                         }
                     }

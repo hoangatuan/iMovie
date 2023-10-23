@@ -12,5 +12,5 @@ import Models
 protocol ISearchRepository {
     func searchMovies(keyword: String, page: Int) async throws -> [Movie]
     func searchTvSeries(keyword: String, page: Int) async throws -> [TVSeries]
-    func searchPersons(keyword: String, page: Int) async throws -> [Actor]
+    func searchPersons(keyword: String, page: Int) async throws -> [Person]
 }

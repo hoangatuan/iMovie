@@ -9,24 +9,28 @@ import SwiftUI
 import Models
 import DesignSystem
 
-public struct ActorView: View {
-    private let actor: Actor
+public struct PersonView: View {
+    private let person: Person
 
-    public init(actor: Actor) {
-        self.actor = actor
+    public init(person: Person) {
+        self.person = person
     }
     
     public var body: some View {
         VStack {
-            RemoteImageView(imageURL: actor.profilePath, contentMode: .fill)
+            RemoteImageView(imageURL: person.profilePath, contentMode: .fill)
                 .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
                 .frame(width: 106, height: 106)
                 .clipped()
                 .cornerRadius(8)
             
-            Text(actor.originalName ?? "")
+            Text(person.originalName ?? "")
                 .font(.semibold14)
                 .foregroundColor(.white)
+            
+            Text(person.department)
+                .font(.regular14)
+                .foregroundColor(.gray)
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Movie: Equatable {
+public struct Movie: Equatable, Hashable {
     public let id: Int
     public let isAdult: Bool
     public let backdropPath: URL?

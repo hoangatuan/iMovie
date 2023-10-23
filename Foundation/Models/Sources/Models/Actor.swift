@@ -13,21 +13,23 @@ public enum Gender: Int, Decodable {
     case other
 }
 
-public struct Actor: Equatable {
-    
+public struct Person: Equatable {
+
     public let adult: Bool
     public let gender: Gender
     public let id: Int
+    public let department: String
     public let name: String?
     public let originalName: String?
     public let popularity: Double?
     public let profilePath: URL?
     public let knownFor: [KnownFor]
     
-    public init(adult: Bool, gender: Gender, id: Int, name: String?, originalName: String?, popularity: Double?, profilePath: URL?, knownFor: [KnownFor]) {
+    public init(adult: Bool, gender: Gender, id: Int, department: String, name: String?, originalName: String?, popularity: Double?, profilePath: URL?, knownFor: [KnownFor]) {
         self.adult = adult
         self.gender = gender
         self.id = id
+        self.department = department
         self.name = name
         self.originalName = originalName
         self.popularity = popularity

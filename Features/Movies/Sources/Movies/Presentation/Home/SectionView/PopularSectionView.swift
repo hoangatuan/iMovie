@@ -8,9 +8,11 @@
 import CommonUI
 import Models
 import SwiftUI
+import Router
 
 struct PopularSectionView: View {
-
+    @EnvironmentObject private var router: Router
+    
     private let sectionTitle: String
     private let movies: [Movie]
     
@@ -29,6 +31,9 @@ struct PopularSectionView: View {
                 LazyHGrid(rows: rows, alignment: .top, spacing: 8) {
                     ForEach(movies, id: \.id) { movie in
                         MovieShortInfoView(movie: movie)
+                            .onTapGesture {
+                                router.navigate(to: Destination.movieDetail(movie: movie))
+                            }
                     }
                 }
             }

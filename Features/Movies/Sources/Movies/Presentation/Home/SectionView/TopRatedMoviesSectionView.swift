@@ -9,8 +9,10 @@ import CommonUI
 import DesignSystem
 import Models
 import SwiftUI
+import Router
 
 struct TopRatedMoviesSectionView: View {
+    @EnvironmentObject private var router: Router
     
     private let movies: [Movie]
     init(movies: [Movie]) {
@@ -27,6 +29,9 @@ struct TopRatedMoviesSectionView: View {
                 LazyHGrid(rows: rows, alignment: .top, spacing: 8) {
                     ForEach(movies.indices) { index in
                         TopRatedCell(index: index + 1, movie: movies[index])
+                            .onTapGesture {
+                                router.navigate(to: Destination.movieDetail(movie: movies[index]))
+                            }
                     }
                 }
             }
