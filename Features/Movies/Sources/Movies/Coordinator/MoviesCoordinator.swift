@@ -8,6 +8,7 @@
 import SwiftUI
 import Network
 import Router
+import Models
 
 public enum PublicMoviesDestination: IDestination {
     case search
@@ -15,6 +16,7 @@ public enum PublicMoviesDestination: IDestination {
 
 enum Destination: IDestination {
     case genreDetail
+    case movieDetail(movie: Movie)
 }
 
 public struct MoviesCoordinator: View {
@@ -32,6 +34,8 @@ public struct MoviesCoordinator: View {
             switch destination {
                 case .genreDetail:
                     Text("Genre detail")
+                case .movieDetail(let movie):
+                    MovieDetailView(movie: movie)
             }
         }
     }

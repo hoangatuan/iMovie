@@ -8,8 +8,10 @@
 import CommonUI
 import Models
 import SwiftUI
+import Router
 
 struct NowPlayingSectionView: View {
+    @EnvironmentObject private var router: Router
     
     private let movies: [Movie]
     
@@ -34,6 +36,9 @@ struct NowPlayingSectionView: View {
                                     .inset(by: 1)
                                     .stroke(Color.color04EECD, lineWidth: 2)
                             )
+                            .onTapGesture {
+                                router.navigate(to: Destination.movieDetail(movie: movie))
+                            }
                     }
                 }
             }

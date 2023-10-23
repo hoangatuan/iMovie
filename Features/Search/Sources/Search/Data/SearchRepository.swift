@@ -24,10 +24,10 @@ final class SearchRepository: ISearchRepository {
         )
     }
     
-    func searchPersons(keyword: String, page: Int) async throws -> [Actor] {
+    func searchPersons(keyword: String, page: Int) async throws -> [Person] {
         return try await apiClientService.request(
             APIEndpoints.searchPersons(query: keyword, page: page),
-            mapper: SearchActorResponseMapper()
+            mapper: SearchPersonResponseMapper()
         )
     }
     

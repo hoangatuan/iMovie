@@ -26,7 +26,7 @@ struct MoviesHomeView: View {
                     case .loading:
                         EmptyView()
                     case let .display(sections):
-                        VStack {
+//                        VStack {
                             List {
                                 ForEach(sections) { section in
                                     switch section {
@@ -47,8 +47,8 @@ struct MoviesHomeView: View {
                             }
                             .listStyle(PlainListStyle())
                             
-                            Spacer()
-                        }
+//                            Spacer()
+//                        }
                     case let .error(error):
                         EmptyView()
                 }
