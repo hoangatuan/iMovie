@@ -51,8 +51,6 @@ struct MovieResponse: Decodable {
 }
 
 struct MovieResponseMapper: Mappable {
-    let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-    
     func map(_ input: MovieResponse) throws -> Movie {
         .init(
             id: input.id,

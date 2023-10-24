@@ -21,26 +21,44 @@ struct MovieDetailView: View {
         VStack {
             ZStack {
                 RemoteImageView(imageURL: movie.posterPath, contentMode: .fit)
+                    .ignoresSafeArea()
+//                
                 movieShortInfoView
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             }
             
-//            Text(movie.overview)
-//                .font(.regular14)
-//                .background(Color.gray)
-//                .padding(.horizontal, 16)
+            
+            Spacer()
+            
+            Text(movie.overview)
+                .font(.regular14)
+                .background(Color.gray)
+                .padding(.horizontal, 16)
+            
+            Text(movie.overview)
+                .font(.regular14)
+                .background(Color.gray)
+                .padding(.horizontal, 16)
+            
+            Text(movie.overview)
+                .font(.regular14)
+                .background(Color.gray)
+                .padding(.horizontal, 16)
         }
+        .ignoresSafeArea(edges: .top)
+        .toolbar(.hidden, for: .navigationBar)
     }
     
     private var movieShortInfoView: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .bottom) {
+            HStack(alignment: .center) {
                 Text(movie.title)
                     .font(.bold20)
                     .foregroundColor(.white)
                 
                 Spacer()
                 
-                HStack(alignment: .lastTextBaseline, spacing: 0) {
+                HStack(alignment: .firstTextBaseline, spacing: 0) {
                     Text("\(movie.voteAverage.integerValue).")
                         .font(.bold24)
                         
@@ -48,7 +66,7 @@ struct MovieDetailView: View {
                         .font(.semibold14)
                 }
                 .foregroundColor(.white)
-                .padding(.all, 4)
+                .padding(.all, 8)
                 .background(Color.colorE56E34)
                 .cornerRadius(8)
             }
@@ -61,7 +79,7 @@ struct MovieDetailView: View {
                     .font(.bold14)
                     .foregroundColor(.black)
             }
-            .padding(.all, 4)
+            .padding(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
             .background(Color.color04EECD)
             .cornerRadius(8)
         }

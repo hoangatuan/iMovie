@@ -14,13 +14,13 @@ public struct Credit: Equatable {
     public let department: String
     public let name: String
     public let originalName: String
-    public let profilePath: String
+    public let profilePath: URL?
     public let castId: Int
     public let popularity: Double
     public let character: String?
     public let job: String?
     
-    public init(gender: Gender, id: Int, department: String, name: String, originalName: String, profilePath: String, castId: Int, popularity: Double, character: String?, job: String?) {
+    public init(gender: Gender, id: Int, department: String, name: String, originalName: String, profilePath: URL?, castId: Int, popularity: Double, character: String?, job: String?) {
         self.gender = gender
         self.id = id
         self.department = department
