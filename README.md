@@ -22,7 +22,7 @@ Feel free to contribute for the project if you want. Here is the figma & api ref
 
 To contribute, please create an issue to describe about what you gonna work on.
 
-## Todo:
+## Todo
     
 ### Code
 
