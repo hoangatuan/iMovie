@@ -35,7 +35,7 @@ public struct MoviesCoordinator: View {
                 case .genreDetail:
                     Text("Genre detail")
                 case .movieDetail(let movie):
-                    MovieDetailView(movie: movie)
+                    MovieDetailView(viewModel: .init(movie: movie, movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient)))
             }
         }
     }

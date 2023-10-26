@@ -10,10 +10,12 @@ import DesignSystem
 
 public struct SectionHeaderView: View {
     private let title: String
-    private let onTap: () -> Void
+    private let showArrowButton: Bool
+    private let onTap: (() -> Void)?
 
-    public init(title: String, onTap: @escaping () -> Void) {
+    public init(title: String, showArrowButton: Bool = true, onTap: (() -> Void)? = nil) {
         self.title = title
+        self.showArrowButton = showArrowButton
         self.onTap = onTap
     }
 
@@ -23,11 +25,14 @@ public struct SectionHeaderView: View {
                 .font(.semibold16)
                 .foregroundColor(.gray)
             Spacer()
-            Button(action: {
-                onTap()
-            }, label: {
-                Image("right_arrow")
-            })
+            
+            if showArrowButton {
+                Button(action: {
+                    onTap?()
+                }, label: {
+                    Image("right_arrow")
+                })
+            }
         }
     }
 }

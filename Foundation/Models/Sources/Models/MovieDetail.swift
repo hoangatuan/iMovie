@@ -9,7 +9,7 @@ import Foundation
 
 public struct GenreDetail: Equatable, Decodable {
     public let id: Int
-    public let name: Genre
+    public let name: String
 }
 
 public struct MovieDetail: Equatable, Decodable {

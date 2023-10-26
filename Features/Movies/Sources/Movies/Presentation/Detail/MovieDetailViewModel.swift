@@ -11,10 +11,12 @@ import Models
 @MainActor
 final class MovieDetailViewModel: ObservableObject {
     
-    private let movieRepository: IMovieDetailRepository
+    let movie: Movie
+    private let repository: IMovieDetailRepository
     
-    init(movieRepository: IMovieDetailRepository) {
-        self.movieRepository = movieRepository
+    init(movie: Movie, movieRepository: IMovieDetailRepository) {
+        self.movie = movie
+        self.repository = movieRepository
         
         Task {
             await fetch()
@@ -28,19 +30,27 @@ final class MovieDetailViewModel: ObservableObject {
         case actors([Credit])
         case reviews([Review])
         case recommendMovies([Movie])
+        
+        var isEmpty: Bool {
+            switch self {
+                case .shortInfo(let array):
+                    return false
+                case .gallery(let array):
+                    return array.isEmpty
+                case .overview(let string):
+                    return false
+                case .actors(let array):
+                    return array.isEmpty
+                case .reviews(let array):
+                    return array.isEmpty
+                case .recommendMovies(let array):
+                    return array.isEmpty
+            }
+        }
 
         var id: UUID {
             return UUID()
         }
-        
-//        var isEmpty: Bool {
-//            switch self {
-//                case .discover(let array), .popular(let array), .latest(let array), .topRated(let array), .trending(let array):
-//                    return array.isEmpty
-//                case .genres(let array):
-//                    return array.isEmpty
-//            }
-//        }
     }
     
     enum State {
@@ -50,7 +60,26 @@ final class MovieDetailViewModel: ObservableObject {
     @Published
     var state: State = .loading
     
-    func fetch() async {
+    private func fetch() async {
+        
+        async let genres = repository.fetchGenres(for: movie.id)
+        async let movieImages = repository.fetchImages(for: movie.id)
+        async let actors = repository.fetchActors(for: movie.id)
+        async let reviews = repository.fetchReviews(for: movie.id)
+        async let recommendationMovies = repository.fetchRecommendationMovies(for: movie.id)
+        
+        var result: [SectionType] = [
+            .shortInfo((try? await genres) ?? []),
+            .gallery((try? await movieImages) ?? []),
+            .overview(movie.overview),
+            .actors((try? await actors) ?? []),
+            .reviews((try? await reviews) ?? []),
+            .recommendMovies((try? await recommendationMovies) ?? [])
+        ]
+        
+        result = result.filter { !$0.isEmpty }
+        
+        state = .display(data: result)
         
     }
 }
