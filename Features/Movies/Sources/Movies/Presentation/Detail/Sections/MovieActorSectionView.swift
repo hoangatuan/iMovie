@@ -37,7 +37,7 @@ struct MovieActorSectionView: View {
             }
         }
         .listRowSeparator(.hidden)
-        .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))
+        .listRowInsets(.init(top: 0, leading: 16, bottom: 0, trailing: 0))
         .listRowBackground(Color.clear)
     }
 }
@@ -63,6 +63,8 @@ struct ActorView: View {
                     .font(.regular12)
                     .foregroundColor(.gray)
             }
+            
+            Spacer()
         }
         .padding(.all, 8)
         .background(Color.color104564)

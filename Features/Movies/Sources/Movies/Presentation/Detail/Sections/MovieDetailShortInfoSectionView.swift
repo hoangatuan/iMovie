@@ -16,7 +16,7 @@ struct MovieDetailShortInfoSectionView: View {
     
     init(movie: Movie, genres: [GenreDetail]) {
         self.movie = movie
-        self.genres = genres.reduce("", { $0 + $1.name })
+        self.genres = genres.map { $0.name }.joined(separator: ", ")
     }
     
     var body: some View {
@@ -26,12 +26,15 @@ struct MovieDetailShortInfoSectionView: View {
             movieShortInfoView
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         }
+        .listRowSeparator(.hidden)
+        .listRowInsets(EdgeInsets())
+        .listRowBackground(Color.clear)
     }
     
     private var movieShortInfoView: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(movie.title)
                         .font(.bold20)
                         .foregroundColor(.white)

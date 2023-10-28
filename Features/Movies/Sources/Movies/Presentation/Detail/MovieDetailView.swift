@@ -8,9 +8,11 @@
 import CommonUI
 import Models
 import SwiftUI
+import Router
 
 struct MovieDetailView: View {
     
+    @EnvironmentObject private var router: Router
     @StateObject private var viewModel: MovieDetailViewModel
     
     init(viewModel: MovieDetailViewModel) {
@@ -26,6 +28,7 @@ struct MovieDetailView: View {
             switch viewModel.state {
                 case .loading:
                     EmptyView()
+                    // TODO: UI for loading state using default shimmer
                 case let .display(sections):
                     List {
                         ForEach(sections) { section in
@@ -38,7 +41,8 @@ struct MovieDetailView: View {
                                     Text(content)
                                         .font(.regular14)
                                         .foregroundColor(.gray)
-                                        .padding(.horizontal, 16)
+                                        .listRowInsets(EdgeInsets(top: 24, leading: 16, bottom: 0, trailing: 16))
+                                        .listRowBackground(Color.clear)
                                 case .actors(let actors):
                                     MovieActorSectionView(actors: actors)
                                 case .reviews(let reviews):
@@ -48,12 +52,23 @@ struct MovieDetailView: View {
                             }
                         }
                     }
+                    .listStyle(PlainListStyle())
                 case let .error(error):
                     EmptyView()
             }
         }
         .ignoresSafeArea(edges: .top)
-        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    router.navigateBack()
+                } label: {
+                    Image("back")
+                        .tint(.white)
+                }
+            }
+        }
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 import Network
 import Router
 import Models
+import Factory
 
 public enum PublicMoviesDestination: IDestination {
     case search

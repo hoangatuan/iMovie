@@ -27,10 +27,11 @@ struct MovieGallerySectionView: View {
                     ForEach(movieImages.indices) { index in
                         RemoteImageView(
                             imageURL: movieImages[index].filePath,
-                            contentMode: .fit,
-                            cornerRadius: 4
+                            contentMode: .fill
                         )
                         .frame(width: 102, height: 94)
+                        .cornerRadius(4)
+                        .clipped()
                     }
                 }
             }

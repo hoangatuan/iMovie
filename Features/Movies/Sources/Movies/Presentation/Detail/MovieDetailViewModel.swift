@@ -33,12 +33,10 @@ final class MovieDetailViewModel: ObservableObject {
         
         var isEmpty: Bool {
             switch self {
-                case .shortInfo(let array):
+                case .shortInfo, .overview:
                     return false
                 case .gallery(let array):
                     return array.isEmpty
-                case .overview(let string):
-                    return false
                 case .actors(let array):
                     return array.isEmpty
                 case .reviews(let array):
@@ -80,6 +78,5 @@ final class MovieDetailViewModel: ObservableObject {
         result = result.filter { !$0.isEmpty }
         
         state = .display(data: result)
-        
     }
 }
