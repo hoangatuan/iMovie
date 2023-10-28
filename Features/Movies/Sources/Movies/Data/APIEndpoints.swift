@@ -110,7 +110,7 @@ enum APIEndpoints {
         )
     }
 
-    static func fetchReviews(   for movieId: Int) -> APIEndpoint {
+    static func fetchReviews(for movieId: Int) -> APIEndpoint {
         .init(
             baseURL: baseURL,
             path: "/3/movie/\(movieId)/reviews",
