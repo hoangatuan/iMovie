@@ -1,23 +1,22 @@
 //
-//  SwiftUIView.swift
-//  
+//  ReviewSectionView.swift
+//
 //
 //  Created by Hoang Anh Tuan on 26/10/2023.
 //
 
 import CommonUI
 import DesignSystem
-import SwiftUI
 import Models
+import SwiftUI
 
 struct ReviewSectionView: View {
-    
     let reviews: [Review]
-    
+
     private let rows = [
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
-    
+
     var body: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -38,28 +37,27 @@ struct ReviewSectionView: View {
 }
 
 struct ReviewView: View {
-    
     let review: Review
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 RemoteImageView(imageURL: review.authorDetail.avatarPath, contentMode: .fill)
                     .frame(width: 32, height: 32)
                     .clipShape(Circle())
-                
+
                 Text(review.authorDetail.username)
                     .font(.semibold14)
                     .foregroundColor(.white)
-                
+
                 Spacer()
             }
-            
+
             Text(review.content)
                 .font(.regular14)
                 .lineLimit(3)
                 .foregroundColor(.gray)
-            
+
             Spacer()
         }
         .padding(.all, 12)

@@ -1,0 +1,12 @@
+opt_in_rules: # some rules are turned off by default, so you need to opt-in
+  - empty_count # Find all the available rules by running: `swiftlint rules`
+
+disabled_rules:
+  - trailing_comma
+  - line_length
+
+identifier_name:
+  min_length: # only min_length
+    error: 3 # only error
+  excluded: # excluded via string array
+    - id

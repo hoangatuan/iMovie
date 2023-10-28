@@ -22,12 +22,11 @@ public protocol IAPIClientService {
 
 public extension IAPIClientService {
     func request<T: Decodable>(_ endpoint: EndPointType, for type: T.Type) async throws -> T {
-        try await self.request(endpoint, for: type, decoder: JSONDecoder())
+        try await request(endpoint, for: type, decoder: JSONDecoder())
     }
 }
 
 public final class APIClientService: IAPIClientService {
-
     private let logger: ILogger
 
     public init(logger: ILogger) {
@@ -49,7 +48,8 @@ public final class APIClientService: IAPIClientService {
             }
 
             guard let data = data, let httpResponse = response as? HTTPURLResponse,
-                  (200..<400).contains(httpResponse.statusCode) else {
+                  (200 ..< 400).contains(httpResponse.statusCode)
+            else {
                 completion(.failure(.badServerResponse))
                 return
             }
@@ -61,28 +61,32 @@ public final class APIClientService: IAPIClientService {
     }
 
     public func request(_ endpoint: EndPointType) async -> Result<APIResponse, APIError> {
-        await withCheckedContinuation({ continuation in
+        await withCheckedContinuation { continuation in
             request(endpoint, completion: { result in
                 continuation.resume(returning: result)
             })
-        })
+        }
     }
 
-    public func request<T>(_ endpoint: EndPointType, for type: T.Type, decoder: JSONDecoder = JSONDecoder()) async throws -> T where T : Decodable {
+    public func request<T>(
+        _ endpoint: EndPointType,
+        for _: T.Type,
+        decoder: JSONDecoder = JSONDecoder()
+    ) async throws -> T where T: Decodable {
         let response = await request(endpoint)
         switch response {
-        case .success(let result):
+        case let .success(result):
             do {
                 let modelResponse = try decoder.decode(T.self, from: result.data)
                 return modelResponse
-            } catch let error {
+            } catch {
                 if let decodingError = error as? DecodingError {
-                    self.logger.log(level: .error, message: "❌ Decoding error: \(decodingError.detailErrorDescription)")
+                    logger.log(level: .error, message: "❌ Decoding error: \(decodingError.detailErrorDescription)")
                 }
 
                 throw APIError.parsing(error: error)
             }
-        case .failure(let failure):
+        case let .failure(failure):
             throw failure
         }
     }
@@ -130,8 +134,7 @@ public final class APIClientService: IAPIClientService {
         default:
             break
         }
-        
+
         return request
     }
-
 }

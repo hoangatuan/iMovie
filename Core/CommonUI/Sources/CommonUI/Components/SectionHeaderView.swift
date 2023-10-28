@@ -5,8 +5,8 @@
 //  Created by Tuan Hoang on 22/06/2023.
 //
 
-import SwiftUI
 import DesignSystem
+import SwiftUI
 
 public struct SectionHeaderView: View {
     private let title: String
@@ -25,7 +25,7 @@ public struct SectionHeaderView: View {
                 .font(.semibold16)
                 .foregroundColor(.gray)
             Spacer()
-            
+
             if showArrowButton {
                 Button(action: {
                     onTap?()

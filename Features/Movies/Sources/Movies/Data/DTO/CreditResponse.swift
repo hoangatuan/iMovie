@@ -1,13 +1,13 @@
 //
-//  File.swift
-//  
+//  CreditResponse.swift
+//
 //
 //  Created by Hoang Anh Tuan on 24/10/2023.
 //
 
 import Foundation
-import Network
 import Models
+import Network
 
 struct SearchCreditResponse: Decodable {
     let cast: [CreditResponse]
@@ -30,7 +30,7 @@ struct CreditResponse: Decodable {
     let popularity: Double
     let character: String?
     let job: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case gender, id, name, character, job, popularity
         case department = "known_for_department"

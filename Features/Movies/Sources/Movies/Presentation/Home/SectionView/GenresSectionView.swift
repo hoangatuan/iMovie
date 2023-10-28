@@ -5,16 +5,15 @@
 //  Created by Tuan Hoang on 19/06/2023.
 //
 
-import SwiftUI
-import Models
 import CommonUI
-import Router
 import DesignSystem
+import Models
+import Router
+import SwiftUI
 
 struct GenresSectionView: View {
-    
     @EnvironmentObject private var router: Router
-    
+
     private let genres: [Genre]
     init(genres: [Genre]) {
         self.genres = genres
@@ -22,7 +21,7 @@ struct GenresSectionView: View {
 
     private let rows = [
         GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
 
     var body: some View {
@@ -33,17 +32,15 @@ struct GenresSectionView: View {
                         buildGenreCell(genre)
                             .onTapGesture {
                                 /*
-                                router.presentSheet(destination: )
-                                 */
+                                 router.presentSheet(destination: )
+                                  */
                             }
                     }
                 }
             }
             .frame(height: 104)
         } header: {
-            SectionHeaderView(title: "Genres Movie") {
-                
-            }
+            SectionHeaderView(title: "Genres Movie") {}
         }
         .listRowSeparator(.hidden)
         .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))
@@ -68,7 +65,7 @@ struct GenresSectionView: View {
             LinearGradient(
                 gradient: Gradient(colors: [
                     Color.color0E264B,
-                    Color.color295091
+                    Color.color295091,
                 ]),
                 startPoint: .leading, endPoint: .trailing
             )
@@ -79,7 +76,7 @@ struct GenresSectionView: View {
 
 extension Genre {
     var iconName: String {
-        return String(describing: self.name)
+        return String(describing: name)
     }
 }
 
@@ -89,7 +86,7 @@ struct GenresSectionView_Previews: PreviewProvider {
             .init(id: 1, name: .action),
             .init(id: 2, name: .family),
             .init(id: 3, name: .adventure),
-            .init(id: 4, name: .horror)
+            .init(id: 4, name: .horror),
         ])
     }
 }

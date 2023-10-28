@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import Network
 import Models
+import Network
 
 final class MovieRepository: IMovieRepository {
     private let apiClientService: IAPIClientService
@@ -35,14 +35,14 @@ final class MovieRepository: IMovieRepository {
             mapper: TrendingMovieResponseMapper()
         )
     }
-    
+
     func fetchLatestMovies() async throws -> [Movie] {
         try await apiClientService.request(
             APIEndpoints.fetchLatestMoviesEndpoint,
             mapper: TrendingMovieResponseMapper()
         )
     }
-    
+
     func fetchTopRatedMovies() async throws -> [Movie] {
         try await apiClientService.request(
             APIEndpoints.fetchTopRatedMoviesEndpoint,

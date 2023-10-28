@@ -1,6 +1,6 @@
 //
-//  SwiftUIView.swift
-//  
+//  TopRatedMoviesSectionView.swift
+//
 //
 //  Created by Hoang Anh Tuan on 18/10/2023.
 //
@@ -8,21 +8,21 @@
 import CommonUI
 import DesignSystem
 import Models
-import SwiftUI
 import Router
+import SwiftUI
 
 struct TopRatedMoviesSectionView: View {
     @EnvironmentObject private var router: Router
-    
+
     private let movies: [Movie]
     init(movies: [Movie]) {
         self.movies = movies
     }
-    
+
     private let rows = [
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
-    
+
     var body: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -36,9 +36,7 @@ struct TopRatedMoviesSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "Top rating") {
-
-            }
+            SectionHeaderView(title: "Top rating") {}
         }
         .listRowSeparator(.hidden)
         .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))
@@ -47,15 +45,14 @@ struct TopRatedMoviesSectionView: View {
 }
 
 struct TopRatedCell: View {
-    
     private let index: Int
     private let movie: Movie
-    
+
     init(index: Int, movie: Movie) {
         self.movie = movie
         self.index = index
     }
-    
+
     var body: some View {
         ZStack(alignment: .top) {
             Color.color104564
@@ -63,10 +60,10 @@ struct TopRatedCell: View {
                 .frame(width: 128)
                 .cornerRadius(4)
                 .padding(.top, 17)
-            
+
             VStack(alignment: .center, spacing: 8) {
                 Spacer().frame(height: 44)
-                
+
                 RemoteImageView(
                     imageURL: movie.posterPath,
                     contentMode: .fill
@@ -74,20 +71,20 @@ struct TopRatedCell: View {
                 .frame(width: 60, height: 60)
                 .clipped()
                 .clipShape(RoundedRectangle(cornerRadius: 4))
-                
+
                 Text(movie.originalTitle)
                     .multilineTextAlignment(.center)
                     .lineLimit(3)
                     .font(.semibold13)
                     .foregroundColor(.white)
-                
+
                 Spacer()
-                
+
                 Spacer()
                     .frame(width: 128, height: 3)
                     .background(Color.color04EECD)
             }
-            
+
             VStack {
                 Text("\(index)")
                     .font(.bold24)
@@ -97,7 +94,7 @@ struct TopRatedCell: View {
                     .padding(EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4))
                     .background(Color.color040F23)
                     .clipShape(Circle())
-                
+
                 Spacer()
             }
         }

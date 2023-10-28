@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  Mappable.swift
+//
 //
 //  Created by Tuan Hoang on 16/06/2023.
 //

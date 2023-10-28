@@ -7,22 +7,22 @@
 
 import CommonUI
 import Models
-import SwiftUI
 import Router
+import SwiftUI
 
 struct PopularSectionView: View {
     @EnvironmentObject private var router: Router
-    
+
     private let sectionTitle: String
     private let movies: [Movie]
-    
+
     init(sectionTitle: String, movies: [Movie]) {
         self.sectionTitle = sectionTitle
         self.movies = movies
     }
 
     private let rows = [
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
 
     var body: some View {
@@ -38,9 +38,7 @@ struct PopularSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: sectionTitle) {
-
-            }
+            SectionHeaderView(title: sectionTitle) {}
         }
         .listRowSeparator(.hidden)
         .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))

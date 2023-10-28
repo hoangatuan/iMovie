@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  MovieImage.swift
+//
 //
 //  Created by Hoang Anh Tuan on 24/10/2023.
 //
@@ -12,7 +12,7 @@ public struct MovieImage: Equatable {
     public let height: Int
     public let width: Int
     public let filePath: URL?
-    
+
     public init(aspectRatio: Double, height: Int, width: Int, filePath: URL?) {
         self.aspectRatio = aspectRatio
         self.height = height

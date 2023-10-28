@@ -1,25 +1,24 @@
 //
-//  SwiftUIView.swift
-//  
+//  MovieGallerySectionView.swift
+//
 //
 //  Created by Hoang Anh Tuan on 26/10/2023.
 //
 
 import CommonUI
-import SwiftUI
 import Models
+import SwiftUI
 
 struct MovieGallerySectionView: View {
-    
     private let movieImages: [MovieImage]
     init(movieImages: [MovieImage]) {
         self.movieImages = movieImages
     }
-    
+
     private let rows = [
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
-    
+
     var body: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -36,9 +35,7 @@ struct MovieGallerySectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "Gallery") {
-
-            }
+            SectionHeaderView(title: "Gallery") {}
         }
         .listRowSeparator(.hidden)
         .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))

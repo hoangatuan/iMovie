@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  Review.swift
+//
 //
 //  Created by Hoang Anh Tuan on 24/10/2023.
 //
@@ -12,7 +12,7 @@ public struct AuthorDetail: Equatable {
     public let username: String
     public let avatarPath: URL?
     public let rating: Int?
-    
+
     public init(name: String, username: String, avatarPath: URL?, rating: Int?) {
         self.name = name
         self.username = username
@@ -28,7 +28,7 @@ public struct Review: Equatable {
     public let createdAt: Date
     public let id: String
     public let updatedAt: Date?
-    
+
     public init(author: String, authorDetail: AuthorDetail, content: String, createdAt: Date, id: String, updatedAt: Date?) {
         self.author = author
         self.authorDetail = authorDetail

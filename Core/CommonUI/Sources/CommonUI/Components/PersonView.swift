@@ -1,13 +1,13 @@
 //
-//  File.swift
-//  
+//  PersonView.swift
+//
 //
 //  Created by Hoang Anh Tuan on 21/10/2023.
 //
 
-import SwiftUI
-import Models
 import DesignSystem
+import Models
+import SwiftUI
 
 public struct PersonView: View {
     private let person: Person
@@ -15,7 +15,7 @@ public struct PersonView: View {
     public init(person: Person) {
         self.person = person
     }
-    
+
     public var body: some View {
         VStack {
             RemoteImageView(imageURL: person.profilePath, contentMode: .fill)
@@ -23,11 +23,11 @@ public struct PersonView: View {
                 .frame(width: 106, height: 106)
                 .clipped()
                 .cornerRadius(8)
-            
+
             Text(person.originalName ?? "")
                 .font(.semibold14)
                 .foregroundColor(.white)
-            
+
             Text(person.department)
                 .font(.regular14)
                 .foregroundColor(.gray)

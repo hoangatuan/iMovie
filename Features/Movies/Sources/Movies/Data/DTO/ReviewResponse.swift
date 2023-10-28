@@ -1,13 +1,13 @@
 //
-//  File.swift
-//  
+//  ReviewResponse.swift
+//
 //
 //  Created by Hoang Anh Tuan on 24/10/2023.
 //
 
 import Foundation
-import Network
 import Models
+import Network
 
 let imageBaseURL = "https://image.tmdb.org/t/p/w500"
 
@@ -26,7 +26,7 @@ struct AuthorDetailResponse: Decodable {
     let username: String
     let avatarPath: String?
     let rating: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case name, username, rating
         case avatarPath = "avatar_path"
@@ -51,7 +51,7 @@ struct ReviewResponse: Decodable {
     let createdAt: String
     let id: String
     let updatedAt: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case author, content, id
         case authorDetail = "author_details"
@@ -62,9 +62,9 @@ struct ReviewResponse: Decodable {
 
 struct ReviewResponseMapper: Mappable {
     func map(_ input: ReviewResponse) throws -> Review {
-        .init(
+        try .init(
             author: input.author,
-            authorDetail: try AuthorDetailResponseMapper().map(input.authorDetail),
+            authorDetail: AuthorDetailResponseMapper().map(input.authorDetail),
             content: input.content,
             createdAt: Date(),
             id: input.id,
