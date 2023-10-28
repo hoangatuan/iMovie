@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Models
 
-protocol IMovieDetailRepository {
+public protocol IMovieDetailRepository {
     func fetchGenres(for movieId: Int) async throws -> [GenreDetail]
     func fetchImages(for movieId: Int) async throws -> [MovieImage]
     func fetchActors(for movieId: Int) async throws -> [Credit]

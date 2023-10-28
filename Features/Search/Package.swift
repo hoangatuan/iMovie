@@ -15,10 +15,10 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../Core/Network"),
         .package(path: "../Core/CommonUI"),
 
-        .package(path: "../Foundation/Models"),
+        .package(path: "../Foundation/Network"),
+        .package(path: "../Foundation/Domain"),
         .package(path: "../Foundation/Router"),
         .package(path: "../Foundation/DesignSystem"),
     ],
@@ -28,7 +28,8 @@ let package = Package(
             dependencies: [
                 "Network",
                 "CommonUI",
-                "Models",
+                "Domain",
+                .product(name: "DomainData", package: "Domain"),
                 "Router",
                 "DesignSystem",
             ]

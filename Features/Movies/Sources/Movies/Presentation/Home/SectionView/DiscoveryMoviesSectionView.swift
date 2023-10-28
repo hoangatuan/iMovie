@@ -6,8 +6,8 @@
 //
 
 import CommonUI
+import Domain
 import Factory
-import Models
 import Router
 import SwiftUI
 

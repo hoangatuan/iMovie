@@ -6,10 +6,8 @@
 //
 
 import Foundation
-import Models
-import Network
 
-protocol ISearchRepository {
+public protocol ISearchRepository {
     func searchMovies(keyword: String, page: Int) async throws -> [Movie]
     func searchTvSeries(keyword: String, page: Int) async throws -> [TVSeries]
     func searchPersons(keyword: String, page: Int) async throws -> [Person]

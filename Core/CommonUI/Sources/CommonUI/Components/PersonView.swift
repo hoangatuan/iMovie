@@ -6,7 +6,7 @@
 //
 
 import DesignSystem
-import Models
+import Domain
 import SwiftUI
 
 public struct PersonView: View {

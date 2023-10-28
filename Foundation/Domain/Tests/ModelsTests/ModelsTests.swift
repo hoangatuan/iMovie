@@ -1,4 +1,4 @@
-@testable import Models
+@testable import Domain
 import XCTest
 
 final class ModelsTests: XCTestCase {
