@@ -8,82 +8,67 @@
 import CommonUI
 import Models
 import SwiftUI
+import Router
 
 struct MovieDetailView: View {
     
-    private let movie: Movie
+    @EnvironmentObject private var router: Router
+    @StateObject private var viewModel: MovieDetailViewModel
     
-    init(movie: Movie) {
-        self.movie = movie
+    init(viewModel: MovieDetailViewModel) {
+        self._viewModel = .init(wrappedValue: viewModel)
     }
     
     var body: some View {
-        VStack {
-            ZStack {
-                RemoteImageView(imageURL: movie.posterPath, contentMode: .fit)
-                    .ignoresSafeArea()
-//                
-                movieShortInfoView
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        ZStack {
+            Color.color040F23
+                .ignoresSafeArea()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            switch viewModel.state {
+                case .loading:
+                    EmptyView()
+                    // TODO: UI for loading state using default shimmer
+                case let .display(sections):
+                    List {
+                        ForEach(sections) { section in
+                            switch section {
+                                case .shortInfo(let genres):
+                                    MovieDetailShortInfoSectionView(movie: viewModel.movie, genres: genres)
+                                case .gallery(let images):
+                                    MovieGallerySectionView(movieImages: images)
+                                case .overview(let content):
+                                    Text(content)
+                                        .font(.regular14)
+                                        .foregroundColor(.gray)
+                                        .listRowInsets(EdgeInsets(top: 24, leading: 16, bottom: 0, trailing: 16))
+                                        .listRowBackground(Color.clear)
+                                case .actors(let actors):
+                                    MovieActorSectionView(actors: actors)
+                                case .reviews(let reviews):
+                                    ReviewSectionView(reviews: reviews)
+                                case .recommendMovies(let movies):
+                                    PopularSectionView(sectionTitle: "You may also like...", movies: movies)
+                            }
+                        }
+                    }
+                    .listStyle(PlainListStyle())
+                case let .error(error):
+                    EmptyView()
             }
-            
-            
-            Spacer()
-            
-            Text(movie.overview)
-                .font(.regular14)
-                .background(Color.gray)
-                .padding(.horizontal, 16)
-            
-            Text(movie.overview)
-                .font(.regular14)
-                .background(Color.gray)
-                .padding(.horizontal, 16)
-            
-            Text(movie.overview)
-                .font(.regular14)
-                .background(Color.gray)
-                .padding(.horizontal, 16)
         }
         .ignoresSafeArea(edges: .top)
-        .toolbar(.hidden, for: .navigationBar)
-    }
-    
-    private var movieShortInfoView: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .center) {
-                Text(movie.title)
-                    .font(.bold20)
-                    .foregroundColor(.white)
-                
-                Spacer()
-                
-                HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text("\(movie.voteAverage.integerValue).")
-                        .font(.bold24)
-                        
-                    Text("\(movie.voteAverage.firstDecimalValue)")
-                        .font(.semibold14)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    router.navigateBack()
+                } label: {
+                    Image("back")
+                        .tint(.white)
                 }
-                .foregroundColor(.white)
-                .padding(.all, 8)
-                .background(Color.colorE56E34)
-                .cornerRadius(8)
             }
-            
-            HStack(spacing: 8) {
-                Image("play")
-                    .frame(width: 24, height: 24)
-                
-                Text("PLAY TRAILER")
-                    .font(.bold14)
-                    .foregroundColor(.black)
-            }
-            .padding(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
-            .background(Color.color04EECD)
-            .cornerRadius(8)
         }
-        .padding(.horizontal, 16)
     }
 }
 

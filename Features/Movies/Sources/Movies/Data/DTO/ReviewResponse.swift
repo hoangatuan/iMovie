@@ -25,10 +25,11 @@ struct AuthorDetailResponse: Decodable {
     let name: String
     let username: String
     let avatarPath: String?
+    let rating: Int?
     
     enum CodingKeys: String, CodingKey {
-        case name, username
-        case avatarPath = "avater_path"
+        case name, username, rating
+        case avatarPath = "avatar_path"
     }
 }
 
@@ -37,7 +38,8 @@ struct AuthorDetailResponseMapper: Mappable {
         .init(
             name: input.name,
             username: input.username,
-            avatarPath: URL(string: imageBaseURL + (input.avatarPath ?? ""))
+            avatarPath: URL(string: imageBaseURL + (input.avatarPath ?? "")),
+            rating: input.rating
         )
     }
 }
@@ -46,9 +48,16 @@ struct ReviewResponse: Decodable {
     let author: String
     let authorDetail: AuthorDetailResponse
     let content: String
-    let createdAt: Date
+    let createdAt: String
     let id: String
-    let updatedAt: Date?
+    let updatedAt: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case author, content, id
+        case authorDetail = "author_details"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
 }
 
 struct ReviewResponseMapper: Mappable {
@@ -57,9 +66,9 @@ struct ReviewResponseMapper: Mappable {
             author: input.author,
             authorDetail: try AuthorDetailResponseMapper().map(input.authorDetail),
             content: input.content,
-            createdAt: input.createdAt,
+            createdAt: Date(),
             id: input.id,
-            updatedAt: input.updatedAt
+            updatedAt: Date()
         )
     }
 }

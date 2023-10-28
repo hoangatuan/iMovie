@@ -11,11 +11,13 @@ public struct AuthorDetail: Equatable {
     public let name: String
     public let username: String
     public let avatarPath: URL?
+    public let rating: Int?
     
-    public init(name: String, username: String, avatarPath: URL?) {
+    public init(name: String, username: String, avatarPath: URL?, rating: Int?) {
         self.name = name
         self.username = username
         self.avatarPath = avatarPath
+        self.rating = rating
     }
 }
 

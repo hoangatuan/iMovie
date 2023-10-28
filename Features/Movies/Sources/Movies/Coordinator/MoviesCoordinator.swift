@@ -9,6 +9,7 @@ import SwiftUI
 import Network
 import Router
 import Models
+import Factory
 
 public enum PublicMoviesDestination: IDestination {
     case search
@@ -35,7 +36,7 @@ public struct MoviesCoordinator: View {
                 case .genreDetail:
                     Text("Genre detail")
                 case .movieDetail(let movie):
-                    MovieDetailView(movie: movie)
+                    MovieDetailView(viewModel: .init(movie: movie, movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient)))
             }
         }
     }

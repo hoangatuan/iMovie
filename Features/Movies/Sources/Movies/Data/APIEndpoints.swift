@@ -104,7 +104,7 @@ enum APIEndpoints {
     static func fetchRecommendationMovies(for movieId: Int) -> APIEndpoint {
         .init(
             baseURL: baseURL,
-            path: "/3/movie/\(movieId)/recommendations",
+            path: "/3/movie/\(movieId)/similar", // acutally the API should be /recommendations, but it ususally returns empty results, so I change to use /similar endpoint
             httpMethod: .get,
             headers: baseHeaders
         )
