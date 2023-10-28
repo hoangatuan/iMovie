@@ -23,7 +23,7 @@ public struct Movie: Equatable, Hashable {
     public let hasVideo: Bool
     public let voteAverage: Double
     public let voteCount: Int
-    
+
     public init(
         id: Int,
         isAdult: Bool,

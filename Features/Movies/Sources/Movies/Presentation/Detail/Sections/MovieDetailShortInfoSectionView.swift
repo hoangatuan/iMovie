@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  MovieDetailShortInfoSectionView.swift
+//
 //
 //  Created by Hoang Anh Tuan on 25/10/2023.
 //
@@ -10,19 +10,18 @@ import Models
 import SwiftUI
 
 struct MovieDetailShortInfoSectionView: View {
-    
     private let movie: Movie
     private let genres: String
-    
+
     init(movie: Movie, genres: [GenreDetail]) {
         self.movie = movie
         self.genres = genres.map { $0.name }.joined(separator: ", ")
     }
-    
+
     var body: some View {
         ZStack {
             RemoteImageView(imageURL: movie.posterPath, contentMode: .fit)
-            
+
             movieShortInfoView
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         }
@@ -30,7 +29,7 @@ struct MovieDetailShortInfoSectionView: View {
         .listRowInsets(EdgeInsets())
         .listRowBackground(Color.clear)
     }
-    
+
     private var movieShortInfoView: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
@@ -38,18 +37,18 @@ struct MovieDetailShortInfoSectionView: View {
                     Text(movie.title)
                         .font(.bold20)
                         .foregroundColor(.white)
-                    
+
                     Text(genres)
                         .font(.regular14)
                         .foregroundColor(.gray)
                 }
-                
+
                 Spacer()
-                
+
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
                     Text("\(movie.voteAverage.integerValue).")
                         .font(.bold24)
-                        
+
                     Text("\(movie.voteAverage.firstDecimalValue)")
                         .font(.semibold14)
                 }
@@ -58,11 +57,11 @@ struct MovieDetailShortInfoSectionView: View {
                 .background(Color.colorE56E34)
                 .cornerRadius(8)
             }
-            
+
             HStack(spacing: 8) {
                 Image("play")
                     .frame(width: 24, height: 24)
-                
+
                 Text("PLAY TRAILER")
                     .font(.bold14)
                     .foregroundColor(.black)
@@ -74,4 +73,3 @@ struct MovieDetailShortInfoSectionView: View {
         .padding(.horizontal, 16)
     }
 }
-

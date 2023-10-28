@@ -13,6 +13,18 @@ Supports iOS 16+
 - Dependency Injection using `DIContainer` & constructor injection to support testing. Using [Factory](https://github.com/hmlongco/Factory) to support DI.
 - Designed for scalability. It can be used as a reference for building large production apps
 
+# Getting Started
+
+## Set up project
+
+After clone the project, navigate to the project directory, then run this command:
+
+```bash
+    make
+```
+
+And that's all you need to do to set up the project 🚀
+
 ## Contribute ⚙️
 
 Feel free to contribute for the project if you want. Here is the figma & api reference:
@@ -40,5 +52,3 @@ To contribute, please create an issue to describe about what you gonna work on.
 - Add github workflow:
     + Buid, run test before merge
     + Code coverage + create badge
-- swiftlint
-- swiftformat

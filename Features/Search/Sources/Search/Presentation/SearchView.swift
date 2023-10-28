@@ -5,24 +5,23 @@
 //  Created by Tuan Hoang on 22/06/2023.
 //
 
-import SwiftUI
-import Models
 import CommonUI
 import DesignSystem
+import Models
+import SwiftUI
 
 struct SearchView: View {
-    
     @StateObject private var viewModel: SearchViewModel
     init(viewModel: SearchViewModel) {
-        self._viewModel = .init(wrappedValue: viewModel)
+        _viewModel = .init(wrappedValue: viewModel)
     }
-    
+
     private let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
-    
+
     @State private var searchKeyword = ""
     @State private var selectedSearchType: SearchType = .movie
 
@@ -34,28 +33,28 @@ struct SearchView: View {
 
             VStack {
                 searchBar
-                
+
                 if !searchKeyword.isEmpty {
                     tabsView
                 }
 
                 switch viewModel.state {
-                    case .emptyInput:
-                        EmptyView()
-                        // TODO: After this project migrate to iOS 17+, use SwiftData to implement `Recent Search Keyword`. For now, can just use `UserDefault`
-                    case .loading:
-                        EmptyView()
-                        // TODO: Shimmer View
-                    case .display(let searchType, let datas):
-                        if datas.isEmpty {
-                            emptyResultView
-                        } else {
-                            buildResultView(searchType: searchType, with: datas)
-                        }
-                    case .error:
-                        EmptyView()
+                case .emptyInput:
+                    EmptyView()
+                // TODO: After this project migrate to iOS 17+, use SwiftData to implement `Recent Search Keyword`. For now, can just use `UserDefault`
+                case .loading:
+                    EmptyView()
+                // TODO: Shimmer View
+                case let .display(searchType, datas):
+                    if datas.isEmpty {
+                        emptyResultView
+                    } else {
+                        buildResultView(searchType: searchType, with: datas)
+                    }
+                case .error:
+                    EmptyView()
                 }
-                
+
                 Spacer()
             }
         }
@@ -70,21 +69,21 @@ struct SearchView: View {
             }
         })
     }
-    
+
     private var searchBar: some View {
         VStack {
             HStack {
                 Image("search")
                     .foregroundColor(Color.color4E89FF)
                     .frame(width: 24, height: 24)
-                
+
                 TextField(
                     "", text: $searchKeyword,
                     prompt: Text("Search for the movies").foregroundColor(.gray)
                 )
                 .font(.regular16)
                 .foregroundColor(.white)
-                
+
                 if !searchKeyword.isEmpty {
                     Button {
                         searchKeyword = ""
@@ -93,11 +92,11 @@ struct SearchView: View {
                     }
                 }
             }
-            
+
             HStack {
                 Spacer()
                     .frame(width: 24, height: 24)
-                
+
                 Spacer()
                     .frame(height: 1)
                     .background(Color.color4E89FF)
@@ -105,7 +104,7 @@ struct SearchView: View {
         }
         .padding(.init(top: 36, leading: 16, bottom: 32, trailing: 16))
     }
-    
+
     private var tabsView: some View {
         HStack {
             ForEach(SearchType.allCases, id: \.rawValue) { type in
@@ -117,7 +116,7 @@ struct SearchView: View {
                             selectedSearchType = type
                         }
                         .padding()
-                    
+
                     if selectedSearchType == type {
                         Spacer()
                             .frame(height: 1)
@@ -135,7 +134,7 @@ struct SearchView: View {
         VStack {
             Spacer()
                 .frame(height: 124)
-            
+
             Image("search_movie")
             HStack {
                 Text("No search results found")
@@ -154,8 +153,8 @@ struct SearchView: View {
     private func buildResultView(searchType: SearchType, with datas: [Any]) -> some View {
         VStack {
             switch searchType {
-                case .movie:
-                    let movies = datas as! [Movie]
+            case .movie:
+                if let movies = datas as? [Movie] {
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: columns, spacing: 8) {
                             ForEach(movies, id: \.id) { movie in
@@ -163,9 +162,9 @@ struct SearchView: View {
                             }
                         }
                     }
-                    .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
-                case .tvShows:
-                    let tvSeries = datas as! [TVSeries]
+                }
+            case .tvShows:
+                if let tvSeries = datas as? [TVSeries] {
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: columns, spacing: 8) {
                             ForEach(tvSeries, id: \.id) { tvSerires in
@@ -173,9 +172,9 @@ struct SearchView: View {
                             }
                         }
                     }
-                    .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
-                case .person:
-                    let persons = datas as! [Person]
+                }
+            case .person:
+                if let persons = datas as? [Person] {
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: columns, spacing: 8) {
                             ForEach(persons, id: \.id) { person in
@@ -183,8 +182,9 @@ struct SearchView: View {
                             }
                         }
                     }
-                    .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
+                }
             }
         }
+        .padding(.init(top: 0, leading: 16, bottom: 16, trailing: 16))
     }
 }

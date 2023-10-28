@@ -1,20 +1,19 @@
 //
-//  File.swift
-//  
+//  Logger+Network.swift
+//
 //
 //  Created by Tuan Hoang on 16/06/2023.
 //
 
 import Foundation
 
-extension ILogger {
-    public func log(
+public extension ILogger {
+    func log(
         request: URLRequest? = nil,
         data: Data? = nil,
         response: HTTPURLResponse? = nil,
         error: Error? = nil
     ) {
-
         var message = ""
         if let request = request {
             message += "\n⬅️⬅️⬅️⬅️⬅️ Request:\n\(request.logMessage())"

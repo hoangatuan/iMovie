@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  TVSeries.swift
+//
 //
 //  Created by Hoang Anh Tuan on 21/10/2023.
 //
@@ -8,7 +8,6 @@
 import Foundation
 
 public struct TVSeries: Equatable, Decodable {
-    
     public let adult: Bool
     public let backdropPath: URL?
     public let id: Int
@@ -19,7 +18,7 @@ public struct TVSeries: Equatable, Decodable {
     public let name: String?
     public let voteAverage: Double
     public let voteCount: Double
-    
+
     public init(
         adult: Bool,
         backdropPath: URL?,
@@ -43,5 +42,4 @@ public struct TVSeries: Equatable, Decodable {
         self.voteAverage = voteAverage
         self.voteCount = voteCount
     }
-    
 }

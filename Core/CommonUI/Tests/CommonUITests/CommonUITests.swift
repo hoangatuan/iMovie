@@ -1,5 +1,5 @@
-import XCTest
 @testable import CommonUI
+import XCTest
 
 final class CommonUITests: XCTestCase {
     func testExample() throws {

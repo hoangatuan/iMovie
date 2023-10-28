@@ -1,13 +1,13 @@
 //
-//  File.swift
-//  
+//  MovieImageResponse.swift
+//
 //
 //  Created by Hoang Anh Tuan on 24/10/2023.
 //
 
 import Foundation
-import Network
 import Models
+import Network
 
 struct SearchMovieImageResponse: Decodable {
     let backdrops: [MovieImageResponse]
@@ -24,14 +24,14 @@ struct MovieImageResponse: Decodable {
     let height: Int
     let width: Int
     let filePath: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case height, width
         case aspectRatio = "aspect_ratio"
         case filePath = "file_path"
     }
 }
- 
+
 struct MovieImageResponseMapper: Mappable {
     func map(_ input: MovieImageResponse) throws -> MovieImage {
         .init(

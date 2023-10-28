@@ -1,5 +1,5 @@
-import XCTest
 @testable import Router
+import XCTest
 
 final class RouterTests: XCTestCase {
     func testExample() throws {

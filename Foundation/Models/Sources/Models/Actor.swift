@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  Actor.swift
+//
 //
 //  Created by Hoang Anh Tuan on 20/10/2023.
 //
@@ -14,7 +14,6 @@ public enum Gender: Int, Decodable {
 }
 
 public struct Person: Equatable {
-
     public let adult: Bool
     public let gender: Gender
     public let id: Int
@@ -24,8 +23,18 @@ public struct Person: Equatable {
     public let popularity: Double?
     public let profilePath: URL?
     public let knownFor: [KnownFor]
-    
-    public init(adult: Bool, gender: Gender, id: Int, department: String, name: String?, originalName: String?, popularity: Double?, profilePath: URL?, knownFor: [KnownFor]) {
+
+    public init(
+        adult: Bool,
+        gender: Gender,
+        id: Int,
+        department: String,
+        name: String?,
+        originalName: String?,
+        popularity: Double?,
+        profilePath: URL?,
+        knownFor: [KnownFor]
+    ) {
         self.adult = adult
         self.gender = gender
         self.id = id
@@ -39,7 +48,6 @@ public struct Person: Equatable {
 }
 
 public struct KnownFor: Equatable {
-    
     public let backdropPath: URL?
     public let id: Int
     public let title: String?
@@ -50,8 +58,19 @@ public struct KnownFor: Equatable {
     public let mediaType: String?
     public let voteAverage: Double?
     public let voteCount: Int?
-    
-    public init(backdropPath: URL?, id: Int, title: String?, originalTitle: String?, overview: String?, posterPath: URL?, popularity: Double?, mediaType: String?, voteAverage: Double?, voteCount: Int?) {
+
+    public init(
+        backdropPath: URL?,
+        id: Int,
+        title: String?,
+        originalTitle: String?,
+        overview: String?,
+        posterPath: URL?,
+        popularity: Double?,
+        mediaType: String?,
+        voteAverage: Double?,
+        voteCount: Int?
+    ) {
         self.backdropPath = backdropPath
         self.id = id
         self.title = title

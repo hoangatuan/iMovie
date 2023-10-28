@@ -5,14 +5,14 @@
 //  Created by Tuan Hoang on 18/06/2023.
 //
 
-import SwiftUI
-import Factory
 import CommonUI
 import DesignSystem
+import Factory
+import SwiftUI
 
 struct AppTabView: View {
     private let container: Container
-    
+
     init(container: Container) {
         self.container = container
     }
@@ -34,9 +34,8 @@ struct AppTabView: View {
                     Color.color4E89FF,
                     for: .tabBar
                 )
-            
         }
-        .onAppear() {
+        .onAppear {
             UITabBar.appearance().barTintColor = .white
         }
     }

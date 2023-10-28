@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  SearchResponse.swift
+//
 //
 //  Created by Hoang Anh Tuan on 21/10/2023.
 //
@@ -20,7 +20,6 @@ struct SearchPersonResponseMapper: Mappable {
 }
 
 struct PersonResponse: Decodable {
-    
     let adult: Bool
     let gender: Gender
     let id: Int
@@ -30,7 +29,7 @@ struct PersonResponse: Decodable {
     let originalName: String?
     let profilePath: String?
     let knownFor: [KnownForResponse]
-    
+
     enum CodingKeys: String, CodingKey {
         case adult, gender, id, name, popularity
         case originalName = "original_name"
@@ -51,7 +50,7 @@ struct KnownForResponse: Decodable {
     let mediaType: String?
     let voteAverage: Double?
     let voteCount: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case id, title, overview, popularity
         case backdropPath = "backdrop_path"
@@ -66,9 +65,9 @@ struct KnownForResponse: Decodable {
 struct PersonResponseMapper: Mappable {
     // TODO: Need refector to avoid duplication
     let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-    
+
     func map(_ input: PersonResponse) throws -> Person {
-        .init(
+        try .init(
             adult: input.adult,
             gender: input.gender,
             id: input.id,
@@ -77,7 +76,7 @@ struct PersonResponseMapper: Mappable {
             originalName: input.originalName,
             popularity: input.popularity,
             profilePath: URL(string: imageBaseURL + (input.profilePath ?? "")),
-            knownFor: try input.knownFor.map { try KnowForResponseMapper().map($0) }
+            knownFor: input.knownFor.map { try KnowForResponseMapper().map($0) }
         )
     }
 }
@@ -85,7 +84,7 @@ struct PersonResponseMapper: Mappable {
 struct KnowForResponseMapper: Mappable {
     // TODO: Need refector to avoid duplication
     let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-    
+
     func map(_ input: KnownForResponse) throws -> KnownFor {
         .init(
             backdropPath: URL(string: imageBaseURL + (input.backdropPath ?? "")),
@@ -113,7 +112,6 @@ struct SearchTVSeriesResponseMapper: Mappable {
 }
 
 struct TVSeriresResponse: Decodable {
-    
     let adult: Bool
     let backdropPath: String?
     let id: Int
@@ -133,13 +131,12 @@ struct TVSeriresResponse: Decodable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
-    
 }
 
 struct TVseriresResposeMappable: Mappable {
     // TODO: Need refector to avoid duplication
     let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-    
+
     func map(_ input: TVSeriresResponse) throws -> TVSeries {
         return .init(
             adult: input.adult,
@@ -154,5 +151,4 @@ struct TVseriresResposeMappable: Mappable {
             voteCount: input.voteCount
         )
     }
-    
 }

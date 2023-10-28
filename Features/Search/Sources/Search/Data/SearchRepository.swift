@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import Network
 import Models
+import Network
 
 final class SearchRepository: ISearchRepository {
-    
     private let apiClientService: IAPIClientService
-    
+
     init(apiClientService: IAPIClientService) {
         self.apiClientService = apiClientService
     }
@@ -23,14 +22,14 @@ final class SearchRepository: ISearchRepository {
             mapper: TrendingMovieResponseMapper()
         )
     }
-    
+
     func searchPersons(keyword: String, page: Int) async throws -> [Person] {
         return try await apiClientService.request(
             APIEndpoints.searchPersons(query: keyword, page: page),
             mapper: SearchPersonResponseMapper()
         )
     }
-    
+
     func searchTvSeries(keyword: String, page: Int) async throws -> [TVSeries] {
         return try await apiClientService.request(
             APIEndpoints.searchTVSeries(query: keyword, page: page),

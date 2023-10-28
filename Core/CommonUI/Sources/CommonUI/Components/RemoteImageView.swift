@@ -1,13 +1,13 @@
 //
-//  SwiftUIView.swift
-//  
+//  RemoteImageView.swift
+//
 //
 //  Created by Tuan Hoang on 18/06/2023.
 //
 
-import SwiftUI
 import NukeUI
 import Shimmer
+import SwiftUI
 
 public struct RemoteImageView: View {
     private let imageURL: URL?

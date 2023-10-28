@@ -11,12 +11,13 @@ let package = Package(
     products: [
         .library(
             name: "Search",
-            targets: ["Search"]),
+            targets: ["Search"]
+        ),
     ],
     dependencies: [
         .package(path: "../Core/Network"),
         .package(path: "../Core/CommonUI"),
-        
+
         .package(path: "../Foundation/Models"),
         .package(path: "../Foundation/Router"),
         .package(path: "../Foundation/DesignSystem"),
@@ -29,11 +30,12 @@ let package = Package(
                 "CommonUI",
                 "Models",
                 "Router",
-                "DesignSystem"
+                "DesignSystem",
             ]
         ),
         .testTarget(
             name: "SearchTests",
-            dependencies: ["Search"]),
+            dependencies: ["Search"]
+        ),
     ]
 )

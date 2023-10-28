@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import Network
 import Models
+import Network
 
 struct TrendingMovieResponse: Decodable {
     let results: [MovieResponse]
@@ -37,7 +37,7 @@ struct MovieResponse: Decodable {
     let voteCount: Int
 
     enum CodingKeys: String, CodingKey {
-        case id, adult, title,overview, popularity, video
+        case id, adult, title, overview, popularity, video
         case backdropPath = "backdrop_path"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"

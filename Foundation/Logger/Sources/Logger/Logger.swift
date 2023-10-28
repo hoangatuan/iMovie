@@ -1,4 +1,3 @@
-
 import Foundation
 import Logging
 
@@ -13,7 +12,7 @@ public struct Logger: ILogger {
     private let logger: Logging.Logger
 
     public init(label: String) {
-        self.logger = Logging.Logger(label: label)
+        logger = Logging.Logger(label: label)
     }
 
     public func log(level: LogLevel, message: @autoclosure () -> String) {
@@ -28,10 +27,10 @@ public struct NoLogger: ILogger {
     private let logger: Logging.Logger
 
     public init(label: String) {
-        self.logger = Logging.Logger(label: label)
+        logger = Logging.Logger(label: label)
     }
 
-    public func log(level: LogLevel, message: @autoclosure () -> String) {
+    public func log(level _: LogLevel, message _: @autoclosure () -> String) {
         // Do nothing
     }
 }

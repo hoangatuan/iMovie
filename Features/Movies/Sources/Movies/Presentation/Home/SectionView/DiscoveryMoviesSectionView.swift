@@ -1,19 +1,19 @@
 //
-//  TrendingMovieView.swift
+//  DiscoveryMoviesSectionView.swift
 //  iMovie
 //
 //  Created by Tuan Hoang on 18/06/2023.
 //
 
-import SwiftUI
 import CommonUI
 import Factory
 import Models
 import Router
+import SwiftUI
 
 struct DiscoveryMoviesSectionView: View {
     @EnvironmentObject private var router: Router
-    
+
     private let movies: [Movie]
     init(movies: [Movie]) {
         self.movies = movies
@@ -40,7 +40,7 @@ struct DiscoveryMoviesSectionView: View {
                 .foregroundColor(.white)
 
             Spacer()
-            
+
             Image("search")
                 .frame(width: 24, height: 24)
                 .onTapGesture(perform: {

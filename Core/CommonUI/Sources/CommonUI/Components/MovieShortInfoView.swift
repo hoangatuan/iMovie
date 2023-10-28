@@ -5,26 +5,25 @@
 //  Created by Tuan Hoang on 22/06/2023.
 //
 
-import SwiftUI
-import Models
 import DesignSystem
+import Models
+import SwiftUI
 
 public struct MovieShortInfoView: View {
-    
     private let posterPath: URL?
     private let title: String
     private let voteAvarage: Double
 
     public init(movie: Movie) {
-        self.posterPath = movie.posterPath
-        self.title = movie.originalTitle
-        self.voteAvarage = movie.voteAverage
+        posterPath = movie.posterPath
+        title = movie.originalTitle
+        voteAvarage = movie.voteAverage
     }
-    
+
     public init(tvSerires: TVSeries) {
-        self.posterPath = tvSerires.posterPath
-        self.title = tvSerires.originalName ?? ""
-        self.voteAvarage = tvSerires.voteAverage
+        posterPath = tvSerires.posterPath
+        title = tvSerires.originalName ?? ""
+        voteAvarage = tvSerires.voteAverage
     }
 
     public var body: some View {
@@ -33,20 +32,20 @@ public struct MovieShortInfoView: View {
                 .cornerRadius(4)
                 .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
                 .frame(width: 128, height: 185)
-            
+
             HStack(spacing: 0) {
                 Text(title)
                     .lineLimit(2)
                     .font(.semibold13)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.white)
-                
+
                 Spacer().frame(width: 8)
-                
+
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
                     Text("\(voteAvarage.integerValue).")
                         .font(.bold24)
-                        
+
                     Text("\(voteAvarage.firstDecimalValue)")
                         .font(.semibold14)
                 }
@@ -62,7 +61,7 @@ extension Double {
         let components = String(self).split(separator: ".")
         return Int(components[0]) ?? 0
     }
-    
+
     var firstDecimalValue: Int {
         let components = String(self).split(separator: ".")
         let decimalPart = String(components[1])

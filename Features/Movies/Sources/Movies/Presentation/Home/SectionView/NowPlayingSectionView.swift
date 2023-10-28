@@ -1,28 +1,28 @@
 //
-//  SwiftUIView.swift
-//  
+//  NowPlayingSectionView.swift
+//
 //
 //  Created by Hoang Anh Tuan on 20/10/2023.
 //
 
 import CommonUI
 import Models
-import SwiftUI
 import Router
+import SwiftUI
 
 struct NowPlayingSectionView: View {
     @EnvironmentObject private var router: Router
-    
+
     private let movies: [Movie]
-    
+
     init(movies: [Movie]) {
         self.movies = movies
     }
-    
+
     private let rows = [
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
-    
+
     var body: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -43,9 +43,7 @@ struct NowPlayingSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "Now playing") {
-
-            }
+            SectionHeaderView(title: "Now playing") {}
         }
         .listRowSeparator(.hidden)
         .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))

@@ -9,14 +9,14 @@ import Foundation
 import Network
 
 enum APIEndpoints {
-
-    // TODO (Tuan): This is just a temporary solution. Need update it
+    // TODO: (Tuan): This is just a temporary solution. Need update it
+    // swiftlint:disable:next line_length
     private static let accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NzNjYWJmOGVhYzAzMTJhMmVlZDJjMDM1MTg5YmIyNCIsInN1YiI6IjY0OGQyNzkxNTU5ZDIyMDBmZjEwNGZkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ExyYJzCPSAG2EkramJUa_OC3o9VD6GO_qaGPg0vZEh0"
     private static let baseURL = URL(string: "https://api.themoviedb.org")!
-    
+
     private static let baseHeaders = [
         "accept": "application/json",
-        "Authorization": "Bearer \(accessToken)"
+        "Authorization": "Bearer \(accessToken)",
     ]
 
     static var fetchMovieListGenresEndpoint: APIEndpoint {
@@ -63,7 +63,7 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
-    
+
     static var fetchTopRatedMoviesEndpoint: APIEndpoint {
         .init(
             baseURL: baseURL,
@@ -72,7 +72,7 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
-    
+
     // Movie detail
     static func fetchMovieDetail(for movieId: Int) -> APIEndpoint {
         .init(
@@ -82,7 +82,7 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
-    
+
     static func fetchMovieImages(for movieId: Int) -> APIEndpoint {
         .init(
             baseURL: baseURL,
@@ -91,7 +91,7 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
-    
+
     static func fetchCredits(for movieId: Int) -> APIEndpoint {
         .init(
             baseURL: baseURL,
@@ -100,7 +100,7 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
-    
+
     static func fetchRecommendationMovies(for movieId: Int) -> APIEndpoint {
         .init(
             baseURL: baseURL,
@@ -109,7 +109,7 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
-    
+
     static func fetchReviews(for movieId: Int) -> APIEndpoint {
         .init(
             baseURL: baseURL,
@@ -118,7 +118,7 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
-    
+
     static func fetchVideos(for movieId: Int) -> APIEndpoint {
         .init(
             baseURL: baseURL,

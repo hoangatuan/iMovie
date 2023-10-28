@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  IMovieDetailRepository.swift
+//
 //
 //  Created by Hoang Anh Tuan on 24/10/2023.
 //
