@@ -40,8 +40,8 @@ And that's all you need to do to set up the project 🚀
 
 Feel free to contribute for the project if you want. Here is the figma & api reference:
 
-- Figma Design: https://www.figma.com/file/rqjEdJecH0tr6uIyT72KXh/NAP001?type=design&node-id=6-9199&t=Ai7i6CXqzbqM468M-0
-- API Document: https://developer.themoviedb.org/reference/intro/getting-started
+- [Figma Design](https://www.figma.com/file/rqjEdJecH0tr6uIyT72KXh/NAP001?type=design&node-id=6-9199&t=Ai7i6CXqzbqM468M-0)
+- [API Document](https://developer.themoviedb.org/reference/intro/getting-started)
 
 To contribute, please create an issue to describe about what you gonna work on.
 
@@ -49,9 +49,8 @@ To contribute, please create an issue to describe about what you gonna work on.
     
 ### Code
 
-- Add tests
-- Support iOS 17: @Observation, @SwiftData
 - Build features
+- Add tests
 
 ### Refactor
 
