@@ -9,8 +9,7 @@ import Foundation
 import Network
 
 enum APIEndpoints {
-    // TODO: (Tuan): This is just a temporary solution. Need update it
-    // swiftlint:disable:next line_length
+    // TODO: This is just a temporary solution. Need to inject these infos from the App level when create APIClientService
     private static let accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NzNjYWJmOGVhYzAzMTJhMmVlZDJjMDM1MTg5YmIyNCIsInN1YiI6IjY0OGQyNzkxNTU5ZDIyMDBmZjEwNGZkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ExyYJzCPSAG2EkramJUa_OC3o9VD6GO_qaGPg0vZEh0"
     private static let baseURL = URL(string: "https://api.themoviedb.org")!
 
