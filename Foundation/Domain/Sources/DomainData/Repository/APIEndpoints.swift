@@ -128,3 +128,36 @@ enum APIEndpoints {
         )
     }
 }
+
+// Search
+extension APIEndpoints {
+    static func searchMovies(query: String, page: Int = 1) -> APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/search/movie",
+            httpMethod: .get,
+            urlQueries: ["query": query, "page": String(page)],
+            headers: baseHeaders
+        )
+    }
+
+    static func searchTVSeries(query: String, page: Int = 1) -> APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/search/tv",
+            httpMethod: .get,
+            urlQueries: ["query": query, "page": String(page)],
+            headers: baseHeaders
+        )
+    }
+
+    static func searchPersons(query: String, page: Int = 1) -> APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/search/person",
+            httpMethod: .get,
+            urlQueries: ["query": query, "page": String(page)],
+            headers: baseHeaders
+        )
+    }
+}

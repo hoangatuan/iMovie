@@ -15,7 +15,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../Foundation/Models"),
+        .package(path: "../Foundation/Domain"),
         .package(url: "https://github.com/kean/Nuke", from: "12.0.0"),
         .package(url: "https://github.com/markiv/SwiftUI-Shimmer", exact: "1.1.0"),
     ],
@@ -23,7 +23,7 @@ let package = Package(
         .target(
             name: "CommonUI",
             dependencies: [
-                "Models",
+                "Domain",
                 .product(name: "Shimmer", package: "SwiftUI-Shimmer"),
                 .product(name: "NukeUI", package: "Nuke"),
             ]

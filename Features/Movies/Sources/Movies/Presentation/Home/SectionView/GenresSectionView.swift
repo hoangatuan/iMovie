@@ -7,7 +7,7 @@
 
 import CommonUI
 import DesignSystem
-import Models
+import Domain
 import Router
 import SwiftUI
 

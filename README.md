@@ -13,6 +13,17 @@ Supports iOS 16+
 - Dependency Injection using `DIContainer` & constructor injection to support testing. Using [Factory](https://github.com/hmlongco/Factory) to support DI.
 - Designed for scalability. It can be used as a reference for building large production apps
 
+## Modular Architecture Diagram
+
+<img src=resources/modular_architect.png width=800/>
+
+## Clean Architecture Diagram
+
+<img src=resources/clean_architect.png width=800/>
+
+For Clean Architecture, theoratically we should have `UseCaseInterface` and `UseCaseImplementation`. However, at this point I feel like bringing `Usecase` as an extra layer is unncessary.  
+If we feel like need `Usecase` layer in future, we will add it.
+
 # Getting Started
 
 ## Set up project

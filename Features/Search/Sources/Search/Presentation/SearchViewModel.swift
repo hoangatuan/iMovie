@@ -5,8 +5,9 @@
 //  Created by Hoang Anh Tuan on 15/10/2023.
 //
 
+import Domain
+import DomainData
 import Foundation
-import Models
 
 enum SearchType: String, CaseIterable {
     case movie = "Movies"

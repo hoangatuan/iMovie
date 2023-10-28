@@ -5,8 +5,8 @@
 //  Created by Hoang Anh Tuan on 24/10/2023.
 //
 
+import Domain
 import Foundation
-import Models
 import Network
 
 struct SearchCreditResponse: Decodable {
