@@ -12,12 +12,13 @@ import Network
 import Router
 import SwiftUI
 
-public enum PublicMoviesDestination: IDestination {
+public enum PublicMoviesDestination: Hashable {
     case search
 }
 
-enum Destination: IDestination {
-    case genreDetail
+enum Destination: Hashable {
+    case listGenres(genres: [Genre])
+    case movieByGenre(genre: Genre)
     case movieDetail(movie: Movie)
 }
 
@@ -34,10 +35,12 @@ public struct MoviesCoordinator: View {
         )
         .navigationDestination(for: Destination.self) { destination in
             switch destination {
-            case .genreDetail:
-                Text("Genre detail")
+            case let .movieByGenre(genre):
+                GenreMoviesView(genre: genre)
             case let .movieDetail(movie):
                 MovieDetailView(viewModel: .init(movie: movie, movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient)))
+            case let .listGenres(genres):
+                ListGenresView(genres: genres)
             }
         }
     }

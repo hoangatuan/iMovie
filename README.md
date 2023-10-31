@@ -1,5 +1,8 @@
 # 🎬 iMovie
 
+![Static Badge](https://img.shields.io/badge/status-active-brightgreen)
+
+
 This is a SwiftUI project that apply Modular Architect & Clean Architect. For the presentation layer, I'm using MVVM.   
 Supports iOS 16+
 
