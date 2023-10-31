@@ -16,9 +16,6 @@ Supports iOS 16+
 - Dependency Injection using `DIContainer` & constructor injection to support testing. Using [Factory](https://github.com/hmlongco/Factory) to support DI.
 - Designed for scalability. It can be used as a reference for building large production apps
 
-<img src=resources/demo1.png width=320/>
-<img src=resources/demo2.png width=320/>
-
 ## Modular Architecture Diagram
 
 <img src=resources/modular_architect.png width=800/>
