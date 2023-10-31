@@ -1,5 +1,8 @@
 # 🎬 iMovie
 
+![Static Badge](https://img.shields.io/badge/status-active-brightgreen)
+
+
 This is a SwiftUI project that apply Modular Architect & Clean Architect. For the presentation layer, I'm using MVVM.   
 Supports iOS 16+
 
@@ -12,6 +15,9 @@ Supports iOS 16+
 - Data persistence with SwiftData (planning)
 - Dependency Injection using `DIContainer` & constructor injection to support testing. Using [Factory](https://github.com/hmlongco/Factory) to support DI.
 - Designed for scalability. It can be used as a reference for building large production apps
+
+<img src=resources/demo1.png width=320/>
+<img src=resources/demo2.png width=320/>
 
 ## Modular Architecture Diagram
 

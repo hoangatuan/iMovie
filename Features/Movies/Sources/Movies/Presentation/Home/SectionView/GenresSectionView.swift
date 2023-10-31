@@ -29,7 +29,8 @@ struct GenresSectionView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: rows) {
                     ForEach(genres, id: \.id) { genre in
-                        buildGenreCell(genre)
+                        GenreCell(genre: genre)
+                            .frame(width: 180, height: 48)
                             .onTapGesture {
                                 /*
                                  router.presentSheet(destination: )
@@ -40,37 +41,13 @@ struct GenresSectionView: View {
             }
             .frame(height: 104)
         } header: {
-            SectionHeaderView(title: "Genres Movie") {}
+            SectionHeaderView(title: "Genres Movie") {
+                router.navigate(to: Destination.listGenres(genres: genres))
+            }
         }
         .listRowSeparator(.hidden)
         .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))
         .listRowBackground(Color.clear)
-    }
-
-    private func buildGenreCell(_ genre: Genre) -> some View {
-        HStack {
-            Image(genre.iconName)
-            Text(genre.name.rawValue)
-                .foregroundColor(.white)
-            Spacer()
-
-            Spacer()
-                .frame(width: 2, height: 28)
-                .cornerRadius(4)
-                .background(Color.color04EECD)
-        }
-        .frame(width: 128, height: 48)
-        .padding(.horizontal)
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color.color0E264B,
-                    Color.color295091,
-                ]),
-                startPoint: .leading, endPoint: .trailing
-            )
-        )
-        .cornerRadius(8)
     }
 }
 

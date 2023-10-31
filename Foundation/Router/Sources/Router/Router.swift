@@ -4,10 +4,6 @@
 
 import SwiftUI
 
-public protocol IDestination: Hashable {}
-
-public protocol ISheetDestination: Identifiable {}
-
 public class AnyIdentifiable: Identifiable {
     public let destination: any Identifiable
 
@@ -26,7 +22,7 @@ public final class Router: ObservableObject {
         presentedSheet = AnyIdentifiable(destination: destination)
     }
 
-    public func navigate(to destination: any IDestination) {
+    public func navigate(to destination: any Hashable) {
         navPath.append(destination)
     }
 

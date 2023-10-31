@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Genre: Decodable, Equatable {
+public struct Genre: Decodable, Equatable, Hashable {
     public enum GenreType: String, Decodable {
         case action = "Action"
         case adventure = "Adventure"
