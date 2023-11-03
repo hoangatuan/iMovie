@@ -48,20 +48,8 @@ Feel free to contribute for the project if you want. Here is the figma & api ref
 
 To contribute, please create an issue to describe about what you gonna work on.
 
-## Todo
-    
-### Code
+## References
 
-- Build features
-- Add tests
+These are articles I've written about the process building this project:
 
-### Refactor
-
-- Refactor dependency injection
-- Refactor enviroment value
-
-### CI/CD
-
-- Add github workflow:
-    + Buid, run test before merge
-    + Code coverage + create badge
+1. [How I build Navigation](https://medium.com/gitconnected/modular-navigation-in-swiftui-a-comprehensive-guide-5eeb8a511583)
