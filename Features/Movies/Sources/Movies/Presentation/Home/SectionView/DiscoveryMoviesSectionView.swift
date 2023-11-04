@@ -43,6 +43,7 @@ struct DiscoveryMoviesSectionView: View {
 
             Image("search")
                 .frame(width: 24, height: 24)
+                .foregroundColor(Color.white)
                 .onTapGesture(perform: {
                     router.navigate(to: PublicMoviesDestination.search)
                 })

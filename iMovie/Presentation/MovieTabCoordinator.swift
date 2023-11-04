@@ -17,6 +17,7 @@ struct MovieTabCoordinator: View {
     var body: some View {
         NavigationStack(path: $router.navPath) {
             MoviesCoordinator(dependencies: .init(apiClient: Container.shared.apiClientService()))
+                .toolbar(.visible, for: .tabBar)
                 .navigationDestination(for: PublicMoviesDestination.self) { destination in
                     switch destination {
                     case .search:

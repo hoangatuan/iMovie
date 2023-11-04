@@ -60,6 +60,7 @@ struct MovieDetailView: View {
         .customBackButton(action: {
             router.navigateBack()
         })
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

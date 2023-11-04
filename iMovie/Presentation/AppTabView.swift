@@ -29,7 +29,6 @@ struct AppTabView: View {
                         .foregroundColor(.color04EECD)
                 }
                 .tag(0)
-                .toolbar(.visible, for: .tabBar)
                 .toolbarBackground(
                     Color.color4E89FF,
                     for: .tabBar
