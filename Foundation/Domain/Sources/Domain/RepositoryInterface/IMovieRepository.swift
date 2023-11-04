@@ -14,4 +14,5 @@ public protocol IMovieRepository {
     func fetchPopularMovies() async throws -> [Movie]
     func fetchTopRatedMovies() async throws -> [Movie]
     func fetchLatestMovies() async throws -> [Movie]
+    func fetchMoviesByGenre(_ genreId: Int) async throws -> [Movie]
 }
