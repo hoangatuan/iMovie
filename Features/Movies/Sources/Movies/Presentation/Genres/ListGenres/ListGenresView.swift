@@ -34,10 +34,11 @@ struct ListGenresView: View {
                 }
             })
         }
-        .padding(EdgeInsets(top: 24, leading: 16, bottom: 0, trailing: 16))
-        .screenBackground(with: .color040F23)
+        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         .customBackButton(action: {
             router.navigateBack()
         })
+        .screenBackground(with: .color040F23)
+        .toolbar(.hidden, for: .tabBar)
     }
 }

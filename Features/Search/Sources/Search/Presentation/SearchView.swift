@@ -8,9 +8,11 @@
 import CommonUI
 import DesignSystem
 import Domain
+import Router
 import SwiftUI
 
 struct SearchView: View {
+    @EnvironmentObject private var router: Router
     @StateObject private var viewModel: SearchViewModel
     init(viewModel: SearchViewModel) {
         _viewModel = .init(wrappedValue: viewModel)
@@ -58,6 +60,10 @@ struct SearchView: View {
                 Spacer()
             }
         }
+        .toolbar(.hidden, for: .tabBar)
+        .customBackButton {
+            router.navigateBack()
+        }
         .onSubmit(of: .text) {
             Task {
                 await viewModel.search(keyword: searchKeyword, for: selectedSearchType)
@@ -102,7 +108,7 @@ struct SearchView: View {
                     .background(Color.color4E89FF)
             }
         }
-        .padding(.init(top: 36, leading: 16, bottom: 32, trailing: 16))
+        .padding(.init(top: 0, leading: 16, bottom: 32, trailing: 16))
     }
 
     private var tabsView: some View {
