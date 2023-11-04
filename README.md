@@ -27,6 +27,10 @@ Supports iOS 16+
 For Clean Architecture, theoratically we should have `UseCaseInterface` and `UseCaseImplementation`. However, at this point I feel like bringing `Usecase` as an extra layer is unncessary.  
 If we feel like need `Usecase` layer in future, we will add it.
 
+## Why MVVM but not TCA, Redux, ... ?
+
+Please read [this great article](https://betterprogramming.pub/swiftui-choosing-an-application-architecture-6ec9289f8e8f) from @Michael Long. I pretty much agreed with his thoughts.
+
 # Getting Started
 
 ## Set up project
@@ -46,10 +50,14 @@ Feel free to contribute for the project if you want. Here is the figma & api ref
 - [Figma Design](https://www.figma.com/file/rqjEdJecH0tr6uIyT72KXh/NAP001?type=design&node-id=6-9199&t=Ai7i6CXqzbqM468M-0)
 - [API Document](https://developer.themoviedb.org/reference/intro/getting-started)
 
-To contribute, please create an issue to describe about what you gonna work on.
+There are some ways you can contribute to the project:
+
+1. I've created some tasks under `Issues` tab. There are bugs, features, ... there. If you want to pick a task, just need to comment on the issue.
+2. If you want to work on a new issue, you can go to `Issues` tab, and create a new issue to describe what you want to do.
 
 ## References
 
 These are articles I've written about the process building this project:
 
 1. [How I build Navigation](https://medium.com/gitconnected/modular-navigation-in-swiftui-a-comprehensive-guide-5eeb8a511583)
+2. [Choosing SwiftUI Architecture](https://betterprogramming.pub/swiftui-choosing-an-application-architecture-6ec9289f8e8f)
