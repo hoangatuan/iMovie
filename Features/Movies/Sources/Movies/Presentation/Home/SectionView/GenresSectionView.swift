@@ -32,9 +32,7 @@ struct GenresSectionView: View {
                         GenreCell(genre: genre)
                             .frame(width: 180, height: 48)
                             .onTapGesture {
-                                /*
-                                 router.presentSheet(destination: )
-                                  */
+                                router.navigate(to: Destination.movieByGenre(genre: genre))
                             }
                     }
                 }

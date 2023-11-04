@@ -36,7 +36,11 @@ public struct MoviesCoordinator: View {
         .navigationDestination(for: Destination.self) { destination in
             switch destination {
             case let .movieByGenre(genre):
-                GenreMoviesView(genre: genre)
+                GenreMoviesView(viewModel: .init(
+                    genre: genre,
+                    repository: MovieRepository(apiClientService: dependencies.apiClient)
+                )
+                )
             case let .movieDetail(movie):
                 MovieDetailView(viewModel: .init(movie: movie, movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient)))
             case let .listGenres(genres):

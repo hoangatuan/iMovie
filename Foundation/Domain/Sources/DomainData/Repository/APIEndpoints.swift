@@ -72,6 +72,18 @@ enum APIEndpoints {
         )
     }
 
+    static func fetchMoviesByGenre(_ genreId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/discover/movie",
+            httpMethod: .get,
+            urlQueries: [
+                "with_genres": "\(genreId)",
+            ],
+            headers: baseHeaders
+        )
+    }
+
     // Movie detail
     static func fetchMovieDetail(for movieId: Int) -> APIEndpoint {
         .init(

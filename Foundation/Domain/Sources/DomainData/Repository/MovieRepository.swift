@@ -56,4 +56,11 @@ public final class MovieRepository: IMovieRepository {
             mapper: TrendingMovieResponseMapper()
         )
     }
+
+    public func fetchMoviesByGenre(_ genreId: Int) async throws -> [Movie] {
+        try await apiClientService.request(
+            APIEndpoints.fetchMoviesByGenre(genreId),
+            mapper: TrendingMovieResponseMapper()
+        )
+    }
 }

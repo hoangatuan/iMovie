@@ -35,7 +35,9 @@ struct ListGenresView: View {
             })
         }
         .padding(EdgeInsets(top: 24, leading: 16, bottom: 0, trailing: 16))
-        .frame(maxWidth: .infinity, maxHeight: .infinity) // 1
-        .background(Color.color040F23)
+        .screenBackground(with: .color040F23)
+        .customBackButton(action: {
+            router.navigateBack()
+        })
     }
 }

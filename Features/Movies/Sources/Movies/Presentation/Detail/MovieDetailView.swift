@@ -57,17 +57,9 @@ struct MovieDetailView: View {
             }
         }
         .ignoresSafeArea(edges: .top)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    router.navigateBack()
-                } label: {
-                    Image("back")
-                        .tint(.white)
-                }
-            }
-        }
+        .customBackButton(action: {
+            router.navigateBack()
+        })
     }
 }
 
