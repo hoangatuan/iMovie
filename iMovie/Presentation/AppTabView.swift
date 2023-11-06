@@ -33,6 +33,18 @@ struct AppTabView: View {
                     Color.color4E89FF,
                     for: .tabBar
                 )
+
+            TvSeriesTabCoordinator()
+                .tabItem {
+                    Image("tvseries")
+                    Text("TV Series")
+                        .foregroundColor(.color04EECD)
+                }
+                .tag(1)
+                .toolbarBackground(
+                    Color.color4E89FF,
+                    for: .tabBar
+                )
         }
         .onAppear {
             UITabBar.appearance().barTintColor = .white
