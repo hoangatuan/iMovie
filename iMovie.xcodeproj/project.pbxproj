@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C14F2B72AECFFBF004D5E92 /* Domain in Resources */ = {isa = PBXBuildFile; fileRef = 4C14F2B62AECFFBF004D5E92 /* Domain */; };
+		4C9E653D2AF933EF00557D87 /* TvSeriesTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E653C2AF933EF00557D87 /* TvSeriesTabCoordinator.swift */; };
+		4C9E653F2AF9345600557D87 /* TVSeries in Frameworks */ = {isa = PBXBuildFile; productRef = 4C9E653E2AF9345600557D87 /* TVSeries */; };
 		4CFB159B2ADBCD0F00A5CBB2 /* Search in Resources */ = {isa = PBXBuildFile; fileRef = 4CFB15992ADBCD0F00A5CBB2 /* Search */; };
 		4CFB159C2ADBCD0F00A5CBB2 /* Movies in Resources */ = {isa = PBXBuildFile; fileRef = 4CFB159A2ADBCD0F00A5CBB2 /* Movies */; };
 		4CFB159F2ADBD31700A5CBB2 /* Movies in Frameworks */ = {isa = PBXBuildFile; productRef = 4CFB159E2ADBD31700A5CBB2 /* Movies */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		4C14F2B62AECFFBF004D5E92 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
+		4C9E653B2AF931AE00557D87 /* TVSeries */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TVSeries; sourceTree = "<group>"; };
+		4C9E653C2AF933EF00557D87 /* TvSeriesTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvSeriesTabCoordinator.swift; sourceTree = "<group>"; };
 		4CFB15992ADBCD0F00A5CBB2 /* Search */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Search; sourceTree = "<group>"; };
 		4CFB159A2ADBCD0F00A5CBB2 /* Movies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Movies; sourceTree = "<group>"; };
 		4CFB15A22ADC238300A5CBB2 /* Router */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Router; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 				4CFB159F2ADBD31700A5CBB2 /* Movies in Frameworks */,
 				4CFB15A12ADBD31A00A5CBB2 /* Search in Frameworks */,
 				A6F1D5492A3EF0D900E4F00C /* CommonUI in Frameworks */,
+				4C9E653F2AF9345600557D87 /* TVSeries in Frameworks */,
 				A6F1D51D2A3D564800E4F00C /* Logger in Frameworks */,
 				A6F079C72A3B727D00B37F13 /* Factory in Frameworks */,
 			);
@@ -70,6 +75,7 @@
 		4CFB15952ADBCC1900A5CBB2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4C9E653B2AF931AE00557D87 /* TVSeries */,
 				4CFB159A2ADBCD0F00A5CBB2 /* Movies */,
 				4CFB15992ADBCD0F00A5CBB2 /* Search */,
 			);
@@ -161,6 +167,7 @@
 			children = (
 				A6F1D54C2A3EF3D600E4F00C /* AppTabView.swift */,
 				4CFB15C02ADED84000A5CBB2 /* MovieTabCoordinator.swift */,
+				4C9E653C2AF933EF00557D87 /* TvSeriesTabCoordinator.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 				A6F1D5482A3EF0D900E4F00C /* CommonUI */,
 				4CFB159E2ADBD31700A5CBB2 /* Movies */,
 				4CFB15A02ADBD31A00A5CBB2 /* Search */,
+				4C9E653E2AF9345600557D87 /* TVSeries */,
 			);
 			productName = iMovie;
 			productReference = A6F079B32A3B724F00B37F13 /* iMovie.app */;
@@ -286,6 +294,7 @@
 				A6F1D5202A3D5AC700E4F00C /* DIContainer.swift in Sources */,
 				A6F1D54D2A3EF3D600E4F00C /* AppTabView.swift in Sources */,
 				A6F079B72A3B724F00B37F13 /* iMovieApp.swift in Sources */,
+				4C9E653D2AF933EF00557D87 /* TvSeriesTabCoordinator.swift in Sources */,
 				A6F1D5292A3D614C00E4F00C /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +528,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4C9E653E2AF9345600557D87 /* TVSeries */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TVSeries;
+		};
 		4CFB159E2ADBD31700A5CBB2 /* Movies */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Movies;

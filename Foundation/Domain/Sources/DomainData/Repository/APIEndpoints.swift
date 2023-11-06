@@ -172,3 +172,24 @@ extension APIEndpoints {
         )
     }
 }
+
+// TVSeries
+extension APIEndpoints {
+    static var popularTvSeriesEndpoint: APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/tv/popular",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+
+    static var latestTvSeriesEndpoint: APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/tv/on_the_air",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+}

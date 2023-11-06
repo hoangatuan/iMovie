@@ -49,6 +49,7 @@ struct GenreMoviesView: View {
         }
         .ignoresSafeArea(edges: .top)
         .screenBackground(with: .color040F23)
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: filterSelection, perform: { value in
             viewModel.applyFilter(value)
         })
