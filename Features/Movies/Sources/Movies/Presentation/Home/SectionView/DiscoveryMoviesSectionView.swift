@@ -24,7 +24,7 @@ struct DiscoveryMoviesSectionView: View {
             RemoteImageView(imageURL: movies[0].posterPath, contentMode: .fit)
                 .opacity(0.4)
 
-            buildHeaderView()
+            headerView
 
             movieShortInfoView
         }
@@ -33,7 +33,7 @@ struct DiscoveryMoviesSectionView: View {
         .listRowBackground(Color.clear)
     }
 
-    private func buildHeaderView() -> some View {
+    private var headerView: some View {
         HStack(spacing: 12) {
             Text("Discover")
                 .font(.bold24)
