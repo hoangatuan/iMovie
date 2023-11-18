@@ -10,6 +10,7 @@ import SwiftUI
 public extension Font {
     // Regular - weight = 400
     static let regular12 = Font.custom("Lato", size: 12).weight(.regular)
+    static let regular13 = Font.custom("Lato", size: 13).weight(.regular)
     static let regular14 = Font.custom("Lato", size: 14).weight(.regular)
     static let regular16 = Font.custom("Lato", size: 16).weight(.regular)
 

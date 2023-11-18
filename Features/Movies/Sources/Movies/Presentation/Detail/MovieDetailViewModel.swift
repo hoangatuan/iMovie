@@ -13,10 +13,12 @@ import Foundation
 final class MovieDetailViewModel: ObservableObject {
     let movie: Movie
     private let repository: IMovieDetailRepository
+    private let accountRepository: IAccountRepository
 
-    init(movie: Movie, movieRepository: IMovieDetailRepository) {
+    init(movie: Movie, movieRepository: IMovieDetailRepository, accountRepository: IAccountRepository) {
         self.movie = movie
         repository = movieRepository
+        self.accountRepository = accountRepository
 
         Task {
             await fetch()
@@ -30,11 +32,10 @@ final class MovieDetailViewModel: ObservableObject {
         case actors([Credit])
         case reviews([Review])
         case recommendMovies([Movie])
-        case userActions
 
         var isEmpty: Bool {
             switch self {
-            case .shortInfo, .overview, .userActions:
+            case .shortInfo, .overview:
                 return false
             case let .gallery(array):
                 return array.isEmpty
@@ -58,6 +59,9 @@ final class MovieDetailViewModel: ObservableObject {
 
     @Published
     var state: State = .loading
+    
+    @Published var isFavorite = false
+    @Published var addedToWatchedList = false
 
     private func fetch() async {
         async let genres = repository.fetchGenres(for: movie.id)
@@ -65,6 +69,12 @@ final class MovieDetailViewModel: ObservableObject {
         async let actors = repository.fetchActors(for: movie.id)
         async let reviews = repository.fetchReviews(for: movie.id)
         async let recommendationMovies = repository.fetchRecommendationMovies(for: movie.id)
+        
+        async let favioriteMovies = accountRepository.fetchFavoriteMovies()
+        async let watchedlistMovies = accountRepository.fetchWatchlistMovies()
+        
+        isFavorite = ((try? await favioriteMovies) ?? []).contains(where: { $0.id == movie.id })
+        addedToWatchedList = ((try? await watchedlistMovies) ?? []).contains(where: { $0.id == movie.id })
 
         var result: [SectionType] = [
             .shortInfo((try? await genres) ?? []),
@@ -72,12 +82,29 @@ final class MovieDetailViewModel: ObservableObject {
             .overview(movie.overview),
             .actors((try? await actors) ?? []),
             .reviews((try? await reviews) ?? []),
-            .recommendMovies((try? await recommendationMovies) ?? []),
-            .userActions
+            .recommendMovies((try? await recommendationMovies) ?? [])
         ]
 
         result = result.filter { !$0.isEmpty }
 
         state = .display(data: result)
+    }
+    
+    func toggleFavorite() async {
+        let isSuccess = await accountRepository.addFavorite(mediaType: MediaType.movie.rawValue, mediaId: movie.id, favorite: !isFavorite)
+        if isSuccess {
+            isFavorite.toggle()
+        } else {
+            // Show error
+        }
+    }
+    
+    func toggleWatchlist() async {
+        let isSuccess = await accountRepository.addToWatchList(mediaType: MediaType.movie.rawValue, mediaId: movie.id, watchlist: !addedToWatchedList)
+        if isSuccess {
+            addedToWatchedList.toggle()
+        } else {
+            // Show error
+        }
     }
 }
