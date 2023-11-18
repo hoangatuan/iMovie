@@ -1,22 +1,21 @@
 //
-//  TopRatedMoviesSectionView.swift
+//  SwiftUIView.swift
+//  
 //
-//
-//  Created by Hoang Anh Tuan on 18/10/2023.
+//  Created by Tuan Hoang on 18/11/23.
 //
 
-import CommonUI
-import DesignSystem
-import Domain
-import Router
 import SwiftUI
+import Domain
+import CommonUI
+import Router
 
-struct TopRatedMoviesSectionView: View {
+struct TopRatedSectionView: View {
     @EnvironmentObject private var router: Router
 
-    private let movies: [Movie]
-    init(movies: [Movie]) {
-        self.movies = movies
+    private let tvSeries: [TVSeries]
+    init(tvSeries: [TVSeries]) {
+        self.tvSeries = tvSeries
     }
 
     private let rows = [
@@ -27,13 +26,13 @@ struct TopRatedMoviesSectionView: View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: rows, alignment: .top, spacing: 8) {
-                    ForEach(movies.indices) { index in
-                        let movie = movies[index]
-                        TopRatedCell(index: index, item: .init(
-                            posterPath: movie.posterPath, title: movie.originalTitle)
+                    ForEach(tvSeries.indices) { index in
+                        let item = tvSeries[index]
+                        TopRatedCell(index: index + 1, item: .init(
+                            posterPath: item.posterPath, title: item.originalName ?? "")
                         )
                         .onTapGesture {
-                            router.navigate(to: Destination.movieDetail(movie: movie))
+                            router.navigate(to: Destination.tvSeriesDetail(item))
                         }
                     }
                 }
@@ -44,4 +43,3 @@ struct TopRatedMoviesSectionView: View {
         .modifier(DefaultListModifier(top: 16, leading: 16))
     }
 }
-

@@ -28,4 +28,18 @@ public final class TVSeriesRepository: ITVSeriesRepository {
             mapper: TVSeriesListResponseMapper()
         )
     }
+    
+    public func airingTodayTVSeries() async throws -> [TVSeries] {
+        try await apiClientService.request(
+            APIEndpoints.airingTodayEndpoint,
+            mapper: TVSeriesListResponseMapper()
+        )
+    }
+    
+    public func topRatedTVSeries() async throws -> [TVSeries] {
+        try await apiClientService.request(
+            APIEndpoints.topRatedEndpoint,
+            mapper: TVSeriesListResponseMapper()
+        )
+    }
 }

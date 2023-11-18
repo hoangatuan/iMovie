@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TVSeries: Equatable, Decodable {
+public struct TVSeries: Equatable, Hashable, Decodable {
     public let adult: Bool
     public let backdropPath: URL?
     public let id: Int

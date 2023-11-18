@@ -192,4 +192,22 @@ extension APIEndpoints {
             headers: baseHeaders
         )
     }
+    
+    static var airingTodayEndpoint: APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/tv/airing_today",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static var topRatedEndpoint: APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/tv/top_rated",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
 }

@@ -32,7 +32,7 @@ struct MoviesListView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: columns, alignment: .leading, spacing: 8) {
                     ForEach(movies, id: \.id) { movie in
-                        MovieShortInfoView(movie: movie)
+                        MovieShortInfoView(shortInfo: .init(posterPath: movie.posterPath, title: movie.originalTitle, voteAverage: movie.voteAverage))
                             .onTapGesture {
                                 router.navigate(to: Destination.movieDetail(movie: movie))
                             }
