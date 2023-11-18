@@ -9,6 +9,7 @@ import Factory
 import Router
 import SwiftUI
 import TVSeries
+import Search
 
 struct TvSeriesTabCoordinator: View {
     @ObservedObject var router = Router()
@@ -17,6 +18,12 @@ struct TvSeriesTabCoordinator: View {
         NavigationStack(path: $router.navPath) {
             TVSeriesCoordinator(dependencies: .init(apiClient: Container.shared.apiClientService()))
                 .toolbar(.visible, for: .tabBar)
+                .navigationDestination(for: PublicTVSeriesDestination.self) { destination in
+                    switch destination {
+                    case .search:
+                        SearchCoordinator(dependencies: .init(apiClient: Container.shared.apiClientService()))
+                    }
+                }
         }
         .environmentObject(router)
     }

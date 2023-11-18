@@ -9,32 +9,37 @@ import DesignSystem
 import Domain
 import SwiftUI
 
+//public protocol ItemShortInfo {
+//    var id: Int { get }
+//    var posterPath: URL? { get }
+//    var title: String { get }
+//    var voteAverage: Double { get }
+//}
+//
+//extension Movie: ItemShortInfo { }
+//
+//extension TVSeries: ItemShortInfo {
+//    public var title: String {
+//        originalName ?? ""
+//    }
+//}
+
 public struct MovieShortInfoView: View {
-    private let posterPath: URL?
-    private let title: String
-    private let voteAvarage: Double
-
-    public init(movie: Movie) {
-        posterPath = movie.posterPath
-        title = movie.originalTitle
-        voteAvarage = movie.voteAverage
-    }
-
-    public init(tvSerires: TVSeries) {
-        posterPath = tvSerires.posterPath
-        title = tvSerires.originalName ?? ""
-        voteAvarage = tvSerires.voteAverage
+    
+    private let shortInfo: ShortInfo
+    public init(shortInfo: ShortInfo) {
+        self.shortInfo = shortInfo
     }
 
     public var body: some View {
         VStack {
-            RemoteImageView(imageURL: posterPath)
+            RemoteImageView(imageURL: shortInfo.posterPath)
                 .cornerRadius(4)
                 .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
                 .frame(width: 128, height: 185)
 
             HStack(spacing: 0) {
-                Text(title)
+                Text(shortInfo.title)
                     .lineLimit(2)
                     .font(.semibold13)
                     .multilineTextAlignment(.leading)
@@ -43,10 +48,10 @@ public struct MovieShortInfoView: View {
                 Spacer().frame(width: 8)
 
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
-                    Text("\(voteAvarage.integerValue).")
+                    Text("\(shortInfo.voteAverage.integerValue).")
                         .font(.bold24)
 
-                    Text("\(voteAvarage.firstDecimalValue)")
+                    Text("\(shortInfo.voteAverage.firstDecimalValue)")
                         .font(.semibold14)
                 }
                 .foregroundColor(Color.colorE56E34)
@@ -67,29 +72,5 @@ extension Double {
         let decimalPart = String(components[1])
         let firstDecimal = decimalPart.first.map { String($0) } ?? ""
         return Int(firstDecimal) ?? 0
-    }
-}
-
-struct MovieShortInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieShortInfoView(
-            movie: Movie(
-                id: 1,
-                isAdult: false,
-                backdropPath: nil,
-                title: "Black Adam",
-                originalLanguage: "en",
-                originalTitle: "Black Adam",
-                overview: "",
-                posterPath: nil,
-                mediaType: nil,
-                genreIds: [],
-                popularity: 0,
-                releaseDate: "",
-                hasVideo: false,
-                voteAverage: 1.2,
-                voteCount: 1000
-            )
-        )
     }
 }

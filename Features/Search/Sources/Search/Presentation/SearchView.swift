@@ -164,7 +164,7 @@ struct SearchView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: columns, spacing: 8) {
                             ForEach(movies, id: \.id) { movie in
-                                MovieShortInfoView(movie: movie)
+                                MovieShortInfoView(shortInfo: .init(posterPath: movie.posterPath, title: movie.originalTitle))
                             }
                         }
                     }
@@ -173,8 +173,8 @@ struct SearchView: View {
                 if let tvSeries = datas as? [TVSeries] {
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: columns, spacing: 8) {
-                            ForEach(tvSeries, id: \.id) { tvSerires in
-                                MovieShortInfoView(tvSerires: tvSerires)
+                            ForEach(tvSeries, id: \.id) { tvSerie in
+                                MovieShortInfoView(shortInfo: .init(posterPath: tvSerie.posterPath, title: tvSerie.originalName ?? ""))
                             }
                         }
                     }

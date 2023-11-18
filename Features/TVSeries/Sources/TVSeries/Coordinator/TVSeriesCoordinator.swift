@@ -12,6 +12,14 @@ import Network
 import Router
 import SwiftUI
 
+public enum PublicTVSeriesDestination {
+    case search
+}
+
+enum Destination: Hashable {
+    case tvSeriesDetail(TVSeries)
+}
+
 public struct TVSeriesCoordinator: View {
     private let dependencies: Dependencies
 
@@ -23,6 +31,13 @@ public struct TVSeriesCoordinator: View {
         TVSeriesHomeView(
             viewModel: .init(movieRepository: TVSeriesRepository(apiClientService: dependencies.apiClient))
         )
+        .navigationDestination(for: Destination.self) { destination in
+            switch destination {
+            case .tvSeriesDetail(let tvSeries):
+                Text("TV Series")
+                    .toolbar(.hidden, for: .tabBar)
+            }
+        }
     }
 }
 
