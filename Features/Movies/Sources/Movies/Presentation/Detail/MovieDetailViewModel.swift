@@ -30,10 +30,11 @@ final class MovieDetailViewModel: ObservableObject {
         case actors([Credit])
         case reviews([Review])
         case recommendMovies([Movie])
+        case userActions
 
         var isEmpty: Bool {
             switch self {
-            case .shortInfo, .overview:
+            case .shortInfo, .overview, .userActions:
                 return false
             case let .gallery(array):
                 return array.isEmpty
@@ -72,6 +73,7 @@ final class MovieDetailViewModel: ObservableObject {
             .actors((try? await actors) ?? []),
             .reviews((try? await reviews) ?? []),
             .recommendMovies((try? await recommendationMovies) ?? []),
+            .userActions
         ]
 
         result = result.filter { !$0.isEmpty }

@@ -138,6 +138,20 @@ enum APIEndpoints {
             headers: baseHeaders
         )
     }
+    
+    static func addMovieRating(movieId: Int, value: Double) -> APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/movie/\(movieId)/rating",
+            httpMethod: .post,
+            headers: baseHeaders,
+            bodyParameter: .dictionary(
+                [
+                    "value": value
+                ]
+            )
+        )
+    }
 }
 
 // Search
@@ -206,6 +220,91 @@ extension APIEndpoints {
         return .init(
             baseURL: baseURL,
             path: "/3/tv/top_rated",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func addMovieTVSeries(id: Int, value: Double) -> APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/tv/\(id)/rating",
+            httpMethod: .post,
+            headers: baseHeaders,
+            bodyParameter: .dictionary(
+                [
+                    "value": value
+                ]
+            )
+        )
+    }
+}
+
+// MARK: - Account
+extension APIEndpoints {
+    static func addFavorite(mediaType: String, mediaId: Int, favorite: Bool) -> APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/account/20023836/favorite",
+            httpMethod: .post,
+            headers: baseHeaders,
+            bodyParameter: .dictionary(
+                [
+                    "media_type": mediaType,
+                    "media_id": mediaId,
+                    "favorite": favorite
+                ]
+            )
+        )
+    }
+    
+    static func addToWatchlist(mediaType: String, mediaId: Int, watchlist: Bool) -> APIEndpoint {
+        return .init(
+            baseURL: baseURL,
+            path: "/3/account/20023836/watchlist",
+            httpMethod: .post,
+            headers: baseHeaders,
+            bodyParameter: .dictionary(
+                [
+                    "media_type": mediaType,
+                    "media_id": mediaId,
+                    "watchlist": watchlist
+                ]
+            )
+        )
+    }
+    
+    static var fetchFavoriteMoviesEndpoint: APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "3/account/20023836/favorite/movies",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static var fetchFavoriteTVSeriesEndpoint: APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "3/account/20023836/favorite/tv",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static var fetchWatchlistMoviesEndpoint: APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "3/account/20023836/watchlist/movies",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static var fetchWatchlistTVEndpoint: APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "3/account/20023836/watchlist/tv",
             httpMethod: .get,
             headers: baseHeaders
         )

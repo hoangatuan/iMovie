@@ -49,4 +49,17 @@ public final class MovieDetailRepository: IMovieDetailRepository {
             mapper: TrendingMovieResponseMapper()
         )
     }
+    
+    public func addRating(for movieId: Int, value: Double) async throws -> Bool {
+        do {
+            let result = try await apiClientService.request(
+                APIEndpoints.addMovieRating(movieId: movieId, value: value),
+                for: Result.self
+            )
+            
+            return result.success
+        } catch {
+            return false
+        }
+    }
 }

@@ -48,6 +48,8 @@ struct MovieDetailView: View {
                             ReviewSectionView(reviews: reviews)
                         case let .recommendMovies(movies):
                             PopularSectionView(sectionTitle: "You may also like...", movies: movies)
+                        case .userActions:
+                            UserActionSectionView()
                         }
                     }
                 }

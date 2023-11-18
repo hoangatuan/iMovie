@@ -12,4 +12,5 @@ public protocol ITVSeriesRepository {
     func popularTvSeries() async throws -> [TVSeries]
     func airingTodayTVSeries() async throws -> [TVSeries]
     func topRatedTVSeries() async throws -> [TVSeries]
+    func addRating(for tvSeriesId: Int, value: Double) async throws -> Bool
 }
