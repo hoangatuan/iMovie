@@ -13,4 +13,5 @@ public protocol IMovieDetailRepository {
     func fetchActors(for movieId: Int) async throws -> [Credit]
     func fetchReviews(for movieId: Int) async throws -> [Review]
     func fetchRecommendationMovies(for movieId: Int) async throws -> [Movie]
+    func addRating(for movieId: Int, value: Double) async throws -> Bool
 }

@@ -42,4 +42,17 @@ public final class TVSeriesRepository: ITVSeriesRepository {
             mapper: TVSeriesListResponseMapper()
         )
     }
+    
+    public func addRating(for tvSeriesId: Int, value: Double) async throws -> Bool {
+        do {
+            let result = try await apiClientService.request(
+                APIEndpoints.addMovieTVSeries(id: tvSeriesId, value: value),
+                for: Result.self
+            )
+            
+            return result.success
+        } catch {
+            return false
+        }
+    }
 }
