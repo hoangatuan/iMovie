@@ -73,7 +73,7 @@ struct UserActionSectionView: View {
                     }
                 })
                 .frame(width: geometry.size.width * 0.5, height: geometry.size.height, alignment: .center)
-                .background(Color.color04EECD)
+                .background(isWatchlist ? Color.colorE56E34 : Color.color04EECD)
             }
         }
         .ignoresSafeArea(edges: .bottom)

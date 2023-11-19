@@ -18,6 +18,7 @@ public extension Font {
     static let semibold13 = Font.custom("Lato", size: 13).weight(.semibold)
     static let semibold14 = Font.custom("Lato", size: 14).weight(.semibold)
     static let semibold16 = Font.custom("Lato", size: 16).weight(.semibold)
+    static let semibold18 = Font.custom("Lato", size: 18).weight(.semibold)
     static let semibold24 = Font.custom("Lato", size: 24).weight(.semibold)
 
     // Bold - weight = 700

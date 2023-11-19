@@ -9,8 +9,11 @@ import CommonUI
 import DesignSystem
 import Domain
 import SwiftUI
+import Router
 
 struct MovieActorSectionView: View {
+    @EnvironmentObject private var router: Router
+    
     private let actors: [Credit]
     init(actors: [Credit]) {
         self.actors = actors
@@ -27,15 +30,16 @@ struct MovieActorSectionView: View {
                     ForEach(actors, id: \.id) { actor in
                         ActorView(actor: actor)
                             .frame(width: 155, height: 80)
+                            .onTapGesture {
+                                router.navigate(to: PublicMoviesDestination.personDetail(personId: actor.id))
+                            }
                     }
                 }
             }
         } header: {
             SectionHeaderView(title: "Actor") {}
         }
-        .listRowSeparator(.hidden)
-        .listRowInsets(.init(top: 0, leading: 16, bottom: 0, trailing: 0))
-        .listRowBackground(Color.clear)
+        .modifier(DefaultListModifier(leading: 16))
     }
 }
 

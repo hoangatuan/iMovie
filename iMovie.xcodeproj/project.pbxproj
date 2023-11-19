@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		156F6C8A2B09E8A0005F0E87 /* People in Frameworks */ = {isa = PBXBuildFile; productRef = 156F6C892B09E8A0005F0E87 /* People */; };
 		4C14F2B72AECFFBF004D5E92 /* Domain in Resources */ = {isa = PBXBuildFile; fileRef = 4C14F2B62AECFFBF004D5E92 /* Domain */; };
 		4C9E653D2AF933EF00557D87 /* TvSeriesTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E653C2AF933EF00557D87 /* TvSeriesTabCoordinator.swift */; };
 		4C9E653F2AF9345600557D87 /* TVSeries in Frameworks */ = {isa = PBXBuildFile; productRef = 4C9E653E2AF9345600557D87 /* TVSeries */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15997F2B2B09B2DE00E81138 /* People */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = People; sourceTree = "<group>"; };
 		4C14F2B62AECFFBF004D5E92 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		4C9E653B2AF931AE00557D87 /* TVSeries */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TVSeries; sourceTree = "<group>"; };
 		4C9E653C2AF933EF00557D87 /* TvSeriesTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvSeriesTabCoordinator.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156F6C8A2B09E8A0005F0E87 /* People in Frameworks */,
 				4CFB159F2ADBD31700A5CBB2 /* Movies in Frameworks */,
 				4CFB15A12ADBD31A00A5CBB2 /* Search in Frameworks */,
 				A6F1D5492A3EF0D900E4F00C /* CommonUI in Frameworks */,
@@ -75,6 +78,7 @@
 		4CFB15952ADBCC1900A5CBB2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				15997F2B2B09B2DE00E81138 /* People */,
 				4C9E653B2AF931AE00557D87 /* TVSeries */,
 				4CFB159A2ADBCD0F00A5CBB2 /* Movies */,
 				4CFB15992ADBCD0F00A5CBB2 /* Search */,
@@ -204,6 +208,7 @@
 				4CFB159E2ADBD31700A5CBB2 /* Movies */,
 				4CFB15A02ADBD31A00A5CBB2 /* Search */,
 				4C9E653E2AF9345600557D87 /* TVSeries */,
+				156F6C892B09E8A0005F0E87 /* People */,
 			);
 			productName = iMovie;
 			productReference = A6F079B32A3B724F00B37F13 /* iMovie.app */;
@@ -528,6 +533,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		156F6C892B09E8A0005F0E87 /* People */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = People;
+		};
 		4C9E653E2AF9345600557D87 /* TVSeries */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TVSeries;

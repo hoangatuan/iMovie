@@ -14,6 +14,7 @@ import SwiftUI
 
 public enum PublicMoviesDestination: Hashable {
     case search
+    case personDetail(personId: Int)
 }
 
 enum MovieSheetDesination: Identifiable {

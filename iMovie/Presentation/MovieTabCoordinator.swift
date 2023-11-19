@@ -10,6 +10,7 @@ import Movies
 import Router
 import Search
 import SwiftUI
+import People
 
 struct MovieTabCoordinator: View {
     @ObservedObject var router = Router()
@@ -22,6 +23,16 @@ struct MovieTabCoordinator: View {
                     switch destination {
                     case .search:
                         SearchCoordinator(dependencies: .init(apiClient: Container.shared.apiClientService()))
+                    case let .personDetail(personId):
+                        PersonDetailCoordinator(dependencies: .init(personId: personId, apiClient: Container.shared.apiClientService()))
+                    }
+                }
+                .navigationDestination(for: PublicPeopleDestination.self) { destination in
+                    switch destination {
+                    case .movieDetail(let movie):
+                        MovieDetailCoordinator(dependencies: .init(movie: movie, apiClient: Container.shared.apiClientService()))
+                    case .tvDetail(let tvSeries):
+                        Text("TV Series Detail")
                     }
                 }
         }
