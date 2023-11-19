@@ -37,10 +37,9 @@ public struct PersonDetailCoordinator: View {
     }
     
     public var body: some View {
-        PersonDetailView(viewModel: .init(
-            personId: dependencies.personId,
-            repository: PeopleRepository(apiClientService: dependencies.apiClient)
-        ))
+        PersonDetailView(
+            dependencies: .init(personId: dependencies.personId, peopleRepository: PeopleRepository(apiClientService: dependencies.apiClient))
+        )
         .toolbar(.hidden, for: .tabBar)
         .sheet(item: $router.presentedSheet) { destination in
             if let destination = destination.destination as? SheetDesination {

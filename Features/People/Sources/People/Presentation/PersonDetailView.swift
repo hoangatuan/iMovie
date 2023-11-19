@@ -15,8 +15,8 @@ struct PersonDetailView: View {
     @EnvironmentObject private var router: Router
     @StateObject private var viewModel: PersonDetailViewModel
     
-    init(viewModel: PersonDetailViewModel) {
-        _viewModel = .init(wrappedValue: viewModel)
+    init(dependencies: PersonDetailViewModel.Dependencies) {
+        _viewModel = .init(wrappedValue: PersonDetailViewModel(dependencies: dependencies))
     }
     
     var body: some View {

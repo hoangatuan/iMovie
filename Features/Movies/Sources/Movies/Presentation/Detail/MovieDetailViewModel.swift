@@ -11,15 +11,21 @@ import Foundation
 
 @MainActor
 final class MovieDetailViewModel: ObservableObject {
+    
+    struct Dependencies {
+        let movie: Movie
+        let movieDetailRepository: IMovieDetailRepository
+        let accountRepository: IAccountRepository
+    }
+    
     let movie: Movie
     private let repository: IMovieDetailRepository
     private let accountRepository: IAccountRepository
 
-    init(movie: Movie, movieRepository: IMovieDetailRepository, accountRepository: IAccountRepository) {
-        self.movie = movie
-        repository = movieRepository
-        self.accountRepository = accountRepository
-
+    init(dependencies: Dependencies) {
+        self.movie = dependencies.movie
+        repository = dependencies.movieDetailRepository
+        self.accountRepository = dependencies.accountRepository
         Task {
             await fetch()
         }

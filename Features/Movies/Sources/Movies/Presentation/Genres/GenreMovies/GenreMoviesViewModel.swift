@@ -10,12 +10,18 @@ import Foundation
 
 @MainActor
 final class GenreMoviesViewModel: ObservableObject {
+    
+    public struct Dependencies {
+        let genre: Genre
+        let repository: IMovieRepository
+    }
+    
     let genre: Genre
     let repository: IMovieRepository
 
-    init(genre: Genre, repository: IMovieRepository) {
-        self.genre = genre
-        self.repository = repository
+    init(dependencies: Dependencies) {
+        self.genre = dependencies.genre
+        self.repository = dependencies.repository
     }
 
     enum State {

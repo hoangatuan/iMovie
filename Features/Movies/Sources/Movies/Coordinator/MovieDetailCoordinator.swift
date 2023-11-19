@@ -23,9 +23,9 @@ public struct MovieDetailCoordinator: View {
     
     public var body: some View {
         MovieDetailView(
-            viewModel: .init(
+            dependencies: .init(
                 movie: dependencies.movie,
-                movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient),
+                movieDetailRepository: MovieDetailRepository(apiClientService: dependencies.apiClient),
                 accountRepository: AccountRepository(apiClientService: dependencies.apiClient)
             )
         )
@@ -33,9 +33,9 @@ public struct MovieDetailCoordinator: View {
             switch destination {
             case let .movieDetail(movie):
                 MovieDetailView(
-                    viewModel: .init(
+                    dependencies: .init(
                         movie: movie,
-                        movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient),
+                        movieDetailRepository: MovieDetailRepository(apiClientService: dependencies.apiClient),
                         accountRepository: AccountRepository(apiClientService: dependencies.apiClient)
                     )
                 )
