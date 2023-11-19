@@ -16,6 +16,7 @@ enum APIEndpoints {
     private static let baseHeaders = [
         "accept": "application/json",
         "Authorization": "Bearer \(accessToken)",
+        "content-type": "application/json"
     ]
 
     static var fetchMovieListGenresEndpoint: APIEndpoint {
@@ -277,7 +278,7 @@ extension APIEndpoints {
     static var fetchFavoriteMoviesEndpoint: APIEndpoint {
         .init(
             baseURL: baseURL,
-            path: "3/account/20023836/favorite/movies",
+            path: "/3/account/20023836/favorite/movies",
             httpMethod: .get,
             headers: baseHeaders
         )
@@ -286,7 +287,7 @@ extension APIEndpoints {
     static var fetchFavoriteTVSeriesEndpoint: APIEndpoint {
         .init(
             baseURL: baseURL,
-            path: "3/account/20023836/favorite/tv",
+            path: "/3/account/20023836/favorite/tv",
             httpMethod: .get,
             headers: baseHeaders
         )
@@ -295,7 +296,7 @@ extension APIEndpoints {
     static var fetchWatchlistMoviesEndpoint: APIEndpoint {
         .init(
             baseURL: baseURL,
-            path: "3/account/20023836/watchlist/movies",
+            path: "/3/account/20023836/watchlist/movies",
             httpMethod: .get,
             headers: baseHeaders
         )
@@ -304,7 +305,7 @@ extension APIEndpoints {
     static var fetchWatchlistTVEndpoint: APIEndpoint {
         .init(
             baseURL: baseURL,
-            path: "3/account/20023836/watchlist/tv",
+            path: "/3/account/20023836/watchlist/tv",
             httpMethod: .get,
             headers: baseHeaders
         )

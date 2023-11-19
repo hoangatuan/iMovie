@@ -16,6 +16,17 @@ public enum PublicMoviesDestination: Hashable {
     case search
 }
 
+enum MovieSheetDesination: Identifiable {
+    var id: String {
+        switch self {
+        case .share:
+            return "share"
+        }
+    }
+    
+    case share(movie: Movie)
+}
+
 enum Destination: Hashable {
     case listGenres(genres: [Genre])
     case movieByGenre(genre: Genre)
@@ -23,6 +34,8 @@ enum Destination: Hashable {
 }
 
 public struct MoviesCoordinator: View {
+    
+    @EnvironmentObject private var router: Router
     private let dependencies: Dependencies
 
     public init(dependencies: Dependencies) {
@@ -42,9 +55,23 @@ public struct MoviesCoordinator: View {
                 )
                 )
             case let .movieDetail(movie):
-                MovieDetailView(viewModel: .init(movie: movie, movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient)))
+                MovieDetailView(
+                    viewModel: .init(
+                        movie: movie,
+                        movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient),
+                        accountRepository: AccountRepository(apiClientService: dependencies.apiClient)
+                    )
+                )
             case let .listGenres(genres):
                 ListGenresView(genres: genres)
+            }
+        }
+        .sheet(item: $router.presentedSheet) { destination in
+            if let destination = destination.destination as? MovieSheetDesination {
+                switch destination {
+                case .share(movie: let movie):
+                    Text("Share movie")
+                }
             }
         }
     }

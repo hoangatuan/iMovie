@@ -29,31 +29,53 @@ struct MovieDetailView: View {
                 EmptyView()
             // TODO: UI for loading state using default shimmer
             case let .display(sections):
-                List {
-                    ForEach(sections) { section in
-                        switch section {
-                        case let .shortInfo(genres):
-                            MovieDetailShortInfoSectionView(movie: viewModel.movie, genres: genres)
-                        case let .gallery(images):
-                            MovieGallerySectionView(movieImages: images)
-                        case let .overview(content):
-                            Text(content)
-                                .font(.regular14)
-                                .foregroundColor(.gray)
-                                .listRowInsets(EdgeInsets(top: 24, leading: 16, bottom: 0, trailing: 16))
-                                .listRowBackground(Color.clear)
-                        case let .actors(actors):
-                            MovieActorSectionView(actors: actors)
-                        case let .reviews(reviews):
-                            ReviewSectionView(reviews: reviews)
-                        case let .recommendMovies(movies):
-                            PopularSectionView(sectionTitle: "You may also like...", movies: movies)
-                        case .userActions:
-                            UserActionSectionView()
+                ZStack(alignment: .bottom) {
+                    List {
+                        ForEach(sections) { section in
+                            switch section {
+                            case let .shortInfo(genres):
+                                MovieDetailShortInfoSectionView(movie: viewModel.movie, genres: genres)
+                            case let .gallery(images):
+                                MovieGallerySectionView(movieImages: images)
+                            case let .overview(content):
+                                Text(content)
+                                    .font(.regular14)
+                                    .foregroundColor(.gray)
+                                    .listRowInsets(EdgeInsets(top: 24, leading: 16, bottom: 0, trailing: 16))
+                                    .listRowBackground(Color.clear)
+                            case let .actors(actors):
+                                MovieActorSectionView(actors: actors)
+                            case let .reviews(reviews):
+                                ReviewSectionView(reviews: reviews)
+                            case let .recommendMovies(movies):
+                                PopularSectionView(sectionTitle: "You may also like...", movies: movies)
+                            }
                         }
                     }
+                    .listStyle(PlainListStyle())
+                    .padding(.bottom, 52)
+                    
+                    UserActionSectionView(
+                        isFavorite: viewModel.isFavorite,
+                        isWatchlist: viewModel.addedToWatchedList,
+                        onSelect: { action in
+                            switch action {
+                            case .toggleFavorite:
+                                Task {
+                                    await viewModel.toggleFavorite()
+                                }
+                            case .share:
+                                router.presentSheet(destination: MovieSheetDesination.share(movie: viewModel.movie))
+                            case .toggleWatchlist:
+                                Task {
+                                    await viewModel.toggleWatchlist()
+                                }
+                            }
+                        }
+                    )
+                        .frame(height: 52)
+                        .background(Color.color040F23)
                 }
-                .listStyle(PlainListStyle())
             case .error:
                 EmptyView()
             }

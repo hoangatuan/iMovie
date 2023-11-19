@@ -29,7 +29,7 @@ struct TopRatedMoviesSectionView: View {
                 LazyHGrid(rows: rows, alignment: .top, spacing: 8) {
                     ForEach(movies.indices) { index in
                         let movie = movies[index]
-                        TopRatedCell(index: index, item: .init(
+                        TopRatedCell(index: index + 1, item: .init(
                             posterPath: movie.posterPath, title: movie.originalTitle)
                         )
                         .onTapGesture {
