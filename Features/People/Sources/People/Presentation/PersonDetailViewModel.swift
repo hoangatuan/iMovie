@@ -23,7 +23,6 @@ final class PersonDetailViewModel: ObservableObject {
     init(dependencies: Dependencies) {
         self.personId = dependencies.personId
         self.repository = dependencies.peopleRepository
-        debugPrint("Tuanha24: Init PersonDetailViewModel")
         Task {
             await fetch()
         }
