@@ -101,9 +101,3 @@ extension Double {
         return Int(firstDecimal) ?? 0
     }
 }
-
-/*
- #Preview {
-     MovieDetailView()
- }
- */

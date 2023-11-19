@@ -311,3 +311,42 @@ extension APIEndpoints {
         )
     }
 }
+
+// MARK: - People
+extension APIEndpoints {
+    static func fetchPersonDetail(personId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/person/\(personId)",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func fetchPersonImages(personId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/person/\(personId)/images",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func fetchPersonMovieCredit(personId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/person/\(personId)/movie_credits",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+    
+    static func fetchPersonTVCredit(personId: Int) -> APIEndpoint {
+        .init(
+            baseURL: baseURL,
+            path: "/3/person/\(personId)/tv_credits",
+            httpMethod: .get,
+            headers: baseHeaders
+        )
+    }
+}
