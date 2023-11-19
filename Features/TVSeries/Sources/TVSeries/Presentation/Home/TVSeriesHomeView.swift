@@ -20,8 +20,8 @@ extension TVSeries: ImageHolder {
 struct TVSeriesHomeView: View {
     @StateObject private var viewModel: TVSeriesHomeViewModel
 
-    init(viewModel: TVSeriesHomeViewModel) {
-        _viewModel = .init(wrappedValue: viewModel)
+    init(repository: ITVSeriesRepository) {
+        _viewModel = .init(wrappedValue: TVSeriesHomeViewModel(movieRepository: repository))
     }
 
     var body: some View {

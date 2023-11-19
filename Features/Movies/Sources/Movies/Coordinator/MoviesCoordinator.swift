@@ -45,21 +45,20 @@ public struct MoviesCoordinator: View {
 
     public var body: some View {
         MoviesHomeView(
-            viewModel: .init(movieRepository: MovieRepository(apiClientService: dependencies.apiClient))
+            repository: MovieRepository(apiClientService: dependencies.apiClient)
         )
         .navigationDestination(for: Destination.self) { destination in
             switch destination {
             case let .movieByGenre(genre):
-                GenreMoviesView(viewModel: .init(
+                GenreMoviesView(dependencies: .init(
                     genre: genre,
-                    repository: MovieRepository(apiClientService: dependencies.apiClient)
-                )
+                    repository: MovieRepository(apiClientService: dependencies.apiClient))
                 )
             case let .movieDetail(movie):
                 MovieDetailView(
-                    viewModel: .init(
+                    dependencies: .init(
                         movie: movie,
-                        movieRepository: MovieDetailRepository(apiClientService: dependencies.apiClient),
+                        movieDetailRepository: MovieDetailRepository(apiClientService: dependencies.apiClient),
                         accountRepository: AccountRepository(apiClientService: dependencies.apiClient)
                     )
                 )

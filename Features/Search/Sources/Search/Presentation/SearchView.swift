@@ -14,8 +14,9 @@ import SwiftUI
 struct SearchView: View {
     @EnvironmentObject private var router: Router
     @StateObject private var viewModel: SearchViewModel
-    init(viewModel: SearchViewModel) {
-        _viewModel = .init(wrappedValue: viewModel)
+    
+    init(searchRepository: ISearchRepository) {
+        _viewModel = .init(wrappedValue: .init(searchRepository: searchRepository))
     }
 
     private let columns = [

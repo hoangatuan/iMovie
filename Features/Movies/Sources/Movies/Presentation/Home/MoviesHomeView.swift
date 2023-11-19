@@ -7,12 +7,14 @@
 
 import DesignSystem
 import SwiftUI
+import Network
+import Domain
 
 struct MoviesHomeView: View {
     @StateObject private var viewModel: MoviesHomeViewModel
 
-    init(viewModel: MoviesHomeViewModel) {
-        _viewModel = .init(wrappedValue: viewModel)
+    init(repository: IMovieRepository) {
+        _viewModel = .init(wrappedValue: MoviesHomeViewModel(movieRepository: repository))
     }
 
     var body: some View {

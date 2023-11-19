@@ -14,8 +14,8 @@ struct MovieDetailView: View {
     @EnvironmentObject private var router: Router
     @StateObject private var viewModel: MovieDetailViewModel
 
-    init(viewModel: MovieDetailViewModel) {
-        _viewModel = .init(wrappedValue: viewModel)
+    init(dependencies: MovieDetailViewModel.Dependencies) {
+        _viewModel = .init(wrappedValue: MovieDetailViewModel(dependencies: dependencies))
     }
 
     var body: some View {

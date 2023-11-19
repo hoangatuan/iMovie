@@ -15,6 +15,10 @@ struct GenreMoviesView: View {
 
     @StateObject
     var viewModel: GenreMoviesViewModel
+    
+    init(dependencies: GenreMoviesViewModel.Dependencies) {
+        _viewModel = .init(wrappedValue: GenreMoviesViewModel(dependencies: dependencies))
+    }
 
     @State
     private var filterSelection: FilterState = .all

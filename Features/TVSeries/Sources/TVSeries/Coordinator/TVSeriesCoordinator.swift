@@ -28,9 +28,7 @@ public struct TVSeriesCoordinator: View {
     }
 
     public var body: some View {
-        TVSeriesHomeView(
-            viewModel: .init(movieRepository: TVSeriesRepository(apiClientService: dependencies.apiClient))
-        )
+        TVSeriesHomeView(repository: TVSeriesRepository(apiClientService: dependencies.apiClient))
         .navigationDestination(for: Destination.self) { destination in
             switch destination {
             case .tvSeriesDetail(let tvSeries):

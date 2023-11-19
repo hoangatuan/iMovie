@@ -12,13 +12,18 @@ import Foundation
 @MainActor
 final class PersonDetailViewModel: ObservableObject {
     
+    struct Dependencies {
+        let personId: Int
+        let peopleRepository: IPeopleRepository
+    }
+    
     private let personId: Int
     private let repository: IPeopleRepository
     
-    init(personId: Int, repository: IPeopleRepository) {
-        self.personId = personId
-        self.repository = repository
-        
+    init(dependencies: Dependencies) {
+        self.personId = dependencies.personId
+        self.repository = dependencies.peopleRepository
+        debugPrint("Tuanha24: Init PersonDetailViewModel")
         Task {
             await fetch()
         }
