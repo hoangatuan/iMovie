@@ -16,6 +16,7 @@ enum APIEndpoints {
     private static let baseHeaders = [
         "accept": "application/json",
         "Authorization": "Bearer \(accessToken)",
+        "content-type": "application/json"
     ]
 
     static var fetchMovieListGenresEndpoint: APIEndpoint {
