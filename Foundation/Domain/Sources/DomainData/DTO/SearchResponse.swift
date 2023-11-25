@@ -79,7 +79,6 @@ struct PersonResponseMapper: Mappable {
 }
 
 struct KnowForResponseMapper: Mappable {
-    // TODO: Need refector to avoid duplication
     func map(_ input: KnownForResponse) throws -> KnownFor {
         .init(
             backdropPath: URL(string: imageBaseURL + (input.backdropPath ?? "")),
