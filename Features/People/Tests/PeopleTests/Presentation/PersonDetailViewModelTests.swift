@@ -21,6 +21,7 @@ fileprivate typealias State = PersonDetailViewModel.State
 final class PersonDetailViewModelTests: XCTestCase {
     private var cancellables = Set<AnyCancellable>()
     
+    /// This test might be failed. This test only be written for example purpose.
     func testFetch() {
         stubNetworkCall()
         let sut = setupSUT()

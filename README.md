@@ -2,9 +2,13 @@
 
 ![Static Badge](https://img.shields.io/badge/status-active-brightgreen)
 
-
-This is a SwiftUI project that apply Modular Architect & Clean Architect. For the presentation layer, I'm using MVVM.   
+This is a SwiftUI project that applies **Modular Architect & Clean Architect**. For the presentation layer, I'm using **MVVM-C**.  
 Supports iOS 16+
+
+## Preface
+
+The purpose I developing this project is I want it to be used as a reference for large scale production apps.
+Because of that, I don't spend too much efforts in building UI, so the UI is not fancy 😛
 
 ## Key Features
 
@@ -12,8 +16,8 @@ Supports iOS 16+
 - Clean architecture: Decoupled Presentation, Business Logic, and Data Access layers
 - Modular architecture
 - Navigation using `NavigationStack`
-- Data persistence with SwiftData (planning)
 - Dependency Injection using `CompositionRoot` approach, `DIContainer` & constructor injection to support testing.
+- Cover with testing
 - Designed for scalability. It can be used as a reference for building large production apps
 
 ## Modular Architecture Diagram
@@ -60,4 +64,7 @@ There are some ways you can contribute to the project:
 These are articles I've written about the process building this project:
 
 1. [How I build Navigation](https://medium.com/gitconnected/modular-navigation-in-swiftui-a-comprehensive-guide-5eeb8a511583)
-2. [Choosing SwiftUI Architecture](https://betterprogramming.pub/swiftui-choosing-an-application-architecture-6ec9289f8e8f)
+
+These are articles that I used as references while developing this project:
+
+1. [Choosing SwiftUI Architecture](https://betterprogramming.pub/swiftui-choosing-an-application-architecture-6ec9289f8e8f)
