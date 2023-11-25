@@ -63,9 +63,6 @@ struct KnownForResponse: Decodable {
 }
 
 struct PersonResponseMapper: Mappable {
-    // TODO: Need refector to avoid duplication
-    let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-
     func map(_ input: PersonResponse) throws -> Person {
         try .init(
             adult: input.adult,
@@ -82,9 +79,6 @@ struct PersonResponseMapper: Mappable {
 }
 
 struct KnowForResponseMapper: Mappable {
-    // TODO: Need refector to avoid duplication
-    let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-
     func map(_ input: KnownForResponse) throws -> KnownFor {
         .init(
             backdropPath: URL(string: imageBaseURL + (input.backdropPath ?? "")),
@@ -134,9 +128,6 @@ struct TVSeriresResponse: Decodable {
 }
 
 struct TVseriresResposeMappable: Mappable {
-    // TODO: Need refector to avoid duplication
-    let imageBaseURL = "https://image.tmdb.org/t/p/w500"
-
     func map(_ input: TVSeriresResponse) throws -> TVSeries {
         return .init(
             adult: input.adult,
