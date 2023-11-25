@@ -13,7 +13,7 @@ Supports iOS 16+
 - Modular architecture
 - Navigation using `NavigationStack`
 - Data persistence with SwiftData (planning)
-- Dependency Injection using `DIContainer` & constructor injection to support testing. Using [Factory](https://github.com/hmlongco/Factory) to support DI.
+- Dependency Injection using `CompositionRoot` approach, `DIContainer` & constructor injection to support testing.
 - Designed for scalability. It can be used as a reference for building large production apps
 
 ## Modular Architecture Diagram

@@ -27,9 +27,23 @@ public extension IAPIClientService {
 }
 
 public final class APIClientService: IAPIClientService {
+    public struct Configuration {
+        let baseURL: URL?
+        let baseHeaders: [String: String]
+        
+        public init(baseURL: URL?, baseHeaders: [String : String]) {
+            self.baseURL = baseURL
+            self.baseHeaders = baseHeaders
+        }
+        
+        public static let `default` = Configuration(baseURL: nil, baseHeaders: [:])
+    }
+    
     private let logger: ILogger
+    private let configuration: Configuration
 
-    public init(logger: ILogger) {
+    public init(logger: ILogger, configuration: Configuration = .default) {
+        self.configuration = configuration
         self.logger = logger
     }
 
@@ -97,7 +111,8 @@ public final class APIClientService: IAPIClientService {
     }
 
     private func buildURLRequest(from endpoint: EndPointType) -> URLRequest? {
-        guard let host = endpoint.baseURL.host else { return nil }
+        let host = endpoint.baseURL?.host ?? configuration.baseURL?.host
+        guard let host = host else { return nil }
 
         var components = URLComponents()
         components.scheme = "https"
@@ -118,9 +133,9 @@ public final class APIClientService: IAPIClientService {
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.httpMethod.rawValue
 
-        if let headers = endpoint.headers {
-            request.allHTTPHeaderFields = headers
-        }
+        let endpointHeaders = endpoint.headers ?? [:]
+        let mergedHeaders = configuration.baseHeaders.merging(endpointHeaders) { (_, new) in new }
+        request.allHTTPHeaderFields = mergedHeaders
 
         switch endpoint.bodyParameter {
         case let .data(data):

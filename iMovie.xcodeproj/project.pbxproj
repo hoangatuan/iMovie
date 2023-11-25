@@ -20,13 +20,10 @@
 		A6F079B72A3B724F00B37F13 /* iMovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F079B62A3B724F00B37F13 /* iMovieApp.swift */; };
 		A6F079BB2A3B725100B37F13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F079BA2A3B725100B37F13 /* Assets.xcassets */; };
 		A6F079BF2A3B725100B37F13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F079BE2A3B725100B37F13 /* Preview Assets.xcassets */; };
-		A6F079C72A3B727D00B37F13 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = A6F079C62A3B727D00B37F13 /* Factory */; };
 		A6F079CF2A3B766D00B37F13 /* Network in Resources */ = {isa = PBXBuildFile; fileRef = A6F079CE2A3B766D00B37F13 /* Network */; };
 		A6F1D5182A3CC6E000E4F00C /* Logger in Resources */ = {isa = PBXBuildFile; fileRef = A6F1D5172A3CC6E000E4F00C /* Logger */; };
 		A6F1D51D2A3D564800E4F00C /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = A6F1D51C2A3D564800E4F00C /* Logger */; };
-		A6F1D5202A3D5AC700E4F00C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D51F2A3D5AC700E4F00C /* DIContainer.swift */; };
 		A6F1D5232A3D5CE200E4F00C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5222A3D5CE200E4F00C /* AppDelegate.swift */; };
-		A6F1D5292A3D614C00E4F00C /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D5282A3D614C00E4F00C /* AppEnvironment.swift */; };
 		A6F1D5492A3EF0D900E4F00C /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = A6F1D5482A3EF0D900E4F00C /* CommonUI */; };
 		A6F1D54D2A3EF3D600E4F00C /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1D54C2A3EF3D600E4F00C /* AppTabView.swift */; };
 /* End PBXBuildFile section */
@@ -48,9 +45,7 @@
 		A6F079BE2A3B725100B37F13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A6F079CE2A3B766D00B37F13 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
 		A6F1D5172A3CC6E000E4F00C /* Logger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Logger; sourceTree = "<group>"; };
-		A6F1D51F2A3D5AC700E4F00C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		A6F1D5222A3D5CE200E4F00C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6F1D5282A3D614C00E4F00C /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A6F1D5472A3EEE4E00E4F00C /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
 		A6F1D54B2A3EF36F00E4F00C /* iMovie.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = iMovie.entitlements; sourceTree = "<group>"; };
 		A6F1D54C2A3EF3D600E4F00C /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
@@ -68,7 +63,6 @@
 				A6F1D5492A3EF0D900E4F00C /* CommonUI in Frameworks */,
 				4C9E653F2AF9345600557D87 /* TVSeries in Frameworks */,
 				A6F1D51D2A3D564800E4F00C /* Logger in Frameworks */,
-				A6F079C72A3B727D00B37F13 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,9 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				A6F079B62A3B724F00B37F13 /* iMovieApp.swift */,
-				A6F1D51F2A3D5AC700E4F00C /* DIContainer.swift */,
 				A6F1D5222A3D5CE200E4F00C /* AppDelegate.swift */,
-				A6F1D5282A3D614C00E4F00C /* AppEnvironment.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -202,7 +194,6 @@
 			);
 			name = iMovie;
 			packageProductDependencies = (
-				A6F079C62A3B727D00B37F13 /* Factory */,
 				A6F1D51C2A3D564800E4F00C /* Logger */,
 				A6F1D5482A3EF0D900E4F00C /* CommonUI */,
 				4CFB159E2ADBD31700A5CBB2 /* Movies */,
@@ -296,11 +287,9 @@
 			files = (
 				A6F1D5232A3D5CE200E4F00C /* AppDelegate.swift in Sources */,
 				4CFB15C12ADED84000A5CBB2 /* MovieTabCoordinator.swift in Sources */,
-				A6F1D5202A3D5AC700E4F00C /* DIContainer.swift in Sources */,
 				A6F1D54D2A3EF3D600E4F00C /* AppTabView.swift in Sources */,
 				A6F079B72A3B724F00B37F13 /* iMovieApp.swift in Sources */,
 				4C9E653D2AF933EF00557D87 /* TvSeriesTabCoordinator.swift in Sources */,
-				A6F1D5292A3D614C00E4F00C /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,11 +537,6 @@
 		4CFB15A02ADBD31A00A5CBB2 /* Search */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Search;
-		};
-		A6F079C62A3B727D00B37F13 /* Factory */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A6F079C52A3B727D00B37F13 /* XCRemoteSwiftPackageReference "Factory" */;
-			productName = Factory;
 		};
 		A6F1D51C2A3D564800E4F00C /* Logger */ = {
 			isa = XCSwiftPackageProductDependency;

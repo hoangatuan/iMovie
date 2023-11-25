@@ -19,7 +19,7 @@ public enum BodyParameter {
 }
 
 public protocol EndPointType {
-    var baseURL: URL { get }
+    var baseURL: URL? { get }
 
     var path: String { get }
 
@@ -33,7 +33,7 @@ public protocol EndPointType {
 }
 
 public struct APIEndpoint: EndPointType {
-    public let baseURL: URL
+    public let baseURL: URL?
     public let path: String
     public let httpMethod: HTTPMethod
     public let urlQueries: [String: String]?
@@ -41,7 +41,7 @@ public struct APIEndpoint: EndPointType {
     public let bodyParameter: BodyParameter?
 
     public init(
-        baseURL: URL,
+        baseURL: URL? = nil,
         path: String,
         httpMethod: HTTPMethod,
         urlQueries: [String: String]? = nil,

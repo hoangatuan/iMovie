@@ -7,16 +7,9 @@
 
 import CommonUI
 import DesignSystem
-import Factory
 import SwiftUI
 
 struct AppTabView: View {
-    private let container: Container
-
-    init(container: Container) {
-        self.container = container
-    }
-
     @State private var selection = 0
 
     var body: some View {

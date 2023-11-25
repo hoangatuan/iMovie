@@ -7,7 +7,6 @@
 
 import Domain
 import DomainData
-import Factory
 import Network
 import Router
 import SwiftUI
