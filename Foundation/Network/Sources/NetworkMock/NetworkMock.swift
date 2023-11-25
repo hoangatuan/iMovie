@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import Network
+import Logger
+
+public func createAPIClientServiceMock() -> IAPIClientService {
+    return APIClientService(logger: NoLogger(label: ""))
+}
