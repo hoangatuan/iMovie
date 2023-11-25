@@ -1,0 +1,30 @@
+{
+  "cast": [
+    {
+      "adult": false,
+      "backdrop_path": "/iw1nqLAcPbsrcYYEgrkNKezWQDj.jpg",
+      "genre_ids": [
+        18,
+        80,
+        9648
+      ],
+      "id": 7263,
+      "origin_country": [
+        "GB"
+      ],
+      "original_language": "en",
+      "original_name": "Wallander",
+      "overview": "This drama follows Inspector Kurt Wallander – a middle-aged everyman – as he struggles against a rising tide of violence in the apparently sleepy backwaters in and around Ystad in Skane, southern Sweden. Based on the international best-selling books by Henning Mankell.",
+      "popularity": 39.361,
+      "poster_path": "/xK5jgSqoOfKwNG0WwrFObmIq0YJ.jpg",
+      "first_air_date": "2008-11-30",
+      "name": "Wallander",
+      "vote_average": 7.327,
+      "vote_count": 113,
+      "character": "Magnus Martinsson",
+      "credit_id": "52578aad760ee36aaa679d0b",
+      "episode_count": 12
+    }
+  ],
+  "id": 91606
+}
