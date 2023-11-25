@@ -40,7 +40,7 @@ final class PersonDetailViewModel: ObservableObject {
     }
     
     enum State {
-        case loading, display(data: [SectionType]), error(error: Error)
+        case loading, display(data: [SectionType]), error
     }
     
     @Published
@@ -56,7 +56,7 @@ final class PersonDetailViewModel: ObservableObject {
               let images = try? await images,
               let movies = try? await creditMovies,
               let tv = try? await creditTV else {
-            // TODO: Handle error
+            state = .error
             return
         }
         

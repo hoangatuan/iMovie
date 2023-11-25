@@ -36,7 +36,10 @@ let package = Package(
         ),
         .testTarget(
             name: "PeopleTests",
-            dependencies: ["People"]
+            dependencies: [
+                "People",
+                .product(name: "NetworkMock", package: "Network"),
+            ]
         ),
     ]
 )
