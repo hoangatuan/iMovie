@@ -18,7 +18,11 @@ Because of that, I don't spend too much efforts in building UI, so the UI is not
 - Navigation using `NavigationStack`
 - Dependency Injection using `CompositionRoot` approach, `DIContainer` & constructor injection to support testing.
 - Cover with testing
-- Designed for scalability. It can be used as a reference for building large production apps
+- Designed for scalability. It can be used as a reference for building large production apps   
+
+### Inovates 💡
+
+- Using Swift Macros
 
 ## Modular Architecture Diagram
 
