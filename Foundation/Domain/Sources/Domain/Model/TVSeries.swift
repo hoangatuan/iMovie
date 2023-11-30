@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import HelperMacros
 
+@DefaultInit
 public struct TVSeries: Equatable, Hashable, Decodable {
     public let adult: Bool
     public let backdropPath: URL?
@@ -18,28 +20,4 @@ public struct TVSeries: Equatable, Hashable, Decodable {
     public let name: String?
     public let voteAverage: Double
     public let voteCount: Double
-
-    public init(
-        adult: Bool,
-        backdropPath: URL?,
-        id: Int,
-        originalName: String?,
-        overview: String?,
-        popularity: Double?,
-        posterPath: URL?,
-        name: String?,
-        voteAverage: Double,
-        voteCount: Double
-    ) {
-        self.adult = adult
-        self.backdropPath = backdropPath
-        self.id = id
-        self.originalName = originalName
-        self.overview = overview
-        self.popularity = popularity
-        self.posterPath = posterPath
-        self.name = name
-        self.voteAverage = voteAverage
-        self.voteCount = voteCount
-    }
 }

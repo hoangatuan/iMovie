@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15933B582B1639D70015BA9B /* HelperMacros */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HelperMacros; sourceTree = "<group>"; };
 		15997F2B2B09B2DE00E81138 /* People */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = People; sourceTree = "<group>"; };
 		4C14F2B62AECFFBF004D5E92 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		4C9E653B2AF931AE00557D87 /* TVSeries */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TVSeries; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 				4C14F2B62AECFFBF004D5E92 /* Domain */,
 				A6F079CE2A3B766D00B37F13 /* Network */,
 				4CFB15C22AE022D800A5CBB2 /* DesignSystem */,
+				15933B582B1639D70015BA9B /* HelperMacros */,
 				A6F1D5172A3CC6E000E4F00C /* Logger */,
 				4CFB15A22ADC238300A5CBB2 /* Router */,
 			);

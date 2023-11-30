@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import HelperMacros
 
+@DefaultInit
 public struct Genre: Decodable, Equatable, Hashable {
     public enum GenreType: String, Decodable {
         case action = "Action"
@@ -32,9 +34,4 @@ public struct Genre: Decodable, Equatable, Hashable {
 
     public let id: Int
     public let name: GenreType
-
-    public init(id: Int, name: GenreType) {
-        self.id = id
-        self.name = name
-    }
 }
