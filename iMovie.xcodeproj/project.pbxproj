@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		156F6C8A2B09E8A0005F0E87 /* People in Frameworks */ = {isa = PBXBuildFile; productRef = 156F6C892B09E8A0005F0E87 /* People */; };
+		15933B5C2B18E3650015BA9B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15933B5B2B18E3650015BA9B /* main.swift */; };
 		4C14F2B72AECFFBF004D5E92 /* Domain in Resources */ = {isa = PBXBuildFile; fileRef = 4C14F2B62AECFFBF004D5E92 /* Domain */; };
 		4C9E653D2AF933EF00557D87 /* TvSeriesTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E653C2AF933EF00557D87 /* TvSeriesTabCoordinator.swift */; };
 		4C9E653F2AF9345600557D87 /* TVSeries in Frameworks */ = {isa = PBXBuildFile; productRef = 4C9E653E2AF9345600557D87 /* TVSeries */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		15933B582B1639D70015BA9B /* HelperMacros */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HelperMacros; sourceTree = "<group>"; };
+		15933B5B2B18E3650015BA9B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		15997F2B2B09B2DE00E81138 /* People */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = People; sourceTree = "<group>"; };
 		4C14F2B62AECFFBF004D5E92 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		4C9E653B2AF931AE00557D87 /* TVSeries */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TVSeries; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				A6F079B62A3B724F00B37F13 /* iMovieApp.swift */,
+				15933B5B2B18E3650015BA9B /* main.swift */,
 				A6F1D5222A3D5CE200E4F00C /* AppDelegate.swift */,
 			);
 			path = Application;
@@ -289,6 +292,7 @@
 			files = (
 				A6F1D5232A3D5CE200E4F00C /* AppDelegate.swift in Sources */,
 				4CFB15C12ADED84000A5CBB2 /* MovieTabCoordinator.swift in Sources */,
+				15933B5C2B18E3650015BA9B /* main.swift in Sources */,
 				A6F1D54D2A3EF3D600E4F00C /* AppTabView.swift in Sources */,
 				A6F079B72A3B724F00B37F13 /* iMovieApp.swift in Sources */,
 				4C9E653D2AF933EF00557D87 /* TvSeriesTabCoordinator.swift in Sources */,
