@@ -22,7 +22,7 @@ Because of that, I don't spend too much efforts in building UI, so the UI is not
 
 ### Inovates 💡
 
-- Using Swift Macros
+- Use Swift Macros to remove duplicate codes
 
 ## Modular Architecture Diagram
 
