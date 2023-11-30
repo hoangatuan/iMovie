@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import HelperMacros
 
+@DefaultInit
 public struct Movie: Equatable, Hashable {
     public let id: Int
     public let isAdult: Bool
@@ -23,38 +25,4 @@ public struct Movie: Equatable, Hashable {
     public let hasVideo: Bool
     public let voteAverage: Double
     public let voteCount: Int
-
-    public init(
-        id: Int,
-        isAdult: Bool,
-        backdropPath: URL?,
-        title: String,
-        originalLanguage: String,
-        originalTitle: String,
-        overview: String,
-        posterPath: URL?,
-        mediaType: String?,
-        genreIds: [Int],
-        popularity: Double,
-        releaseDate: String,
-        hasVideo: Bool,
-        voteAverage: Double,
-        voteCount: Int
-    ) {
-        self.id = id
-        self.isAdult = isAdult
-        self.backdropPath = backdropPath
-        self.title = title
-        self.originalLanguage = originalLanguage
-        self.originalTitle = originalTitle
-        self.overview = overview
-        self.posterPath = posterPath
-        self.mediaType = mediaType
-        self.genreIds = genreIds
-        self.popularity = popularity
-        self.releaseDate = releaseDate
-        self.hasVideo = hasVideo
-        self.voteAverage = voteAverage
-        self.voteCount = voteCount
-    }
 }

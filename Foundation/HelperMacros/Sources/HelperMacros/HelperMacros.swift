@@ -10,5 +10,5 @@
 @freestanding(expression)
 public macro stringify<T>(_ value: T) -> (T, String) = #externalMacro(module: "HelperMacrosMacros", type: "StringifyMacro")
 
-@attached(member, names: named(customInit))
+@attached(member, names: named(init))
 public macro DefaultInit() = #externalMacro(module: "HelperMacrosMacros", type: "DefaultInit")
