@@ -34,7 +34,7 @@ final class PersonDetailViewModelTests: XCTestCase {
             .tvSeries(tvSeriesMock)
         ])
         
-        sut.$state.sink { state in
+        sut.$state.dropFirst().sink { state in
             XCTAssertEqual(state, expectedState)
             expectation.fulfill()
         }
@@ -72,7 +72,7 @@ extension PersonDetailViewModelTests {
         
         stub(condition: isPath("/3/person/91606/movie_credits")) { request in
             return HTTPStubsResponse(
-                fileAtPath: "fetchPersonMoviesResponse.json",
+                fileAtPath: OHPathForFile("fetchPersonMoviesResponse.json", type(of: self))!,
                 statusCode: 200,
                 headers: nil
             )
