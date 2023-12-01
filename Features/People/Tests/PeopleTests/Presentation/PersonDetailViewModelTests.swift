@@ -21,8 +21,7 @@ fileprivate typealias State = PersonDetailViewModel.State
 final class PersonDetailViewModelTests: XCTestCase {
     private var cancellables = Set<AnyCancellable>()
     
-    /// This test might be failed. This test only be written for example purpose.
-    func testFetch() {
+    func testFetchSuccess() {
         stubNetworkCall()
         let sut = setupSUT()
         let expectation = expectation(description: "Waiting for fetching apis")
@@ -43,6 +42,19 @@ final class PersonDetailViewModelTests: XCTestCase {
         wait(for: [expectation])
     }
     
+    func testFetchFail_StateIsError() {
+        stubNetworkCall(isSuccess: false)
+        let sut = setupSUT()
+        let expectation = expectation(description: "Waiting for fetching apis")
+        
+        sut.$state.dropFirst().sink { state in
+            XCTAssertEqual(state, State.error)
+            expectation.fulfill()
+        }
+        .store(in: &cancellables)
+        
+        wait(for: [expectation])
+    }
 }
 
 extension PersonDetailViewModelTests {
@@ -53,35 +65,36 @@ extension PersonDetailViewModelTests {
         )
     }
     
-    func stubNetworkCall() {
+    func stubNetworkCall(isSuccess: Bool = true) {
+        let statusCode: Int32 = isSuccess ? 200 : 404
         stub(condition: isPath("/3/person/91606")) { request in
             return HTTPStubsResponse(
-                fileAtPath: "fetchPersonDetailResponse.json",
-                statusCode: 200,
+                fileURL: Bundle.module.url(forResource: "fetchPersonDetailResponse", withExtension: "json")!,
+                statusCode: statusCode,
                 headers: nil
             )
         }
         
         stub(condition: isPath("/3/person/91606/images")) { request in
             return HTTPStubsResponse(
-                fileAtPath: "fetchPersonImageResponse.json",
-                statusCode: 200,
+                fileURL: Bundle.module.url(forResource: "fetchPersonImageResponse", withExtension: "json")!,
+                statusCode: statusCode,
                 headers: nil
             )
         }
         
         stub(condition: isPath("/3/person/91606/movie_credits")) { request in
             return HTTPStubsResponse(
-                fileAtPath: OHPathForFile("fetchPersonMoviesResponse.json", type(of: self))!,
-                statusCode: 200,
+                fileURL: Bundle.module.url(forResource: "fetchPersonMoviesResponse", withExtension: "json")!,
+                statusCode: statusCode,
                 headers: nil
             )
         }
         
         stub(condition: isPath("/3/person/91606/tv_credits")) { request in
             return HTTPStubsResponse(
-                fileAtPath: "fetchPersonTVResponse.json",
-                statusCode: 200,
+                fileURL: Bundle.module.url(forResource: "fetchPersonTVResponse", withExtension: "json")!,
+                statusCode: statusCode,
                 headers: nil
             )
         }

@@ -39,6 +39,9 @@ let package = Package(
             dependencies: [
                 "People",
                 .product(name: "NetworkMock", package: "Network"),
+            ],
+            resources: [
+                .process("Resources")
             ]
         ),
     ]
