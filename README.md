@@ -17,7 +17,7 @@ Because of that, I don't spend too much efforts in building UI, so the UI is not
 - Modular architecture
 - Navigation using `NavigationStack`
 - Dependency Injection using `CompositionRoot` approach, `DIContainer` & constructor injection to support testing.
-- Cover with testing
+- Cover with unit tests
 - Designed for scalability. It can be used as a reference for building large production apps   
 
 ### Inovates 💡

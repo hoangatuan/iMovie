@@ -62,13 +62,21 @@ struct ReviewResponse: Decodable {
 
 struct ReviewResponseMapper: Mappable {
     func map(_ input: ReviewResponse) throws -> Review {
-        try .init(
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let createdAt = dateFormatter.date(from: input.createdAt)!
+        let updatedAt = input.updatedAt.map { dateFormatter.date(from: $0)! }
+        
+        return try .init(
             author: input.author,
             authorDetail: AuthorDetailResponseMapper().map(input.authorDetail),
             content: input.content,
-            createdAt: Date(),
+            createdAt: createdAt,
             id: input.id,
-            updatedAt: Date()
+            updatedAt: updatedAt
         )
     }
+    
+    
 }

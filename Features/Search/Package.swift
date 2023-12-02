@@ -36,7 +36,13 @@ let package = Package(
         ),
         .testTarget(
             name: "SearchTests",
-            dependencies: ["Search"]
+            dependencies: [
+                "Search",
+                .product(name: "NetworkMock", package: "Network"),
+            ],
+            resources: [
+                .process("Resources")
+            ]
         ),
     ]
 )
