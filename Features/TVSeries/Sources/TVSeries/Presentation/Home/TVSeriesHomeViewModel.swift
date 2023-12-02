@@ -55,16 +55,23 @@ final class TVSeriesHomeViewModel: ObservableObject {
         async let popular = repository.popularTvSeries()
         async let topRated = repository.topRatedTVSeries()
         
+        guard let airingToday = try? await airingToday,
+              let news = try? await news,
+              let popular = try? await popular,
+              let topRated = try? await topRated else {
+            state = .error
+            return
+        }
+        
         var sections: [SectionType] = [
             .header,
-            .discover((try? await airingToday) ?? []),
-            .news((try? await news) ?? []),
-            .popular((try? await popular) ?? []),
-            .topRated((try? await topRated) ?? [])
+            .discover(airingToday),
+            .news(news),
+            .popular(popular),
+            .topRated(topRated)
         ]
         
         sections = sections.filter { !$0.isEmpty }
-        // TODO: Handle error
         state = .display(data: sections)
     }
 }
