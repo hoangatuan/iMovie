@@ -9,7 +9,7 @@ import Domain
 import DomainData
 import Foundation
 
-enum SearchType: String, CaseIterable {
+enum SearchType: String, CaseIterable, Equatable {
     case movie = "Movies"
     case tvShows = "TV Shows"
     case person = "Person"
