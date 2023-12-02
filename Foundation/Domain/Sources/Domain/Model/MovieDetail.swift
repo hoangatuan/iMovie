@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import HelperMacros
 
+@DefaultInit
 public struct GenreDetail: Equatable, Decodable {
     public let id: Int
     public let name: String

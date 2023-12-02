@@ -1,0 +1,22 @@
+{
+    "id": 64655,
+    "page": 1,
+    "results": [
+        {
+            "author": "CinemaSerf",
+            "author_details": {
+                "name": "CinemaSerf",
+                "username": "Geronimo1967",
+                "avatar_path": "/1kks3YnVkpyQxzw36CObFPvhL5f.jpg",
+                "rating": 6
+            },
+            "content": "Good.",
+            "created_at": "2023-06-18T07:22:10.837Z",
+            "id": "648eb0a2c2ff3d00ffbbbc69",
+            "updated_at": "2023-06-18T07:22:10.942Z",
+            "url": "https://www.themoviedb.org/review/648eb0a2c2ff3d00ffbbbc69"
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 1
+}

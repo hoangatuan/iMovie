@@ -60,7 +60,7 @@ final class MovieDetailViewModel: ObservableObject {
     }
 
     enum State {
-        case loading, display(data: [SectionType]), error(error: Error)
+        case loading, display(data: [SectionType]), error
     }
 
     @Published
@@ -82,17 +82,25 @@ final class MovieDetailViewModel: ObservableObject {
         isFavorite = ((try? await favioriteMovies) ?? []).contains(where: { $0.id == movie.id })
         addedToWatchedList = ((try? await watchedlistMovies) ?? []).contains(where: { $0.id == movie.id })
 
+        guard let genres = try? await genres,
+              let gallery = try? await movieImages,
+              let actors = try? await actors,
+              let reviews = try? await reviews,
+              let recommendationmovies = try? await recommendationMovies else {
+            state = .error
+            return
+        }
+        
         var result: [SectionType] = [
-            .shortInfo((try? await genres) ?? []),
-            .gallery((try? await movieImages) ?? []),
+            .shortInfo(genres),
+            .gallery(gallery),
             .overview(movie.overview),
-            .actors((try? await actors) ?? []),
-            .reviews((try? await reviews) ?? []),
-            .recommendMovies((try? await recommendationMovies) ?? [])
+            .actors(actors),
+            .reviews(reviews),
+            .recommendMovies(recommendationmovies)
         ]
 
         result = result.filter { !$0.isEmpty }
-
         state = .display(data: result)
     }
     
