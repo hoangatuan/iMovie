@@ -10,6 +10,7 @@ import Domain
 import DesignSystem
 import SwiftUI
 import Router
+import Network
 
 extension TVSeries: ImageHolder {
     public var imageURL: URL? {

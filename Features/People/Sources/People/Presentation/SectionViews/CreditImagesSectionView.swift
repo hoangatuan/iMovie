@@ -11,11 +11,11 @@ import CommonUI
 
 struct CreditImagesSectionView: View {
     let images: [MovieImage]
-    
+
     private let rows = [
         GridItem(.flexible()),
     ]
-    
+
     var body: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {

@@ -1,0 +1,49 @@
+{
+  "configurations" : [
+    {
+      "id" : "31DE311E-73B6-4D12-A481-0F188A33E255",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:iMovie.xcodeproj",
+      "identifier" : "A6F079B22A3B724F00B37F13",
+      "name" : "iMovie"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Features\/Movies",
+        "identifier" : "MoviesTests",
+        "name" : "MoviesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Features\/Search",
+        "identifier" : "SearchTests",
+        "name" : "SearchTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Features\/People",
+        "identifier" : "PeopleTests",
+        "name" : "PeopleTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Features\/TVSeries",
+        "identifier" : "TVSeriesTests",
+        "name" : "TVSeriesTests"
+      }
+    }
+  ],
+  "version" : 1
+}

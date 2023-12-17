@@ -51,7 +51,7 @@ public extension View {
 public struct EdgeBorder: Shape {
     var width: CGFloat
     var edges: [Edge]
-    
+
     public init(width: CGFloat, edges: [Edge]) {
         self.width = width
         self.edges = edges

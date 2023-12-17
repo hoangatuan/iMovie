@@ -12,13 +12,13 @@ import Router
 
 struct CreditMoviesSectionView: View {
     @EnvironmentObject private var router: Router
-    
+
     let movies: [Movie]
-    
+
     private let rows = [
         GridItem(.flexible()),
     ]
-    
+
     var body: some View {
         Section {
             ScrollView(.horizontal, showsIndicators: false) {

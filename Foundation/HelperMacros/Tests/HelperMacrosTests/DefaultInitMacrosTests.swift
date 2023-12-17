@@ -14,7 +14,7 @@ final class DefaultInitMacrosTests: XCTestCase {
     let testMacros: [String: Macro.Type] = [
         "DefaultInit": DefaultInit.self
     ]
-    
+
     func testDefaultInit() {
         assertMacroExpansion(
             """
@@ -40,7 +40,7 @@ final class DefaultInitMacrosTests: XCTestCase {
             macros: testMacros
         )
     }
-    
+
     func testDefaultInit_withDefaultParams_useVar() {
         assertMacroExpansion(
             """

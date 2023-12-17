@@ -30,15 +30,15 @@ public final class APIClientService: IAPIClientService {
     public struct Configuration {
         let baseURL: URL?
         let baseHeaders: [String: String]
-        
-        public init(baseURL: URL?, baseHeaders: [String : String]) {
+
+        public init(baseURL: URL?, baseHeaders: [String: String]) {
             self.baseURL = baseURL
             self.baseHeaders = baseHeaders
         }
-        
+
         public static let `default` = Configuration(baseURL: nil, baseHeaders: [:])
     }
-    
+
     private let logger: ILogger
     private let configuration: Configuration
 

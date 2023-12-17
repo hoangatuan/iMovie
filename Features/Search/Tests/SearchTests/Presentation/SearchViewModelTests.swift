@@ -36,6 +36,7 @@ extension SearchViewModelTests {
     }
 }
 
+// swiftlint:disable force_cast
 extension SearchViewModel.State: Equatable {
     public static func == (lhs: SearchViewModel.State, rhs: SearchViewModel.State) -> Bool {
         if case .emptyInput = lhs, case .emptyInput = rhs { return true }
@@ -57,3 +58,4 @@ extension SearchViewModel.State: Equatable {
         return false
     }
 }
+// swiftlint: enable force_cast

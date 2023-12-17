@@ -55,16 +55,16 @@ final class PersonDetailViewModel: ObservableObject {
         guard let detail = try? await personDetail,
               let images = try? await images,
               let movies = try? await creditMovies,
-              let tv = try? await creditTV else {
+              let tvSeries = try? await creditTV else {
             state = .error
             return
         }
         
         let result: [SectionType] = [
-            .detailInfo(detail, numberOfFilms: movies.count + tv.count),
+            .detailInfo(detail, numberOfFilms: movies.count + tvSeries.count),
             .images(images),
             .movies(movies),
-            .tvSeries(tv)
+            .tvSeries(tvSeries)
         ]
         
         state = .display(data: result)

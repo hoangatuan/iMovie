@@ -103,7 +103,7 @@ enum APIEndpoints {
             httpMethod: .get
         )
     }
-    
+
     static func addMovieRating(movieId: Int, value: Double) -> APIEndpoint {
         return .init(
             path: "/3/movie/\(movieId)/rating",
@@ -159,21 +159,21 @@ extension APIEndpoints {
             httpMethod: .get
         )
     }
-    
+
     static var airingTodayEndpoint: APIEndpoint {
         return .init(
             path: "/3/tv/airing_today",
             httpMethod: .get
         )
     }
-    
+
     static var topRatedEndpoint: APIEndpoint {
         return .init(
             path: "/3/tv/top_rated",
             httpMethod: .get
         )
     }
-    
+
     static func addMovieTVSeries(id: Int, value: Double) -> APIEndpoint {
         return .init(
             path: "/3/tv/\(id)/rating",
@@ -202,7 +202,7 @@ extension APIEndpoints {
             )
         )
     }
-    
+
     static func addToWatchlist(mediaType: String, mediaId: Int, watchlist: Bool) -> APIEndpoint {
         return .init(
             path: "/3/account/20023836/watchlist",
@@ -216,28 +216,28 @@ extension APIEndpoints {
             )
         )
     }
-    
+
     static var fetchFavoriteMoviesEndpoint: APIEndpoint {
         .init(
             path: "/3/account/20023836/favorite/movies",
             httpMethod: .get
         )
     }
-    
+
     static var fetchFavoriteTVSeriesEndpoint: APIEndpoint {
         .init(
             path: "/3/account/20023836/favorite/tv",
             httpMethod: .get
         )
     }
-    
+
     static var fetchWatchlistMoviesEndpoint: APIEndpoint {
         .init(
             path: "/3/account/20023836/watchlist/movies",
             httpMethod: .get
         )
     }
-    
+
     static var fetchWatchlistTVEndpoint: APIEndpoint {
         .init(
             path: "/3/account/20023836/watchlist/tv",
@@ -254,21 +254,21 @@ extension APIEndpoints {
             httpMethod: .get
         )
     }
-    
+
     static func fetchPersonImages(personId: Int) -> APIEndpoint {
         .init(
             path: "/3/person/\(personId)/images",
             httpMethod: .get
         )
     }
-    
+
     static func fetchPersonMovieCredit(personId: Int) -> APIEndpoint {
         .init(
             path: "/3/person/\(personId)/movie_credits",
             httpMethod: .get
         )
     }
-    
+
     static func fetchPersonTVCredit(personId: Int) -> APIEndpoint {
         .init(
             path: "/3/person/\(personId)/tv_credits",
