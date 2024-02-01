@@ -12,9 +12,9 @@ import SwiftUI
 import People
 
 struct MovieTabCoordinator: View {
-    
+
     @EnvironmentObject var configuration: Configuration
-    @ObservedObject var router = Router()
+    @StateObject var router = Router()
 
     var body: some View {
         NavigationStack(path: $router.navPath) {
@@ -32,7 +32,7 @@ struct MovieTabCoordinator: View {
                     switch destination {
                     case .movieDetail(let movie):
                         MovieDetailCoordinator(dependencies: .init(movie: movie, apiClient: configuration.apiClientService))
-                    case .tvDetail(let tvSeries):
+                    case .tvDetail(_):
                         Text("TV Series Detail")
                     }
                 }

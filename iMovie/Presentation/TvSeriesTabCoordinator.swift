@@ -11,7 +11,7 @@ import TVSeries
 import Search
 
 struct TvSeriesTabCoordinator: View {
-    @ObservedObject var router = Router()
+    @StateObject var router = Router()
     @EnvironmentObject var configuration: Configuration
 
     var body: some View {
