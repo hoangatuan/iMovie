@@ -261,5 +261,18 @@ let project = Project(
                 .target(name: "TVSeries"),
             ]
         ),
+    ],
+    schemes: [
+        Scheme(
+            name: "iMovie",
+            buildAction: .buildAction(targets: ["iMovie"]),
+            testAction: .testPlans([
+                .relativeToRoot("iMovie.xctestplan"),
+            ]),
+            runAction: .runAction(
+                configuration: .debug,
+                executable: "iMovie"
+            )
+        ),
     ]
 )

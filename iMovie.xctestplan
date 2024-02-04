@@ -1,0 +1,59 @@
+{
+  "configurations" : [
+    {
+      "id" : "929C6486-E628-4BEB-B62C-C1A61BD51FA7",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:iMovie.xcodeproj",
+        "identifier" : "376D31D301E31F1E09172FAF",
+        "name" : "MoviesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:iMovie.xcodeproj",
+        "identifier" : "D3C5B24DA08396FDB3B10562",
+        "name" : "PeopleTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:iMovie.xcodeproj",
+        "identifier" : "B564040071A69B08CE799232",
+        "name" : "RouterTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:iMovie.xcodeproj",
+        "identifier" : "861D3D8CE5A748E6F60D84E4",
+        "name" : "SearchTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:iMovie.xcodeproj",
+        "identifier" : "E188B589CCCD02E73A607F71",
+        "name" : "TVSeriesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Foundation\/HelperMacros",
+        "identifier" : "HelperMacrosTests",
+        "name" : "HelperMacrosTests"
+      }
+    }
+  ],
+  "version" : 1
+}
