@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F83D82688A2A2C023DDE029A"
-               BuildableName = "iMovie.app"
-               BlueprintName = "iMovie"
+               BlueprintIdentifier = "99F6D555178752C7018A5A2B"
+               BuildableName = "CommonUI.framework"
+               BlueprintName = "CommonUI"
                ReferencedContainer = "container:iMovie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -41,16 +41,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F83D82688A2A2C023DDE029A"
-            BuildableName = "iMovie.app"
-            BlueprintName = "iMovie"
+            BlueprintIdentifier = "99F6D555178752C7018A5A2B"
+            BuildableName = "CommonUI.framework"
+            BlueprintName = "CommonUI"
             ReferencedContainer = "container:iMovie.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -58,16 +57,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F83D82688A2A2C023DDE029A"
-            BuildableName = "iMovie.app"
-            BlueprintName = "iMovie"
+            BlueprintIdentifier = "99F6D555178752C7018A5A2B"
+            BuildableName = "CommonUI.framework"
+            BlueprintName = "CommonUI"
             ReferencedContainer = "container:iMovie.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
