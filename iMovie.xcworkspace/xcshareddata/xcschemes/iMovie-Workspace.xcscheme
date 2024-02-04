@@ -98,9 +98,37 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "376D31D301E31F1E09172FAF"
+               BuildableName = "MoviesTests.xctest"
+               BlueprintName = "MoviesTests"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "8FF2C685753C5F7C7549A5DA"
                BuildableName = "Network.framework"
                BlueprintName = "Network"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "801AC7458C226E58D15E5544"
+               BuildableName = "NetworkMock.framework"
+               BlueprintName = "NetworkMock"
                ReferencedContainer = "container:iMovie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -126,9 +154,37 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D3C5B24DA08396FDB3B10562"
+               BuildableName = "PeopleTests.xctest"
+               BlueprintName = "PeopleTests"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "0D2C8B7D16A19F5E9E0DDDA3"
                BuildableName = "Router.framework"
                BlueprintName = "Router"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B564040071A69B08CE799232"
+               BuildableName = "RouterTests.xctest"
+               BlueprintName = "RouterTests"
                ReferencedContainer = "container:iMovie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -154,9 +210,37 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "861D3D8CE5A748E6F60D84E4"
+               BuildableName = "SearchTests.xctest"
+               BlueprintName = "SearchTests"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "FD2CB698BDA1985304AB95F8"
                BuildableName = "TVSeries.framework"
                BlueprintName = "TVSeries"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E188B589CCCD02E73A607F71"
+               BuildableName = "TVSeriesTests.xctest"
+               BlueprintName = "TVSeriesTests"
                ReferencedContainer = "container:iMovie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -182,6 +266,56 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "376D31D301E31F1E09172FAF"
+               BuildableName = "MoviesTests.xctest"
+               BlueprintName = "MoviesTests"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D3C5B24DA08396FDB3B10562"
+               BuildableName = "PeopleTests.xctest"
+               BlueprintName = "PeopleTests"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B564040071A69B08CE799232"
+               BuildableName = "RouterTests.xctest"
+               BlueprintName = "RouterTests"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "861D3D8CE5A748E6F60D84E4"
+               BuildableName = "SearchTests.xctest"
+               BlueprintName = "SearchTests"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E188B589CCCD02E73A607F71"
+               BuildableName = "TVSeriesTests.xctest"
+               BlueprintName = "TVSeriesTests"
+               ReferencedContainer = "container:iMovie.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

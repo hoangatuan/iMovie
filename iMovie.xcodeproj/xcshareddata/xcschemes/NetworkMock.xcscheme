@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "02A2AB683A3097259C588F0C"
-               BuildableName = "Movies.framework"
-               BlueprintName = "Movies"
+               BlueprintIdentifier = "801AC7458C226E58D15E5544"
+               BuildableName = "NetworkMock.framework"
+               BlueprintName = "NetworkMock"
                ReferencedContainer = "container:iMovie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,18 +26,9 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      disableMainThreadChecker = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "376D31D301E31F1E09172FAF"
-               BuildableName = "MoviesTests.xctest"
-               BlueprintName = "MoviesTests"
-               ReferencedContainer = "container:iMovie.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -53,9 +44,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "02A2AB683A3097259C588F0C"
-            BuildableName = "Movies.framework"
-            BlueprintName = "Movies"
+            BlueprintIdentifier = "801AC7458C226E58D15E5544"
+            BuildableName = "NetworkMock.framework"
+            BlueprintName = "NetworkMock"
             ReferencedContainer = "container:iMovie.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -69,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "02A2AB683A3097259C588F0C"
-            BuildableName = "Movies.framework"
-            BlueprintName = "Movies"
+            BlueprintIdentifier = "801AC7458C226E58D15E5544"
+            BuildableName = "NetworkMock.framework"
+            BlueprintName = "NetworkMock"
             ReferencedContainer = "container:iMovie.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

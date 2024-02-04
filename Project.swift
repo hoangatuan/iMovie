@@ -35,31 +35,18 @@ let project = Project(
             resources: nil,
             dependencies: []
         ),
-//        Target(
-//            name: "HelperMacroMacros",
-//            destinations: Set(Array(ProjectDescription.Destination.allCases)),
-//            product: .macro,
-//            bundleId: "io.tuist.HelperMacroMacros",
-//            deploymentTargets: .iOS("13.0"),
-//            sources:  ["Foundation/HelperMacros/Sources/HelperMacrosMacros/**"],
-//            resources: nil,
-//            dependencies: [
-//                .package(product: "SwiftSyntaxMacros", type: .runtime),
-//                .package(product: "SwiftCompilerPlugin", type: .runtime),
-//            ]
-//        ),
-//        Target(
-//            name: "HelperMacros",
-//            destinations: Set(Array(ProjectDescription.Destination.allCases)),
-//            product: .macro,
-//            bundleId: "io.tuist.HelperMacros",
-//            deploymentTargets: .iOS("16.0"),
-//            sources: ["Foundation/HelperMacros/Sources/HelperMacros/**"],
-//            resources: nil,
-//            dependencies: [
-//                .target(name: "HelperMacroMacros")
-//            ]
-//        ),
+        Target(
+            name: "RouterTests",
+            destinations: .iOS,
+            product: .unitTests,
+            bundleId: "io.tuist.RouterTests",
+            deploymentTargets: .iOS("16.0"),
+            sources: ["Foundation/Router/Tests/RouterTests/**"],
+            resources: nil,
+            dependencies: [
+                .target(name: "Router"),
+            ]
+        ),
         Target(
             name: "DesignSystem",
             destinations: .iOS,
@@ -80,6 +67,19 @@ let project = Project(
             resources: nil,
             dependencies: [
                 .target(name: "Logger"),
+            ]
+        ),
+        Target(
+            name: "NetworkMock",
+            destinations: .iOS,
+            product: .framework,
+            bundleId: "io.tuist.NetworkMock",
+            deploymentTargets: .iOS("16.0"),
+            sources: ["Foundation/Network/Sources/NetworkMock/**"],
+            resources: nil,
+            dependencies: [
+                .target(name: "Network"),
+                .package(product: "OHHTTPStubsSwift", type: .runtime, condition: nil),
             ]
         ),
         Target(
@@ -139,6 +139,19 @@ let project = Project(
             ]
         ),
         Target(
+            name: "PeopleTests",
+            destinations: .iOS,
+            product: .unitTests,
+            bundleId: "io.tuist.PeopleTests",
+            deploymentTargets: .iOS("16.0"),
+            sources: ["Features/People/Tests/PeopleTests/**"],
+            resources: nil,
+            dependencies: [
+                .target(name: "People"),
+                .target(name: "NetworkMock"),
+            ]
+        ),
+        Target(
             name: "TVSeries",
             destinations: .iOS,
             product: .framework,
@@ -153,6 +166,19 @@ let project = Project(
                 .target(name: "DomainData"),
                 .target(name: "Router"),
                 .target(name: "DesignSystem"),
+            ]
+        ),
+        Target(
+            name: "TVSeriesTests",
+            destinations: .iOS,
+            product: .unitTests,
+            bundleId: "io.tuist.TVSeriesTests",
+            deploymentTargets: .iOS("16.0"),
+            sources: ["Features/TVSeries/Tests/TVSeriesTests/**"],
+            resources: nil,
+            dependencies: [
+                .target(name: "TVSeries"),
+                .target(name: "NetworkMock"),
             ]
         ),
         Target(
@@ -173,6 +199,19 @@ let project = Project(
             ]
         ),
         Target(
+            name: "MoviesTests",
+            destinations: .iOS,
+            product: .unitTests,
+            bundleId: "io.tuist.MoviesTests",
+            deploymentTargets: .iOS("16.0"),
+            sources: ["Features/Movies/Tests/MoviesTests/**"],
+            resources: nil,
+            dependencies: [
+                .target(name: "Movies"),
+                .target(name: "NetworkMock"),
+            ]
+        ),
+        Target(
             name: "Search",
             destinations: .iOS,
             product: .framework,
@@ -187,6 +226,19 @@ let project = Project(
                 .target(name: "DomainData"),
                 .target(name: "Router"),
                 .target(name: "DesignSystem"),
+            ]
+        ),
+        Target(
+            name: "SearchTests",
+            destinations: .iOS,
+            product: .unitTests,
+            bundleId: "io.tuist.SearchTests",
+            deploymentTargets: .iOS("16.0"),
+            sources: ["Features/Search/Tests/SearchTests/**"],
+            resources: nil,
+            dependencies: [
+                .target(name: "Search"),
+                .target(name: "NetworkMock"),
             ]
         ),
         Target(
