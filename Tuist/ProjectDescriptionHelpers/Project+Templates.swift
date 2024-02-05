@@ -156,7 +156,7 @@ public extension Target {
         case tvSeries = "TVSeries"
         case tvSeriesTests = "TVSeriesTests"
         case movies = "Movies"
-        case MoviesTests
+        case moviesTests = "MoviesTests"
         case search = "Search"
         case searchTests = "SearchTests"
 
@@ -244,7 +244,7 @@ public extension Target {
                         .target(name: Foundation.designSystem.rawValue),
                     ]
                 )
-            case .MoviesTests:
+            case .moviesTests:
                 Target(
                     name: rawValue,
                     destinations: .iOS,
