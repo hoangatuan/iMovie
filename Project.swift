@@ -254,6 +254,22 @@ let project = Project(
             resources: [
                 "iMovie/Resources/**",
             ],
+            scripts: [
+                TargetScript.post(
+                    script: """
+                    if [[ "$(uname -m)" == arm64 ]]; then
+                        export PATH="/opt/homebrew/bin:$PATH"
+                    fi
+
+                    if which swiftlint > /dev/null; then
+                      swiftlint
+                    else
+                      echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+                    fi
+                    """,
+                    name: "Swiftlint"
+                ),
+            ],
             dependencies: [
                 .target(name: "People"),
                 .target(name: "Movies"),
