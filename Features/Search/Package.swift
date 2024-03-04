@@ -39,10 +39,16 @@ let package = Package(
             dependencies: [
                 "Search",
                 .product(name: "NetworkMock", package: "Network"),
-            ],
-            resources: [
-                .process("Resources")
             ]
         ),
     ]
 )
+
+for target in package.targets {
+    target.swiftSettings = target.swiftSettings ?? []
+    target.swiftSettings?.append(
+        .unsafeFlags([
+            "-Xfrontend", "-warn-long-function-bodies=200", "-Xfrontend", "-warn-long-expression-type-checking=200",
+        ])
+    )
+}

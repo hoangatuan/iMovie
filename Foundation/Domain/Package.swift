@@ -20,7 +20,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "./Network"),
-        .package(path: "./HelperMacros")
+        .package(path: "./HelperMacros"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -28,7 +28,7 @@ let package = Package(
         .target(
             name: "Domain",
             dependencies: [
-                "HelperMacros"
+                "HelperMacros",
             ]
         ),
         .target(
@@ -44,3 +44,12 @@ let package = Package(
         ),
     ]
 )
+
+for target in package.targets {
+    target.swiftSettings = target.swiftSettings ?? []
+    target.swiftSettings?.append(
+        .unsafeFlags([
+            "-Xfrontend", "-warn-long-function-bodies=200", "-Xfrontend", "-warn-long-expression-type-checking=200",
+        ])
+    )
+}

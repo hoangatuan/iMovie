@@ -19,7 +19,7 @@ public extension Color {
 
 extension Color {
     init?(hex: String) {
-        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        var hexSanitized: String = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
 
         var rgb: UInt64 = 0

@@ -23,7 +23,7 @@ enum MovieSheetDesination: Identifiable {
             return "share"
         }
     }
-    
+
     case share(movie: Movie)
 }
 
@@ -34,7 +34,6 @@ enum Destination: Hashable {
 }
 
 public struct MoviesCoordinator: View {
-    
     @EnvironmentObject private var router: Router
     private let dependencies: Dependencies
 
@@ -51,7 +50,8 @@ public struct MoviesCoordinator: View {
             case let .movieByGenre(genre):
                 GenreMoviesView(dependencies: .init(
                     genre: genre,
-                    repository: MovieRepository(apiClientService: dependencies.apiClient))
+                    repository: MovieRepository(apiClientService: dependencies.apiClient)
+                )
                 )
             case let .movieDetail(movie):
                 MovieDetailView(
@@ -68,7 +68,7 @@ public struct MoviesCoordinator: View {
         .sheet(item: $router.presentedSheet) { destination in
             if let destination = destination.destination as? MovieSheetDesination {
                 switch destination {
-                case .share(movie: let movie):
+                case .share(movie: _):
                     Text("Share movie")
                 }
             }

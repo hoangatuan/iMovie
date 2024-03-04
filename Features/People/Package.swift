@@ -32,6 +32,11 @@ let package = Package(
                 .product(name: "DomainData", package: "Domain"),
                 "Router",
                 "DesignSystem",
+            ],
+            swiftSettings: [
+                .unsafeFlags([
+                    "-Xfrontend", "-warn-long-function-bodies=200", "-Xfrontend", "-warn-long-expression-type-checking=200",
+                ]),
             ]
         ),
         .testTarget(
@@ -41,8 +46,17 @@ let package = Package(
                 .product(name: "NetworkMock", package: "Network"),
             ],
             resources: [
-                .process("Resources")
+                .process("Resources"),
             ]
         ),
     ]
 )
+
+// for target in package.targets {
+//    target.swiftSettings = target.swiftSettings ?? []
+//    target.swiftSettings?.append(
+//        .unsafeFlags([
+//            "-Xfrontend", "-warn-long-function-bodies=200", "-Xfrontend", "-warn-long-expression-type-checking=200"
+//        ])
+//    )
+// }

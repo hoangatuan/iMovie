@@ -28,13 +28,13 @@ public struct TVSeriesCoordinator: View {
 
     public var body: some View {
         TVSeriesHomeView(repository: TVSeriesRepository(apiClientService: dependencies.apiClient))
-        .navigationDestination(for: Destination.self) { destination in
-            switch destination {
-            case .tvSeriesDetail(let tvSeries):
-                Text("TV Series")
-                    .toolbar(.hidden, for: .tabBar)
+            .navigationDestination(for: Destination.self) { destination in
+                switch destination {
+                case .tvSeriesDetail:
+                    Text("TV Series")
+                        .toolbar(.hidden, for: .tabBar)
+                }
             }
-        }
     }
 }
 
