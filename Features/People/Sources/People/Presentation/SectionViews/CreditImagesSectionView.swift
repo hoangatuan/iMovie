@@ -37,3 +37,20 @@ struct CreditImagesSectionView: View {
         .modifier(DefaultListModifier(leading: 16))
     }
 }
+
+#Preview {
+    CreditImagesSectionView(images: [
+        .init(
+            aspectRatio: 0.667,
+            height: 900,
+            width: 600,
+            filePath: URL(string: "https://image.tmdb.org/t/p/w500/82rxrGxOqQW2NjKsIiNbDYHFfmb.jpg")
+        ),
+        .init(
+            aspectRatio: 0.667,
+            height: 2400,
+            width: 1600,
+            filePath: URL(string: "https://image.tmdb.org/t/p/w500/baeHNv3qrVsnApuKbZXiJOhqMnw.jpg")
+        )
+    ])
+}

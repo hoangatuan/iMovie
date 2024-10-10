@@ -30,7 +30,7 @@ public struct SectionHeaderView: View {
                 Button(action: {
                     onTap?()
                 }, label: {
-                    Image("right_arrow")
+                    Image("right_arrow", bundle: Bundle.module)
                 })
             }
         }

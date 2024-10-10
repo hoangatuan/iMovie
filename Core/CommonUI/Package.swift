@@ -26,6 +26,11 @@ let package = Package(
                 "Domain",
                 .product(name: "Shimmer", package: "SwiftUI-Shimmer"),
                 .product(name: "NukeUI", package: "Nuke"),
+            ],
+            resources: [
+                // https://swiftwithmajid.com/2022/01/26/microapps-architecture-in-swift-resources-and-localization/
+                // https://useyourloaf.com/blog/add-resources-to-swift-packages/
+                .process("Resources/")
             ]
         ),
         .testTarget(
