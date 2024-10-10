@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:iMovie.xctestplan">
+      location = "group:iMovie.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:iMovie.xcodeproj">
+      location = "group:iMovie.xctestplan">
    </FileRef>
 </Workspace>
