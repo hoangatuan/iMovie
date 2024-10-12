@@ -32,6 +32,9 @@ let package = Package(
                 .product(name: "DomainData", package: "Domain"),
                 "Router",
                 "DesignSystem",
+            ],
+            resources: [
+                .process("Resources")
             ]
         ),
         .testTarget(

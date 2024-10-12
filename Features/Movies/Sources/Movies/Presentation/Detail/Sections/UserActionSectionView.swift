@@ -5,6 +5,7 @@
 //  Created by Tuan Hoang on 18/11/23.
 //
 
+import UIKit
 import SwiftUI
 import CommonUI
 
@@ -27,10 +28,10 @@ struct UserActionSectionView: View {
                 }, label: {
                     VStack(alignment: .center) {
                         if isFavorite {
-                            Image("heart")
+                            Image(uiImage: .heart)
                                 .tint(Color.colorE56E34)
                         } else {
-                            Image("heart-unselected")
+                            Image("heart-unselected", bundle: .module)
                         }
                         
                         Text("Favorite")
@@ -45,7 +46,7 @@ struct UserActionSectionView: View {
                     onSelect(.share)
                 }, label: {
                     VStack(alignment: .center) {
-                        Image("share")
+                        Image(uiImage: .share)
                             .tint(.white)
                         
                         Text("Share")
@@ -61,10 +62,10 @@ struct UserActionSectionView: View {
                 }, label: {
                     HStack(spacing: 6) {
                         if isWatchlist {
-                            Image("checkmark")
+                            Image("checkmark", bundle: .module)
                                 .tint(.black)
                         } else {
-                            Image("add")
+                            Image("add", bundle: .module)
                         }
                         
                         Text("Watched list")

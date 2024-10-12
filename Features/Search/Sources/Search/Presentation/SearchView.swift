@@ -80,7 +80,7 @@ struct SearchView: View {
     private var searchBar: some View {
         VStack {
             HStack {
-                Image("search")
+                Image(uiImage: .search)
                     .foregroundColor(Color.color4E89FF)
                     .frame(width: 24, height: 24)
 
@@ -142,7 +142,7 @@ struct SearchView: View {
             Spacer()
                 .frame(height: 124)
 
-            Image("search_movie")
+            Image("search_movie", bundle: .module)
             HStack {
                 Text("No search results found")
                     .multilineTextAlignment(.center)

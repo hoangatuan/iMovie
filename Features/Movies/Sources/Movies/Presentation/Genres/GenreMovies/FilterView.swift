@@ -41,7 +41,7 @@ struct FilterView: View {
                 Button {
                     isShow = false
                 } label: {
-                    Image("close")
+                    Image("close", bundle: .module)
                 }
             }
             .padding(.bottom, 16)
@@ -65,7 +65,7 @@ struct FilterView: View {
                 Spacer()
 
                 if selection == state {
-                    Image("checkmark")
+                    Image("checkmark", bundle: .module)
                         .frame(width: 24, height: 24)
                 }
             }

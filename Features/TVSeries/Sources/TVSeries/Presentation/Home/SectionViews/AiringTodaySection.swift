@@ -5,6 +5,7 @@
 //  Created by Tuan Hoang on 18/11/23.
 //
 
+import UIKit
 import SwiftUI
 import Domain
 import CommonUI
@@ -15,12 +16,12 @@ struct AiringTodayTVSeriesView: View {
         case favorite = "Favorite"
         case share = "Share"
 
-        var imageName: String {
+        var image: UIImage {
             switch self {
             case .favorite:
-                return "heart"
+                return .heart
             case .share:
-                return "share"
+                return .share
             }
         }
 
@@ -62,7 +63,7 @@ struct AiringTodayTVSeriesView: View {
 
                 Spacer()
 
-                Image("play")
+                Image(uiImage: .play)
                     .frame(width: 24, height: 24)
             }
 
@@ -80,7 +81,7 @@ struct AiringTodayTVSeriesView: View {
                     .frame(width: 24, height: 24)
                     .cornerRadius(4)
 
-                Image(type.imageName)
+                Image(uiImage: type.image)
                     .frame(width: 16, height: 16)
             }
 

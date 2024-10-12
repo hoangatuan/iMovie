@@ -14,7 +14,7 @@ struct GenreCell: View {
 
     var body: some View {
         HStack {
-            Image(genre.iconName)
+            Image(genre.iconName, bundle: .module)
             Text(genre.name.rawValue)
                 .foregroundColor(.white)
 

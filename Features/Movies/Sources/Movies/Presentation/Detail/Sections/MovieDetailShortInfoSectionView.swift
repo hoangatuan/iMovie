@@ -59,7 +59,7 @@ struct MovieDetailShortInfoSectionView: View {
             }
 
             HStack(spacing: 8) {
-                Image("play")
+                Image(uiImage: .play)
                     .frame(width: 24, height: 24)
 
                 Text("PLAY TRAILER")

@@ -37,6 +37,9 @@ let package = Package(
                 "Router",
                 "DesignSystem",
             ],
+            resources: [
+                .process("Resources/")
+            ],
             swiftSettings: [
                 .unsafeFlags([
                     "-Xfrontend", "-warn-long-function-bodies=200", "-Xfrontend", "-warn-long-expression-type-checking=200",

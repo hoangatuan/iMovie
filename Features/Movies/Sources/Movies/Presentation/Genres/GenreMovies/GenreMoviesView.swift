@@ -93,7 +93,7 @@ struct GenreMoviesView: View {
                     isShowFilter = true
                 } label: {
                     HStack(spacing: 6) {
-                        Image("filter")
+                        Image("filter", bundle: .module)
                         Text("Filter")
                             .font(.regular14)
                             .foregroundColor(.white)

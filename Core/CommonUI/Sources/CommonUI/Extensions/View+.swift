@@ -15,7 +15,7 @@ public extension View {
                     Button {
                         action()
                     } label: {
-                        Image("back")
+                        Image("back", bundle: .module)
                             .tint(.white)
                     }
                 }

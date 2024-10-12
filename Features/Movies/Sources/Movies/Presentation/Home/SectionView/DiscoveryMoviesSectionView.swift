@@ -40,7 +40,7 @@ struct DiscoveryMoviesSectionView: View {
 
             Spacer()
 
-            Image("search")
+            Image(uiImage: .search)
                 .frame(width: 24, height: 24)
                 .foregroundColor(Color.white)
                 .onTapGesture(perform: {

@@ -5,6 +5,7 @@
 //  Created by Tuan Hoang on 19/11/23.
 //
 
+import UIKit
 import SwiftUI
 import CommonUI
 import Domain
@@ -14,12 +15,12 @@ fileprivate enum ButtonType: String {
     case favorite = "Favorite"
     case share = "Share"
     
-    var imageName: String {
+    var image: UIImage {
         switch self {
         case .favorite:
-            return "heart"
+            return .heart
         case .share:
-            return "share"
+            return .share
         }
     }
     
@@ -92,7 +93,7 @@ struct DetailInfoSectionView: View {
                 .foregroundColor(.white)
             
             HStack {
-                Image("location")
+                Image("location", bundle: .module)
                     .frame(width: 24, height: 24)
                 
                 Text(detail.placeOfBirth)
@@ -119,7 +120,7 @@ struct DetailInfoSectionView: View {
                     .frame(width: 24, height: 24)
                     .cornerRadius(4)
                 
-                Image(type.imageName)
+                Image(uiImage: type.image)
                     .frame(width: 16, height: 16)
             }
             
