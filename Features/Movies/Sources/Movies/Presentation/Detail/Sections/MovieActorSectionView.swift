@@ -37,7 +37,7 @@ struct MovieActorSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "Actor") {}
+            SectionHeaderView(title: "Actor", showArrowButton: false) {}
         }
         .modifier(DefaultListModifier(leading: 16))
     }

@@ -40,7 +40,7 @@ struct PopularSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: sectionTitle) {}
+            SectionHeaderView(title: sectionTitle, showArrowButton: false) {}
         }
         .modifier(DefaultListModifier(top: 16, leading: 16))
     }

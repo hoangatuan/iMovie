@@ -38,7 +38,7 @@ struct TopRatedSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "Top rating") {}
+            SectionHeaderView(title: "Top rating", showArrowButton: false) {}
         }
         .modifier(DefaultListModifier(top: 16, leading: 16))
     }

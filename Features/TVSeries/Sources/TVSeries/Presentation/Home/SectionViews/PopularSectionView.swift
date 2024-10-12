@@ -38,7 +38,7 @@ struct PopularSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "Popular") {}
+            SectionHeaderView(title: "Popular", showArrowButton: false) {}
         }
         .modifier(DefaultListModifier(top: 16, leading: 16))
     }

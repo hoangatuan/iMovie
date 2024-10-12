@@ -34,7 +34,7 @@ struct CreditTVSeriesSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "TV Series") {}
+            SectionHeaderView(title: "TV Series", showArrowButton: false) {}
         }
         .modifier(DefaultListModifier(leading: 16))
     }

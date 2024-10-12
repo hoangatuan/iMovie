@@ -30,7 +30,7 @@ struct NowPlayingSectionView: View {
                 router.navigate(to: Destination.movieDetail(movie: movie))
             }
         } header: {
-            SectionHeaderView(title: "Now playing") {}
+            SectionHeaderView(title: "Now playing", showArrowButton: false) {}
         }
         .modifier(DefaultListModifier(top: 16, leading: 16))
     }

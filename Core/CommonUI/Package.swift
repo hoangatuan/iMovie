@@ -16,14 +16,20 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Foundation/Domain"),
+        .package(path: "../Foundation/DesignSystem"),
         .package(url: "https://github.com/kean/Nuke", from: "12.0.0"),
         .package(url: "https://github.com/markiv/SwiftUI-Shimmer", exact: "1.1.0"),
+        .package(
+           url: "https://github.com/pointfreeco/swift-snapshot-testing",
+           from: "1.12.0"
+         ),
     ],
     targets: [
         .target(
             name: "CommonUI",
             dependencies: [
                 "Domain",
+                "DesignSystem",
                 .product(name: "Shimmer", package: "SwiftUI-Shimmer"),
                 .product(name: "NukeUI", package: "Nuke"),
             ],
@@ -35,7 +41,13 @@ let package = Package(
         ),
         .testTarget(
             name: "CommonUITests",
-            dependencies: ["CommonUI"]
+            dependencies: [
+                "CommonUI",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
+            ],
+            resources: [
+                .process("Resources/")
+            ]
         ),
     ]
 )

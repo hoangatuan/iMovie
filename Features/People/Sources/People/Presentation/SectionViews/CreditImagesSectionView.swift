@@ -32,7 +32,7 @@ struct CreditImagesSectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "Gallery") {}
+            SectionHeaderView(title: "Gallery", showArrowButton: false) {}
         }
         .modifier(DefaultListModifier(leading: 16))
     }

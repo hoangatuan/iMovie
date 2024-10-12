@@ -35,7 +35,7 @@ struct MovieGallerySectionView: View {
                 }
             }
         } header: {
-            SectionHeaderView(title: "Gallery") {}
+            SectionHeaderView(title: "Gallery", showArrowButton: false) {}
         }
         .listRowSeparator(.hidden)
         .listRowInsets(.init(top: 16, leading: 16, bottom: 0, trailing: 0))
