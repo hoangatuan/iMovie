@@ -17,7 +17,7 @@ Because of that, I don't spend too much efforts in building UI, so the UI is not
 - Modular architecture
 - Navigation using `NavigationStack`
 - Dependency Injection using `CompositionRoot` approach, `DIContainer` & constructor injection to support testing.
-- Cover with unit tests
+- Cover with unit tests, [snapshot testing](https://github.com/pointfreeco/swift-snapshot-testing?tab=readme-ov-file#installation)
 - Designed for scalability. It can be used as a reference for building large production apps   
 
 ### Inovates 💡
