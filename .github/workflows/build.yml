@@ -16,10 +16,14 @@ jobs:
 
       - name: Check out repository code
         uses: actions/checkout@v4
+
+      - name: ruby versions
+        run: |
+          brew install danger/tap/danger-js 
       
       - name: Build
-        # env:
-        #   DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+        env:
+          CI: true
         run: |
           # Build the project
           xcodebuild -workspace iMovie.xcworkspace -scheme iMovie
