@@ -1,0 +1,28 @@
+name: Danger
+
+on:
+  pull_request
+
+jobs:
+  danger:
+    runs-on: macos-13
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            .build/artifacts
+            .build/checkouts
+            .build/repositories
+          key: ${{ runner.os }}-dependencies-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-dependencies-${{ hashFiles('**/Package.resolved') }}
+            ${{ runner.os }}-dependencies-
+      - name: Danger
+        run: |
+          brew install danger/tap/danger-swift
+          danger-swift ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

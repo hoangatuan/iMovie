@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_incremental_level:
+        description: next incremental level
+        required: true
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install SemVer
+        run: |
+          npm install -g semver
+      - name: Fetch Latest Release
+        id: fetch-latest-release
+        run: |
+          release=$(gh release list --limit 1)
+          release_array=($release)
+          echo "LATEST_VERSION=${release_array[0]}" >> $GITHUB_OUTPUT
+      - name: Create Next Version
+        id: create-next-version
+        run: |
+          latest_version=${{ steps.fetch-latest-release.outputs.LATEST_VERSION }}
+          incremental_level=${{ inputs.version_incremental_level }}
+          next_version=$(semver ${latest_version} -i ${incremental_level})
+          echo "NEXT_VERSION=${next_version}" >> $GITHUB_OUTPUT
+      - name: Create Release Branch
+        run: |
+          git switch -c release/${{ steps.create-next-version.outputs.NEXT_VERSION }}
+      - name: Change Package.swift for Release
+        run: |
+          sed -i -e 's/let isDevelop = true/let isDevelop = false/' Package.swift
+      - name: Git Config
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+      - name: Commit & Push
+        run: |
+          git add Package.swift
+          git commit -m 'Change isDevelop flag to release ${{ steps.create-next-version.outputs.NEXT_VERSION }}'
+          git push origin release/${{ steps.create-next-version.outputs.NEXT_VERSION }}
+      - name: Create PR
+        run: |
+          gh pr create --base main --title "Release ${{ steps.create-next-version.outputs.NEXT_VERSION }}" --body "Release ${{ steps.create-next-version.outputs.NEXT_VERSION }}"
+      - name: Create Release
+        run: |
+          gh release create ${{ steps.create-next-version.outputs.NEXT_VERSION }} --generate-notes --target release/${{ steps.create-next-version.outputs.NEXT_VERSION }}
+      - name: Restore isDevelop Commit & Push
+        run: |
+          sed -i -e 's/let isDevelop = false/let isDevelop = true/' Package.swift
+          git add Package.swift
+          git commit -m 'Restore isDevelop flag'
+          git push origin release/${{ steps.create-next-version.outputs.NEXT_VERSION }}
+

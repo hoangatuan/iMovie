@@ -1,0 +1,111 @@
+name: "Test"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  macOS:
+    strategy:
+      fail-fast: false
+      matrix:
+        xcode: ["14.3.1", "15.0.1"]
+        include:
+          - xcode: "14.3.1"
+            macos: macos-13
+          - xcode: "15.0.1"
+            macos: macos-13
+    runs-on: ${{ matrix.macos }}
+    name: macOS
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app; swift -version
+      - name: Get Swift Version
+        id: get-swift-version
+        run: |
+          echo "version=$(swift -version | head -n 1 | sed s/,// )" >> $GITHUB_OUTPUT
+      - name: Cache DevTools
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./DevTools/.build/release
+          key: ${{ runner.os }}-DevTools-${{ matrix.xcode }}-${{ hashFiles('./DevTools/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-DevTools-${{ matrix.xcode }}-${{ hashFiles('./DevTools/Package.resolved') }}
+            ${{ runner.os }}-DevTools-${{ matrix.xcode }}-
+      - name: Install DevTools
+        run: |
+          if [ ! -e ./DevTools/.build/release/xcbeautify ]; then
+            make dev
+          fi
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            .build/artifacts
+            .build/checkouts
+            .build/repositories
+          key: ${{ runner.os }}-dependencies-${{ matrix.xcode }}-${{ hashFiles('./Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-dependencies-${{ matrix.xcode }}-${{ hashFiles('./Package.resolved') }}
+            ${{ runner.os }}-dependencies-${{ matrix.xcode }}-
+      - name: Test
+        run: make test
+  linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        swift: ["5.8", "5.9"]
+        include:
+          - swift: "5.8"
+            container: "swift:5.8"
+            cache-version: 1
+          - swift: "5.9"
+            container: "swift:5.9"
+            cache-version: 1
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    name: Linux
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get Swift Version
+        id: get-swift-version
+        run: |
+          echo "version=$(swift -version | head -n 1 | sed s/,// )" >> $GITHUB_OUTPUT
+        shell: bash
+      - name: Cache DevTools
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./DevTools/.build/release
+          key: ${{ matrix.cache-version }}-${{ runner.os }}-${{ steps.get-swift-version.outputs.version }}}-DevTools-${{ hashFiles('./DevTools/Package.resolved') }}
+          restore-keys: |
+            ${{ matrix.cache-version }}-${{ runner.os }}-${{ steps.get-swift-version.outputs.version }}}-DevTools-${{ hashFiles('./DevTools/Package.resolved') }}
+            ${{ matrix.cache-version }}-${{ runner.os }}-${{ steps.get-swift-version.outputs.version }}}-DevTools-
+      - name: Install make command
+        run: |
+          if ! command -v make /dev/null; then
+            apt-get update && apt-get install make
+          fi
+      - name: Install DevTools
+        run: |
+          if [ ! -e ./DevTools/.build/release/xcbeautify ]; then
+            make dev
+          fi
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            .build/artifacts
+            .build/checkouts
+            .build/repositories
+          key: ${{ matrix.cache-version }}-${{ runner.os }}-${{ steps.get-swift-version.outputs.version }}}-spm-deps-${{ hashFiles('Package.resolved') }}
+          restore-keys: |
+            ${{ matrix.cache-version }}-${{ runner.os }}-${{ steps.get-swift-version.outputs.version }}-spm-deps-
+      - name: Test
+        run: make test
