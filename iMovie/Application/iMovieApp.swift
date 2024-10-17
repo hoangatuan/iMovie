@@ -11,6 +11,7 @@ import Network
 
 /// This is just a temporary workaround. For the real app, should manage token in a secure way
 fileprivate let accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NzNjYWJmOGVhYzAzMTJhMmVlZDJjMDM1MTg5YmIyNCIsInN1YiI6IjY0OGQyNzkxNTU5ZDIyMDBmZjEwNGZkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ExyYJzCPSAG2EkramJUa_OC3o9VD6GO_qaGPg0vZEh0"
+let unused_var = "Ununsed variable"
 
 struct MovieApp: App {
     // swiftlint:disable:next weak_delegate

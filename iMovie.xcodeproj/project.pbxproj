@@ -192,6 +192,7 @@
 				A6F079B02A3B724F00B37F13 /* Frameworks */,
 				A6F079B12A3B724F00B37F13 /* Resources */,
 				4C08DE8D2AECB4920044F304 /* Swiftlint */,
+				15C61D372CC1699B00772F8C /* Danger */,
 			);
 			buildRules = (
 			);
@@ -264,6 +265,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		15C61D372CC1699B00772F8C /* Danger */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Danger;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n# Check if running in a CI environment\nif [ -z \"$CI\" ]; then\n    echo \"Not running in a CI environment. Exiting.\"\n    exit 0\nfi\n\n# Make sure danger.sh is executable\nchmod +x danger.sh\n\n# Run danger.sh\n./danger.sh\n\nexit 0\n";
+		};
 		4C08DE8D2AECB4920044F304 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,7 +458,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hoangatuan.iMovie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoangatuan.iMovie11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -480,7 +499,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hoangatuan.iMovie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoangatuan.iMovie11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -1,0 +1,28 @@
+# How to setup danger with github actions: https://www.jessesquires.com/blog/2020/04/10/running-danger-on-github-actions/
+
+name: Build
+run-name: Build the project
+on: [pull_request]
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      # - name: ruby versions
+      #   run: |
+      #     brew install danger/tap/danger-js 
+      
+      - name: Build
+        env:
+          CI: true
+        run: |
+          # Build the project
+          xcodebuild -workspace iMovie.xcworkspace -scheme iMovie
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
