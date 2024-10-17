@@ -26,6 +26,6 @@ jobs:
           CI: true
         run: |
           # Build the project
-          xcodebuild -workspace iMovie.xcworkspace -scheme iMovie
+          xcodebuild -workspace iMovie.xcworkspace -scheme iMovie -allowProvisioningUpdates
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
