@@ -281,7 +281,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n# Check if running in a CI environment\nif [ -z \"$CI\" ]; then\n    echo \"Not running in a CI environment. Exiting.\"\n    exit 0\nfi\n\n# Navigate to the DangerPeriphery directory\ncd \"${SRCROOT}/DangerPeriphery\"\n\n# Make sure danger.sh is executable\nchmod +x danger.sh\n\n# Run danger.sh\n./danger.sh\n\nexit 0\n";
+			shellScript = "#!/bin/bash\n\n# Check if running in a CI environment\nif [ -z \"$CI\" ]; then\n    echo \"Not running in a CI environment. Exiting.\"\n    exit 0\nfi\n\n# Make sure danger.sh is executable\nchmod +x danger.sh\n\n# Run danger.sh\n./danger.sh\n\nexit 0\n";
 		};
 		4C08DE8D2AECB4920044F304 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
