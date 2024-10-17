@@ -5,11 +5,8 @@ run-name: Build the project
 on: [pull_request]
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: self-hosted
     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '15.3'
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -17,15 +14,15 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: ruby versions
-        run: |
-          brew install danger/tap/danger-js 
+      # - name: ruby versions
+      #   run: |
+      #     brew install danger/tap/danger-js 
       
       - name: Build
         env:
           CI: true
         run: |
           # Build the project
-          xcodebuild -workspace iMovie.xcworkspace -scheme iMovie -allowProvisioningUpdates
+          xcodebuild -workspace iMovie.xcworkspace -scheme iMovie
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
